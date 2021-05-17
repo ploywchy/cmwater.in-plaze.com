@@ -1,0 +1,80 @@
+RewriteEngine On
+
+# RewriteCond %{HTTP_HOST} ^(www\.)(.+) [OR]
+# RewriteCond %{HTTPS} off
+# RewriteCond %{HTTP_HOST} ^(www\.)?(.+)
+# RewriteRule ^ https://%2%{REQUEST_URI} [R=301,L]
+
+RewriteRule ^[B|b]log-(\d+)\..*?$ /blog-single.html?Blog_ID=$1 [L,QSA]
+RewriteRule ^[B|b]log-(\d+)-?([^.]*)(\.)?.*?$ /blog-single.html?Blog_ID=$1&slug=$2 [L,QSA]
+
+RewriteRule ^[P|p]roduct-(\d+)\..*?$ /product.html?Product_ID=$1 [L,QSA]
+RewriteRule ^[P|p]roduct-(\d+)-?([^.]*)(\.)?.*?$ /product.html?Product_ID=$1&slug=$2 [L,QSA]
+
+RewriteRule ^[C|c]ategory-(\d+)\..*?$ /category.html?Category_ID=$1 [L,QSA]
+RewriteRule ^[C|c]ategory-(\d+)-?([^.]*)(\.)?.*?$ /category.html?Category_ID=$1&slug=$2 [L,QSA]
+
+# RewriteCond /%{REQUEST_FILENAME}.html -f
+# RewriteRule ^([a-zA-Z0-9_-\s]+)/$ /$1.html
+
+# PHP error handling for production servers
+
+# disable display of startup errors
+php_flag display_startup_errors on
+
+# disable display of all other errors
+php_flag display_errors on
+
+# disable html markup of errors
+php_flag html_errors on
+
+# enable logging of errors
+php_flag log_errors on
+
+# disable ignoring of repeat errors
+php_flag ignore_repeated_errors off
+
+# disable ignoring of unique source errors
+php_flag ignore_repeated_source off
+
+# enable logging of php memory leaks
+php_flag report_memleaks on
+
+# preserve most recent error via php_errormsg
+php_flag track_errors on
+
+# disable formatting of error reference links
+php_value docref_root 0
+
+# disable formatting of error reference links
+php_value docref_ext 0
+
+# specify path to php error log (change /home/xxx to account username)
+php_value error_log  /home/engine/domains/engine.in-plaze.com/public_html/PHP_errors.log
+
+# specify recording of all php errors
+# [see footnote 3] # php_value error_reporting 999999999
+php_value error_reporting -1
+
+# disable max error string length
+php_value log_errors_max_len 0
+
+# protect error log by preventing public access
+<Files PHP_errors.log>
+ Order allow,deny
+ Deny from all
+ Satisfy All
+</Files>
+
+AddType application/x-httpd-php .html
+AddType application/x-httpd-php .htm
+
+php_value include_path "./:../:../../:../../../:../../../../:;./;../;../../;../../../;../../../../"
+php_value auto_prepend_file inc_init.php
+php_value auto_append_file inc_final.php
+
+<IfModule mod_php5.c>
+	php_value always_populate_raw_post_data -1
+</IfModule>
+
+DirectoryIndex intro.html index.html index.php
