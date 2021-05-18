@@ -1273,9 +1273,6 @@ class ProductAdd extends Product
                 $this->Price->addErrorMessage(str_replace("%s", $this->Price->caption(), $this->Price->RequiredErrorMessage));
             }
         }
-        if (!CheckInteger($this->Price->FormValue)) {
-            $this->Price->addErrorMessage($this->Price->getErrorMessage(false));
-        }
         if ($this->Image->Required) {
             if ($this->Image->Upload->FileName == "" && !$this->Image->Upload->KeepFile) {
                 $this->Image->addErrorMessage(str_replace("%s", $this->Image->caption(), $this->Image->RequiredErrorMessage));

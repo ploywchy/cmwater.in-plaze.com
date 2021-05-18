@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<ew-language date="2021/5/14" version="17.0.5" id="th" name="Thai" desc="Thai" author="Z-Axis Co.,Ltd.">
+<ew-language date="2021/5/16" version="17.0.5" id="th" name="Thai" desc="Thai" author="Z-Axis Co.,Ltd.">
   <!--
     *** Important Notes:
     1. Language ID should follow: https://developers.google.com/recaptcha/docs/language,
@@ -925,6 +925,9 @@
   <project>
     <phrase id="bodytitle" value="In-plaze" />
     <phrase id="footertext" value="Copyright © 2021 Z-Axis. All rights reserved." />
+    <menu id="61">
+      <phrase id="menutext" value="real-estate.php" />
+    </menu>
     <menu id="60">
       <phrase id="menutext" value=".htaccess" />
     </menu>
@@ -1301,6 +1304,9 @@
     </table>
     <table id="htaccess">
       <phrase id="tblcaption" value=".htaccess" />
+    </table>
+    <table id="realestate">
+      <phrase id="tblcaption" value="real-estate.php" />
     </table>
   </project>
 </ew-language>

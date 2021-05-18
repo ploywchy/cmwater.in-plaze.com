@@ -211,12 +211,12 @@
     ),
     'php-di/php-di' => 
     array (
-      'pretty_version' => '6.3.2',
-      'version' => '6.3.2.0',
+      'pretty_version' => '6.3.3',
+      'version' => '6.3.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '12a15cc288bbc89896dd80ce5a36731781613ba2',
+      'reference' => 'da8e476cafc8011477e2ec9fd2e4706947758af2',
     ),
     'php-di/phpdoc-reader' => 
     array (
@@ -238,12 +238,12 @@
     ),
     'phpmailer/phpmailer' => 
     array (
-      'pretty_version' => 'v6.4.0',
-      'version' => '6.4.0.0',
+      'pretty_version' => 'v6.4.1',
+      'version' => '6.4.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '050d430203105c27c30efd1dce7aa421ad882d01',
+      'reference' => '9256f12d8fb0cd0500f93b19e18c356906cbed3d',
     ),
     'psr/container' => 
     array (
@@ -313,12 +313,12 @@
     ),
     'psr/log' => 
     array (
-      'pretty_version' => '1.1.3',
-      'version' => '1.1.3.0',
+      'pretty_version' => '1.1.4',
+      'version' => '1.1.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '0f73288fd15629204f9d42b7055f72dacbe811fc',
+      'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
     ),
     'psr/log-implementation' => 
     array (

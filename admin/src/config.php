@@ -171,7 +171,7 @@ $CONFIG = [
 
     // General
     "UNFORMAT_YEAR" => 50, // Unformat year
-    "RANDOM_KEY" => 'i7E32c8iIui4ivw0', // Random key for encryption
+    "RANDOM_KEY" => 'wV16G6xoDSyPJ3cw', // Random key for encryption
     "ENCRYPTION_KEY" => '', // Encryption key for data protection
     "PROJECT_STYLESHEET_FILENAME" => "css/inplaze.css", // Project stylesheet file name
     "PROJECT_CHARSET" => "utf-8", // Project charset

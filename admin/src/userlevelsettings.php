@@ -37,7 +37,9 @@ $USER_LEVEL_PRIVS = [["{inplaze}text","-2","0"],
     ["{inplaze}blog","-2","0"],
     ["{inplaze}blog","0","0"],
     ["{inplaze}.htaccess","-2","0"],
-    ["{inplaze}.htaccess","0","0"]];
+    ["{inplaze}.htaccess","0","0"],
+    ["{inplaze}real-estate.php","-2","0"],
+    ["{inplaze}real-estate.php","0","0"]];
 // User level table info
 $USER_LEVEL_TABLES = [["text","text","Text",true,"{inplaze}","TextList"],
     ["contents","contents","Content",true,"{inplaze}","ContentsList"],
@@ -53,4 +55,5 @@ $USER_LEVEL_TABLES = [["text","text","Text",true,"{inplaze}","TextList"],
     ["category","category","Category",true,"{inplaze}","CategoryList"],
     ["product","product","Product",true,"{inplaze}","ProductList"],
     ["blog","blog","Blog",true,"{inplaze}","BlogList"],
-    [".htaccess","htaccess",".htaccess",true,"{inplaze}","Htaccess"]];
+    [".htaccess","htaccess",".htaccess",true,"{inplaze}","Htaccess"],
+    ["real-estate.php","realestate","real-estate.php",true,"{inplaze}","RealEstate"]];

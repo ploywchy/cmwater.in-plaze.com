@@ -1128,12 +1128,6 @@ class ProductGrid extends Product
         $item->OnLeft = true;
         $item->Visible = false;
 
-        // "view"
-        $item = &$this->ListOptions->add("view");
-        $item->CssClass = "text-nowrap";
-        $item->Visible = $Security->canView();
-        $item->OnLeft = true;
-
         // "edit"
         $item = &$this->ListOptions->add("edit");
         $item->CssClass = "text-nowrap";
@@ -1203,15 +1197,6 @@ class ProductGrid extends Product
             }
         }
         if ($this->CurrentMode == "view") {
-            // "view"
-            $opt = $this->ListOptions["view"];
-            $viewcaption = HtmlTitle($Language->phrase("ViewLink"));
-            if ($Security->canView()) {
-                $opt->Body = "<a class=\"ew-row-link ew-view\" title=\"" . $viewcaption . "\" data-caption=\"" . $viewcaption . "\" href=\"" . HtmlEncode(GetUrl($this->ViewUrl)) . "\">" . $Language->phrase("ViewLink") . "</a>";
-            } else {
-                $opt->Body = "";
-            }
-
             // "edit"
             $opt = $this->ListOptions["edit"];
             $editcaption = HtmlTitle($Language->phrase("EditLink"));
@@ -1978,9 +1963,6 @@ class ProductGrid extends Product
             if (!$this->Price->IsDetailKey && EmptyValue($this->Price->FormValue)) {
                 $this->Price->addErrorMessage(str_replace("%s", $this->Price->caption(), $this->Price->RequiredErrorMessage));
             }
-        }
-        if (!CheckInteger($this->Price->FormValue)) {
-            $this->Price->addErrorMessage($this->Price->getErrorMessage(false));
         }
         if ($this->_New->Required) {
             if ($this->_New->FormValue == "") {

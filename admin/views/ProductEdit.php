@@ -24,7 +24,7 @@ loadjs.ready("head", function () {
         ["Name", [fields.Name.visible && fields.Name.required ? ew.Validators.required(fields.Name.caption) : null], fields.Name.isInvalid],
         ["Intro", [fields.Intro.visible && fields.Intro.required ? ew.Validators.required(fields.Intro.caption) : null], fields.Intro.isInvalid],
         ["Description", [fields.Description.visible && fields.Description.required ? ew.Validators.required(fields.Description.caption) : null], fields.Description.isInvalid],
-        ["Price", [fields.Price.visible && fields.Price.required ? ew.Validators.required(fields.Price.caption) : null, ew.Validators.integer], fields.Price.isInvalid],
+        ["Price", [fields.Price.visible && fields.Price.required ? ew.Validators.required(fields.Price.caption) : null], fields.Price.isInvalid],
         ["_New", [fields._New.visible && fields._New.required ? ew.Validators.required(fields._New.caption) : null], fields._New.isInvalid],
         ["Image", [fields.Image.visible && fields.Image.required ? ew.Validators.fileRequired(fields.Image.caption) : null], fields.Image.isInvalid],
         ["Images", [fields.Images.visible && fields.Images.required ? ew.Validators.fileRequired(fields.Images.caption) : null], fields.Images.isInvalid],
@@ -223,8 +223,8 @@ loadjs.ready("head", function() {
         <div class="<?= $Page->RightColumnClass ?>"><div <?= $Page->_New->cellAttributes() ?>>
 <span id="el_product__New">
 <div class="custom-control custom-checkbox d-inline-block">
-    <input type="checkbox" class="custom-control-input<?= $Page->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x__New[]" id="x__New_209211" value="1"<?= ConvertToBool($Page->_New->CurrentValue) ? " checked" : "" ?><?= $Page->_New->editAttributes() ?> aria-describedby="x__New_help">
-    <label class="custom-control-label" for="x__New_209211"></label>
+    <input type="checkbox" class="custom-control-input<?= $Page->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x__New[]" id="x__New_267124" value="1"<?= ConvertToBool($Page->_New->CurrentValue) ? " checked" : "" ?><?= $Page->_New->editAttributes() ?> aria-describedby="x__New_help">
+    <label class="custom-control-label" for="x__New_267124"></label>
 </div>
 <?= $Page->_New->getCustomMessage() ?>
 <div class="invalid-feedback"><?= $Page->_New->getErrorMessage() ?></div>

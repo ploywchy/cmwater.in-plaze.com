@@ -1284,9 +1284,6 @@ class ProductEdit extends Product
                 $this->Price->addErrorMessage(str_replace("%s", $this->Price->caption(), $this->Price->RequiredErrorMessage));
             }
         }
-        if (!CheckInteger($this->Price->FormValue)) {
-            $this->Price->addErrorMessage($this->Price->getErrorMessage(false));
-        }
         if ($this->_New->Required) {
             if ($this->_New->FormValue == "") {
                 $this->_New->addErrorMessage(str_replace("%s", $this->_New->caption(), $this->_New->RequiredErrorMessage));

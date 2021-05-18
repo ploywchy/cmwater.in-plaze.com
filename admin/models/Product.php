@@ -133,7 +133,6 @@ class Product extends DbTable
         // Price
         $this->Price = new DbField('product', 'product', 'x_Price', 'Price', '`Price`', '`Price`', 131, 15, -1, false, '`Price`', false, false, false, 'FORMATTED TEXT', 'TEXT');
         $this->Price->Sortable = false; // Allow sort
-        $this->Price->DefaultErrorMessage = $Language->phrase("IncorrectInteger");
         $this->Price->CustomMsg = $Language->FieldPhrase($this->TableVar, $this->Price->Param, "CustomMsg");
         $this->Fields['Price'] = &$this->Price;
 

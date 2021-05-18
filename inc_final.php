@@ -1,13 +1,13 @@
 <?php
 namespace PHPMaker2021\inplaze;
 
-function setInnerHTML($element, $html) {
-	$fragment = $element->ownerDocument->createDocumentFragment();
-	$fragment->appendXML($html);
-	$clone = $element->cloneNode();
-	$clone->appendChild($fragment);
-	$element->parentNode->replaceChild($clone, $element);
-	return $element;
+function setInnerHTML($parent, $html) {
+    $tmpDoc = new \DOMDocument();
+	$tmpDoc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+    foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $node) {
+        $node = $parent->ownerDocument->importNode($node, true);
+        $parent->appendChild($node);
+    }
 }
 
 // ไฟล์ที่จะถูกประมวลต้องเป็น .html เท่านั้น นอกนั้นแสดงผลตามปกติโดยไม่ถูกประมวลผล
@@ -26,7 +26,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 	} else {
 		$dom->loadHTML($content, LIBXML_NOBLANKS);
 		$xpath = new \DomXPath($dom);
-		$sub_folder = "";
+		$sub_folder = '';
+		$font = 'Prompt';
 
 		// แก้ http เป็น https ทุกจุดที่เป็น CDN ตาม attribute href
 		$elements = $xpath->query("//link[contains(@href, 'http://')]");
@@ -34,6 +35,11 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			$attribute_value = $elements->item($key)->getAttribute('href');
 			$attribute_value = str_replace('http://', 'https://', $attribute_value);
 			$elements->item($key)->setAttribute('href', $attribute_value);
+		}
+
+		// เฉพาะของ demo template นี้เท่านั้น โดยดูจาก css เป็นหลัก
+		if (($node = $xpath->query($selector = '//link[@href="demos/real-estate/real-estate.css"]')) AND !empty($node->length)) {
+			require_once 'real-estate.php';
 		}
 
 		if ($_SERVER['SERVER_NAME'] == 'polo5.in-plaze.com') {
@@ -97,7 +103,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			// เพิ่มฟอนต์ Prompt เข้าไปในแต่ละหน้า แต่ยังต้องไป replace sans-serif ให้เป็น 'Prompt' ในไฟล์ style.css แบบ manual อยู่ ต้องทำใน custom.css
 			// https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700%7CRoboto:300,400,500,700&display=swap
 			if (($node = $xpath->query($selector = '/html/head/link[contains(@href, "fonts.googleapis.com")]')) AND !empty($node->length) AND $node = $node->item(0)) {
-				$node->setAttribute('href', str_replace('family=', 'family=Prompt:300,400,400i,700|', $node->getAttribute('href')));
+				$node->setAttribute('href', str_replace('family=', "family={$font}:300,400,400i,700|", $node->getAttribute('href')));
 			}
 
 			// เอา favicon จาก PHPMaker มาใส่ด้วย
@@ -110,8 +116,12 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			}
 
 			// เอา Google Maps ที่ไม่มี API ออก
-			if (($parent = $xpath->query($selector = '//script[contains(@src, "YOUR-API-KEY")]')) AND !empty($node->length) AND $node = $node->item(0)) {
-				$parent->item(0)->parentNode->removeChild($parent->item(0));
+			if (($node = $xpath->query($selector = '//script[contains(@src, "YOUR-API-KEY")]')) AND !empty($node->length) AND $node = $node->item(0)) {
+				fb($selector);
+				$node->parentNode->removeChild($node);
+				if (($node = $xpath->query($selector = '//img[contains(@src, "https://maps.googleapis.com/maps/api/")]')) AND !empty($node->length) AND $node = $node->item(0)) {
+					$node->parentNode->removeChild($node);
+				}
 			}
 
 			if ($template = "Canvas - Blog") {
@@ -129,8 +139,9 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 						$children = [];
 						$index = $xpath->query($selector = '//div[@id="section-about"]');
 						$limit = "";
-						if ($index->length == 1)
+						if ($index->length == 1) {
 							$limit = ' LIMIT 3';
+						}
 						$datas = ExecuteRows("SELECT *, DATE_FORMAT(Created, '%d %M %Y') AS Blog_Date FROM blog ORDER BY New DESC, Blog_ID DESC{$limit}", 2);
 						if (!empty($datas)) {
 							foreach ($datas as $key => $data) {
@@ -145,8 +156,9 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 								}
 								$html_element = $xpath->query('.//div[contains(@class, "entry-content")]', $elements);
 								if (!empty($data['Intro'])) {
-									while ($html_element->item(0)->hasChildNodes())
+									while ($html_element->item(0)->hasChildNodes()) {
 										$html_element->item(0)->removeChild($html_element->item(0)->firstChild);
+									}
 									$temp = new \DOMDocument();
 									$temp->preserveWhiteSpace = false;
 									$temp->formatOutput = true;
@@ -1026,7 +1038,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// div ที่มีภาพ background
-				$elements = $xpath->query($selector = "//div[contains(@style,'background')]");
+				$elements = $xpath->query($selector = "//div[contains(@style,'background') AND not(ancestor::*[@data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
 						// preg_match('/url\(\s*[\'"]?([^\'"]*)[\'"]?\s*\)[^;}]*?/i', $elements->item($key)->getAttribute("style"), $matches);

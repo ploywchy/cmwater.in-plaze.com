@@ -108,7 +108,6 @@ return function (App $app) {
     // product
     $app->any('/ProductList[/{Product_ID}]', ProductController::class . ':list')->add(PermissionMiddleware::class)->setName('ProductList-product-list'); // list
     $app->any('/ProductAdd[/{Product_ID}]', ProductController::class . ':add')->add(PermissionMiddleware::class)->setName('ProductAdd-product-add'); // add
-    $app->any('/ProductView[/{Product_ID}]', ProductController::class . ':view')->add(PermissionMiddleware::class)->setName('ProductView-product-view'); // view
     $app->any('/ProductEdit[/{Product_ID}]', ProductController::class . ':edit')->add(PermissionMiddleware::class)->setName('ProductEdit-product-edit'); // edit
     $app->any('/ProductDelete[/{Product_ID}]', ProductController::class . ':delete')->add(PermissionMiddleware::class)->setName('ProductDelete-product-delete'); // delete
     $app->group(
@@ -116,7 +115,6 @@ return function (App $app) {
         function (RouteCollectorProxy $group) {
             $group->any('/' . Config("LIST_ACTION") . '[/{Product_ID}]', ProductController::class . ':list')->add(PermissionMiddleware::class)->setName('product/list-product-list-2'); // list
             $group->any('/' . Config("ADD_ACTION") . '[/{Product_ID}]', ProductController::class . ':add')->add(PermissionMiddleware::class)->setName('product/add-product-add-2'); // add
-            $group->any('/' . Config("VIEW_ACTION") . '[/{Product_ID}]', ProductController::class . ':view')->add(PermissionMiddleware::class)->setName('product/view-product-view-2'); // view
             $group->any('/' . Config("EDIT_ACTION") . '[/{Product_ID}]', ProductController::class . ':edit')->add(PermissionMiddleware::class)->setName('product/edit-product-edit-2'); // edit
             $group->any('/' . Config("DELETE_ACTION") . '[/{Product_ID}]', ProductController::class . ':delete')->add(PermissionMiddleware::class)->setName('product/delete-product-delete-2'); // delete
         }

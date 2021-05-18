@@ -24,7 +24,7 @@ loadjs.ready("head", function () {
         ["Name", [fields.Name.visible && fields.Name.required ? ew.Validators.required(fields.Name.caption) : null], fields.Name.isInvalid],
         ["Intro", [fields.Intro.visible && fields.Intro.required ? ew.Validators.required(fields.Intro.caption) : null], fields.Intro.isInvalid],
         ["Description", [fields.Description.visible && fields.Description.required ? ew.Validators.required(fields.Description.caption) : null], fields.Description.isInvalid],
-        ["Price", [fields.Price.visible && fields.Price.required ? ew.Validators.required(fields.Price.caption) : null, ew.Validators.integer], fields.Price.isInvalid],
+        ["Price", [fields.Price.visible && fields.Price.required ? ew.Validators.required(fields.Price.caption) : null], fields.Price.isInvalid],
         ["Image", [fields.Image.visible && fields.Image.required ? ew.Validators.fileRequired(fields.Image.caption) : null], fields.Image.isInvalid],
         ["Images", [fields.Images.visible && fields.Images.required ? ew.Validators.fileRequired(fields.Images.caption) : null], fields.Images.isInvalid],
         ["Created", [fields.Created.visible && fields.Created.required ? ew.Validators.required(fields.Created.caption) : null], fields.Created.isInvalid],
