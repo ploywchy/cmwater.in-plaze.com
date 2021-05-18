@@ -1,0 +1,1306 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ew-language date="2021/5/14" version="17.0.5" id="th" name="Thai" desc="Thai" author="Z-Axis Co.,Ltd.">
+  <!--
+    *** Important Notes:
+    1. Language ID should follow: https://developers.google.com/recaptcha/docs/language,
+    2. Locale settings are placed in a separate locale files under the "locales" folder,
+    3. Locale files must be named with language ID of language file (and converted to lowercase), e.g. en.json,
+    4. Locale files are ALWAYS used, regardless of whether the project is single language or multiple language.
+-->
+  <global>
+    <phrase id="accept" value="ยอมรับ" />
+    <!-- v2019 -->
+    <phrase id="actiondeleted" value="ลบเรียบร้อยแล้ว" />
+    <phrase id="actioninserted" value="เพิ่มเรียบร้อยแล้ว" />
+    <phrase id="actioninsertedgridadd" value="เพิ่มเรียบร้อยแล้ว (ในรูปแบบตาราง)" />
+    <phrase id="actionupdated" value="แก้ไขเรียบร้อยแล้ว" />
+    <phrase id="actionupdatedgridedit" value="แก้ไขเรียบร้อยแล้ว (ในรูปแบบตาราง)" />
+    <phrase id="actionupdatedmultiupdate" value="แก้ไขเรียบร้อยแล้ว (แบบหลายข้อมูล)" />
+    <phrase id="activateaccount" value="ยืนยันการลงทะเบียนเรียบร้อยแล้ว" />
+    <phrase id="activatefailed" value="ยืนยันการลงทะเบียนไม่สำเร็จ" />
+    <phrase id="add" value="เพิ่ม" />
+    <phrase id="addblankrow" value="เพิ่มข้อมูลเปล่า" class="fas fa-plus ew-icon" />
+    <!-- v2019 -->
+    <phrase id="addbtn" value="เพิ่ม" client="1" />
+    <!-- v2018 -->
+    <phrase id="addlink" value="เพิ่ม" class="fas fa-plus ew-icon" />
+    <!-- v2019 -->
+    <phrase id="addmasterdetaillink" value="Master/Detail เพิ่ม" class="icon-md-add ew-icon" />
+    <!-- v11 -->
+    <phrase id="addsuccess" value="เพิ่มเรียบร้อยแล้ว" />
+    <phrase id="advancedsearch" value="ค้นหาขั้นสูง" />
+    <!-- v11 -->
+    <phrase id="advancedsearchbtn" value="ค้นหาขั้นสูง" class="icon-advanced-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="aggregatecolon" value=": " />
+    <!-- v2020 (report) -->
+    <phrase id="aggregateequal" value="=" />
+    <!-- v2020 (report) -->
+    <phrase id="allrecords" value="ทั้งหมด" />
+    <phrase id="allword" value="ทุกคำ" />
+    <phrase id="alwaysask" value="ให้กรอกชื่อผู้ใช้และรหัสผ่านทุกครั้ง" />
+    <!-- Deprecated since v2018 -->
+    <phrase id="anyword" value="คำใดก็ได้" />
+    <phrase id="apititle" value="REST API" />
+    <!-- v2021 -->
+    <phrase id="audittrailautologin" value="ล็อกอินอัตโนมัติ" />
+    <phrase id="audittrailfailedattempt" value="ไมผ่านเป็นจำนวน:%n" />
+    <phrase id="audittrailuserloggedin" value="ผู้ใช้อยู่ในระบบแล้ว" />
+    <phrase id="audittrailpasswordexpired" value="รหัสผ่านหมดอายุ" />
+    <phrase id="audittraillogin" value="ล็อกอิน" />
+    <phrase id="audittraillogout" value="ล็อกเอ้าท์" />
+    <phrase id="autologin" value="ล็อกอินอัตโนมัติ" />
+    <!-- Deprecated since v2018 -->
+    <phrase id="autologinfailed" value="ไม่สามารถล็อกอินอัตโนมัติได้" />
+    <!-- v2018 -->
+    <phrase id="average" value="ค่าเฉลี่ย" />
+    <phrase id="backtolist" value="กลับไปหน้ารายการ" />
+    <phrase id="backtologin" value="กลับไปหน้าล็อกอิน" />
+    <phrase id="backtomasterrecordpage" value="กลับไปหน้าหลัก" />
+    <phrase id="batchdeletebegin" value="*** เริ่มลบแบบแบช ***" />
+    <phrase id="batchdeleterollback" value="*** ย้อนการลบแบบแบช ***" />
+    <phrase id="batchdeletesuccess" value="*** ลบแบบแบชสำเร็จ ***" />
+    <phrase id="batchinsertbegin" value="*** เริ่มเพิ่มแบบแบช ***" />
+    <phrase id="batchinsertrollback" value="*** ย้อนการเพิ่มแบบแบช ***" />
+    <phrase id="batchinsertsuccess" value="*** เพิ่มแบบแบชสำเร็จ ***" />
+    <phrase id="batchupdatebegin" value="*** เริ่มแก้ไขแบบแบช ***" />
+    <phrase id="batchupdaterollback" value="*** ย้อนการแก้ไขแบบแบช ***" />
+    <phrase id="batchupdatesuccess" value="*** แก้ไขแบบแบชสำเร็จ ***" />
+    <phrase id="booleanno" value="No" />
+    <!-- v2020 (report) -->
+    <phrase id="booleanyes" value="Yes" />
+    <!-- v2020 (report) -->
+    <phrase id="buttonactions" value="ปุ่ม" class="icon-options ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttonaddedit" value="ปุ่มเพิ่มและแก้ไข" class="icon-addedit ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttondetails" value="ปุ่มรายละเอียด" class="icon-master-detail ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttonexport" value="ปุ่มส่งออก" class="fas fa-download ew-icon" />
+    <!-- v2019 -->
+    <phrase id="buttonimport" value="นำเข้า" class="fas fa-upload ew-icon" />
+    <!-- v2019 -->
+    <phrase id="buttonlistoptions" value="ตัวเลือก" class="icon-options ew-icon" />
+    <!-- v11 -->
+    <phrase id="buttonsearch" value="ค้นหา" class="icon-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="cancelbtn" value="ยกเลิก" client="1" />
+    <!-- v2017 -->
+    <phrase id="cancellink" value="ยกเลิก" class="fas fa-times ew-icon" />
+    <!-- v2019 -->
+    <phrase id="changepassword" value="เปลี่ยนรหัสผ่าน" client="1" />
+    <!-- v2020 -->
+    <phrase id="changepasswordmessage" value="เปลี่่ยนรหัสผ่าน" />
+    <!-- v2019 -->
+    <phrase id="changepasswordpage" value="หน้าเปลี่ยนรหัสผ่าน" />
+    <phrase id="changepasswordbtn" value="เปลี่ยนรหัสผ่าน" />
+    <phrase id="chartexporterrmsg1" value="ไม่สามารถดึงภาพ %t จาก %e ได้" />
+    <!-- v2021 -->
+    <phrase id="chartexporterrmsg2" value="กรุณาตรวจสอบชื่อไฟล์" />
+    <!-- v2021 -->
+    <phrase id="chartexporterrmsg3" value="กรุณาตรวจสอบโฟลเดอร์ที่จะอัพโหลด" />
+    <!-- v2021 -->
+    <phrase id="chartexporterrmsg4" value="กรุณาตรวจสอบสิทธิ์การเขียนโฟลเดอร์ที่จะอัพโหลด" />
+    <!-- v2021 -->
+    <phrase id="chartorder" value="เรียงลำดับโดย" />
+    <!-- v2020 (report) -->
+    <phrase id="chartorderxasc" value="ป้ายกำกับจากน้อยไปมาก" />
+    <!-- v2020 (report) -->
+    <phrase id="chartorderxdesc" value="ป้ายกำกับจากมากไปน้อย" />
+    <!-- v2020 (report) -->
+    <phrase id="chartorderyasc" value="ค่าจากน้อยไปมาก" />
+    <!-- v2020 (report) -->
+    <phrase id="chartorderydesc" value="ค่าจากมากไปน้อย" />
+    <!-- v2020 (report) -->
+    <phrase id="choosefilebtn" value="เลือกไฟล์..." />
+    <!-- v11 -->
+    <phrase id="choosefile" value="เลือกไฟล์" />
+    <!-- v11 -->
+    <phrase id="choosefiles" value="เลือกไฟล์" />
+    <!-- v11 -->
+    <phrase id="clickrecaptcha" value="กรุณากดปุ่ม Captcha" client="1" />
+    <!-- v12 -->
+    <phrase id="clicktodrilldown" value="กดดูเพิ่มเติม" />
+    <!-- v2020 (report) -->
+    <phrase id="closeaccountbtn" value="ลบข้อมูลและปิดบัญชี" />
+    <!-- v2019 -->
+    <phrase id="closebtn" value="ปิด" client="1" />
+    <!-- v2017 -->
+    <phrase id="confirm" value="ยืนยัน" />
+    <phrase id="confirmbtn" value="ยืนยัน" client="1" />
+    <!-- v2017 -->
+    <phrase id="confirmcancel" value="คูณต้องการยกเลิก?" client="1" />
+    <!-- v12 -->
+    <phrase id="confirmpassword" value="ยืนยันรหัสผ่าน" client="1" />
+    <!-- v2021 -->
+    <phrase id="conflictcancellink" value="ยกเลิก" />
+    <phrase id="cookieconsenttitle" value="Cookies" client="1" />
+    <!-- v2021 -->
+    <phrase id="cookieconsentsummary" value="ใช้ในการบันทึกข้อมูลต่างๆ เช่น ตัวแปรคุ๊กกี้" client="1" />
+    <!-- v2021 -->
+    <phrase id="copy" value="คัดลอก" />
+    <phrase id="copylink" value="คัดลอกลิ้งค์" class="icon-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="count" value="จำนวน" />
+    <phrase id="countselected" value="เลือก %s" client="1" />
+    <!-- v12 -->
+    <phrase id="ctbsumhead" value="ภาพรวม" />
+    <!-- v2020 (report) -->
+    <phrase id="currentfilters" value="ตัวกรองที่ใช้อยู่:" />
+    <!-- v2020 (report) -->
+    <phrase id="currentpassword" value="รหัสผ่านปัจจุบัน:" client="1" />
+    <!-- v12 -->
+    <phrase id="customactioncompleted" value="%s' สำเร็จ" />
+    <phrase id="customactioncancelled" value="%s' ยกเลิก" />
+    <phrase id="customactionfailed" value="%s' ไม่สำเร็จ" />
+    <!-- v12 -->
+    <phrase id="customactionnotallowed" value="%s' ไม่ได้รับอนุญาต" />
+    <!-- v12 -->
+    <phrase id="customview" value="มุมมองเฉพาะ" />
+    <phrase id="danger" value="ผิดพลาด" client="1" />
+    <!-- v2020 -->
+    <phrase id="debug" value="Debug" />
+    <!-- v2021 -->
+    <phrase id="delete" value="ลบ" />
+    <phrase id="deletebtn" value="ลบ" />
+    <phrase id="deletecancelled" value="ยกเลิกการลบเรียบร้อยแล้ว" />
+    <phrase id="deleteconfirmmsg" value="ต้องการลบใช่หรือไม่?" client="1" />
+    <phrase id="deletefilter" value="ลบที่กรอง" />
+    <!-- v12 -->
+    <phrase id="deletefilterconfirm" value="ลบที่กรอง %s?" client="1" />
+    <!-- v12 -->
+    <phrase id="deletelink" value="ลบ" class="fas fa-trash ew-icon" />
+    <!-- v2019 -->
+    <phrase id="deleteselectedlink" value="ลบรายการที่เลือก" class="fas fa-trash ew-icon" />
+    <!-- v2019 -->
+    <phrase id="deletesuccess" value="ลบเรียบร้อยแล้ว" />
+    <phrase id="detaillink" value="" />
+    <phrase id="detailcount" value="&lt;span class='label label-info ewDetailCount%c'&gt;%c&lt;/span&gt;" />
+    <!-- v2019 -->
+    <phrase id="downloadbtn" value="ดาวน์โหลด" />
+    <!-- v2019 -->
+    <phrase id="drilldownallrecords" value="รายการทั้งหมด" />
+    <!-- v2020 (report) -->
+    <phrase id="drilldownfilters" value="ตัวกรองละเอียด:" />
+    <!-- v2020 (report) -->
+    <phrase id="dupindex" value="ข้อมูลซ้ำซ้อน '%v' สำหรับข้อมูล '%f'" />
+    <phrase id="dupkey" value="ข้อมูลคีย์ซ้ำซ้อน: '%f'" />
+    <phrase id="edit" value="แก้ไข" />
+    <phrase id="editbtn" value="แก้ไข" client="1" />
+    <!-- v2018 -->
+    <phrase id="editlink" value="แก้ไข" class="icon-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="email" value="อีเมล" client="1" />
+    <!-- v2021 -->
+    <phrase id="emailformsender" value="จาก" />
+    <phrase id="emailformrecipient" value="ส่งไปยัง" />
+    <phrase id="emailformcc" value="CC" />
+    <phrase id="emailformbcc" value="BCC" />
+    <phrase id="emailformsubject" value="หัวข้อ" />
+    <phrase id="emailformmessage" value="ข้อความ" />
+    <phrase id="emailformcontenttype" value="ส่งในนาม" />
+    <phrase id="emailformcontenttypeurl" value="URL" />
+    <phrase id="emailformcontenttypehtml" value="HTML" />
+    <phrase id="emptylabel" value="(ไม่มีชื่อ)" />
+    <!-- v2020 (report) -->
+    <phrase id="enterfiltername" value="ใส่ ชื่อตัวกรอง" client="1" />
+    <!-- v12 -->
+    <phrase id="enternewpassword" value="กรุณากรอก รหัสผ่านใหม่" client="1" />
+    <phrase id="enteroldpassword" value="กรุณากรอก รหัสผ่านเดิม" client="1" />
+    <phrase id="enterpassword" value="กรุณาใส่รหัสผ่าน" client="1" />
+    <phrase id="enterrequiredfield" value="กรุณากรอกข้อมูลที่ - %s" client="1" />
+    <!-- v2021 -->
+    <phrase id="entersearchcriteria" value="กรุณากรอกเงื่อนไขการค้นหา" />
+    <phrase id="enterusername" value="กรุณากรอกชื่อผู้ใช้" client="1" />
+    <phrase id="entervalidatecode" value="ใส่รหัสตรวจสอบที่แสดง" client="1" />
+    <!-- v11 -->
+    <phrase id="enterpropersenderemail" value="อีเมล์ผู้ส่งเกินจำนวนที่กำหนด" client="1" />
+    <phrase id="enterproperrecipientemail" value="อีเมล์ผู้รับเกินจำนวนที่กำหนด หรือมีอีเมล์บางอันผิดพลาด" client="1" />
+    <phrase id="enterproperccemail" value="อีเมล์ cc เกินจำนวนที่กำหนด หรือมีอีเมล์บางอันผิดพลาด" client="1" />
+    <phrase id="enterproperbccemail" value="อีเมล์ bcc เกินจำนวนที่กำหนด หรือมีอีเมล์บางอันผิดพลาด" client="1" />
+    <phrase id="entersubject" value="กรุณากรอกหัวข้อของอีเมล์" client="1" />
+    <phrase id="entervalue" value="กรุณาใส่ค่า" client="1" />
+    <!-- v2021 -->
+    <phrase id="entervalue2" value="กรุณาใส่ค่าทั้งสอง" client="1" />
+    <!-- v2021 -->
+    <phrase id="error" value="ข้อผิดพลาด" />
+    <!-- v2021 -->
+    <phrase id="exactphrase" value="วลีที่แน่นอน" />
+    <phrase id="exceedmaxretry" value="ระบบถูกล๊อค เนื่องจากพยายามล็อกอินมากเกินไป กรุณาลองอีกครั้งในอีก %t นาที" />
+    <phrase id="exceedmaxemailexport" value="จำนวนอีเมล์ที่ส่งออกมากเกินไป กรุณาลองอีกครั้ง" />
+    <phrase id="exportchart" value="ส่งออกแผนภูมิ: " client="1" />
+    <!-- v2020 (report) -->
+    <phrase id="exportchartdata" value="ส่งออกข้อมูลแผนภูมิ" client="1" />
+    <!-- v2020 (report) -->
+    <phrase id="exportcharterror" value="การส่งออกผิดพลาด: " client="1" />
+    <!-- v2020 (report) -->
+    <phrase id="exportclassnotfound" value="ไม่พบสิ่งที่จะส่งออก" />
+    <!-- v2019 -->
+    <phrase id="exporting" value="กำลังส่งออก..." client="1" />
+    <!-- v2018 -->
+    <phrase id="exportingchart" value="กำลังส่งออกแผนภูมิ (%c of %t), รอซักครู่..." client="1" />
+    <!-- v2020 (report) -->
+    <phrase id="exporttocsv" value="ส่งออกเป็น CS" class="icon-csv ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttocsvtext" value="ส่งออกเป็น CSV เฉพาะตัวหนังสือ" />
+    <phrase id="exporttoemail" value="อีเมล์" class="icon-email ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttoemailtext" value="อีเมล์เฉพาะตัวหนังสือ" client="1" />
+    <phrase id="exporttoexcel" value="ส่งออกเป็น Excel" class="icon-excel ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttoexceltext" value="ส่งออกเป็น Excel เฉพาะตัวหนังสือ" />
+    <phrase id="exporttohtml" value="ส่งออกเป็นเว็บเพจ" class="icon-html ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttohtmltext" value="ส่งออกเป็นเว็บเพจเฉพาะตัวหนังสือ" />
+    <phrase id="exporttopdf" value="ส่งออกเป็น PDF" class="icon-pdf ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttopdftext" value="ส่งออกเป็น PDF เฉพาะตัวหนังสือ" />
+    <phrase id="exporttoword" value="ส่งออกเป็น Word" class="icon-word ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttowordtext" value="ส่งออกเป็น Word เฉพาะตัวหนังสือ" />
+    <phrase id="exporttoxml" value="ส่งออกเป็น XML" class="icon-xml ew-icon" />
+    <!-- v11 -->
+    <phrase id="exporttoxmltext" value="ส่งออกเป็น XML เฉพาะตัวหนังสือ" />
+    <phrase id="failedtoexport" value="การส่งออกผิดพลาด" client="1" />
+    <!-- v2018 -->
+    <phrase id="failedtosendmail" value="การส่งอีเมล์ผิดพลาด" />
+    <phrase id="fieldname" value="ชื่อข้อมูล" />
+    <phrase id="fieldrequiredindicator" class="fas fa-asterisk ew-required" value="" />
+    <!-- v2019 -->
+    <phrase id="filenotfound" value="ไม่พบไฟล์" />
+    <phrase id="filter" value="กรอง" />
+    <!-- v12 -->
+    <phrase id="filtername" value="กรองชื่อ" client="1" />
+    <!-- v12 -->
+    <phrase id="filters" value="ตัวกรอง" class="icon-filter ew-icon" />
+    <!-- v12 -->
+    <phrase id="resetpasswordresponse" value="หากอีเมลถูกต้อง คุณจะได้รับคำแนะนำในการตั้งรหัสผ่านใหม่" />
+    <!-- v2019 -->
+    <phrase id="resetpassword" value="ตั้งรหัสผ่านใหม่" client="1" />
+    <!-- v2020 -->
+    <phrase id="generatepassword" value="สร้างรหัสผ่าน" class="fas fa-bolt ew-icon" />
+    <!-- v2019 -->
+    <phrase id="goback" value="ย้อนกลับ" />
+    <phrase id="gridaddcancelled" value="ยกเลิกการเพิ่ม" />
+    <!-- v11 -->
+    <phrase id="gridaddlink" value="เพิ่มแบบตาราง" class="icon-grid-add ew-icon" />
+    <!-- v11 -->
+    <phrase id="gridcancellink" value="ยกเลิก" class="fas fa-times ew-icon" />
+    <!-- v2019 -->
+    <phrase id="grideditcancelled" value="ยกเลิการแก้ไข" />
+    <!-- v11 -->
+    <phrase id="grideditlink" value="แก้ไขแบบตาราง" class="icon-grid-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="gridinsertlink" value="เพิ่ม" class="fas fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="gridsavelink" value="จัดเก็บ" class="fas fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="group" value="กลุ่ม" />
+    <!-- v2020 (report) -->
+    <phrase id="groupsperpage" value="จำนวนกลุ่มต่อหน้า" />
+    <!-- v2020 (report) -->
+    <phrase id="highlight" value="ซ่อนการเน้นข้อมความ" />
+    <!-- v11 -->
+    <phrase id="highlightbtn" value="เน้นข้อความ" class="icon-highlight ew-icon" />
+    <!-- v11 -->
+    <phrase id="homepage" value="หน้าแรก" class="fas fa-home ew-icon" />
+    <!-- v2019 -->
+    <phrase id="import" value="นำเข้า" class="fas fa-upload ew-icon" />
+    <!-- v2019 -->
+    <phrase id="importbtn" value="นำเข้า" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror1" value="นำเข้าแล้ว %c จากทั้งหมด %t รายการ จาก %f (สำเร็จ: %s, ล้มเหลว: %e)" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror2" value=", ผิดพลาด: %e" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror3" value="รายการ %i: %d" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageerror4" value="ล๊อคไฟล์: %l" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageinvalidfileextension" value="นามสกุลไฟล์ไม่ถูกต้อง '%e'" />
+    <!-- v2019 -->
+    <phrase id="importmessageinvalidfieldname" value="ชื่อฟิลด์ไม่ถูกต้อง: %f" />
+    <!-- v2019 -->
+    <phrase id="importmessageinvalidfieldvalue" value="ค่าในฟิลด์ไม่ถูกต้อง (ฟิลด์ %f): %v" />
+    <!-- v2019 -->
+    <phrase id="importmessagemore" value="(มีอีก %s)" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessagenoheaderrow" value="ไม่มีหัวตารางในการนำเข้า" />
+    <!-- v2019 -->
+    <phrase id="importmessageprogress" value="กำลังนำเข้า %c จากทั้งหมด %t รายการ จาก %f..." client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageservererror" value="พบข้อผิดพลาดที่เซิร์ฟเวอร์ %s: %t" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessagesuccess" value="นำเข้าสำเร็จแล้ว %c จากทั้งหมด %t รายการ จาก %f" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageuploaderror" value="เกิดข้อผิดพลาดในการอัพโหลด %f: %s" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageuploadcomplete" value="อัพโหลดเรียบร้อยแล้ว" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageuploadprogress" value="กำลังอัพโหลด...(p%)" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessagepleaseselect" value="กรุณาเลือกไฟล์" client="1" />
+    <!-- v2019 -->
+    <phrase id="importmessageincorrectfiletype" value="ประเภทไฟล์ไม่ถูกต้อง" client="1" />
+    <!-- v2019 -->
+    <phrase id="importtext" value="นำเข้า" client="1" />
+    <!-- v2019 -->
+    <phrase id="incorrectcreditcard" value="หมายเลขบัตรเครดิตไม่ถูกต้อง" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectdate" value="รูปแบบวันที่ผิด (%s)" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectdateymd" value="รูปแบบวันที่ผิด = yyyy%smm%sdd" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectdatemdy" value="รูปแบบวันที่ผิด = mm%sdd%syyyy" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectdatedmy" value="รูปแบบวันที่ผิด = dd%smm%syyyy" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectshortdateymd" value="รูปแบบวันที่ผิด = yy%smm%sdd" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectshortdatemdy" value="รูปแบบวันที่ผิด = mm%sdd%syy" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectshortdatedmy" value="รูปแบบวันที่ผิด = dd%smm%syy" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectemail" value="yyyy" client="1" />
+    <phrase id="incorrectfield" value="อีเมล์ไม่ถูกต้อง" client="1" />
+    <phrase id="incorrectfloat" value="รูปแบบทศนิยมไม่ถูกต้อง" client="1" />
+    <phrase id="incorrectguid" value="GUID ไม่ถูกต้อง" client="1" />
+    <phrase id="incorrectinteger" value="ตัวเลขไม่ถูกต้อง" client="1" />
+    <phrase id="incorrectphone" value="หมายเลขโทรศัพท์ไม่ถูกต้อง" client="1" />
+    <phrase id="incorrectrange" value="ตัวเลขต้องอยู่ระหว่วาง %1 และ %2" client="1" />
+    <phrase id="incorrectregexp" value="เลขต้องอยู่ระหว่าง" client="1" />
+    <phrase id="incorrectssn" value="หมายเลขประกันสังคมไม่ถูกต้อง" client="1" />
+    <phrase id="incorrecttime" value="รูปแบบเวลาไม่ถูกต้อง (hh%smm%sss)" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectvalidationcode" value="โค้ดไม่ถูกต้อง กรุณาทดลองใหม่" client="1" />
+    <!-- v2021 -->
+    <phrase id="incorrectzip" value="รหัสไปรษณีย์ไม่ถูกต้อง" client="1" />
+    <phrase id="info" value="ข้อมูล" client="1" />
+    <!-- v2020 -->
+    <phrase id="inlineaddlink" value="เพิ่ม" class="icon-inline-add ew-icon" />
+    <!-- v11 -->
+    <phrase id="inlinecopylink" value="คัดลอกด่วน" class="icon-inline-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="inlineeditlink" value="แก้ไข" class="icon-inline-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="insertcancelled" value="ยกเลิกการเพิ่มเรียบร้อยแล้ว" />
+    <phrase id="insertfailed" value="การเพิ่มผิดพลาด" client="1" />
+    <phrase id="insertlink" value="เพิ่ม" class="fas fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="insertsuccess" value="เพิ่มเรียบร้อยแล้ว" />
+    <phrase id="invaliddate" value="วันที่ไม่ถูกต้อง" client="1" />
+    <!-- v2021 -->
+    <phrase id="invalidkeyvalue" value="คีย์ไม่ถูกต้อง" />
+    <phrase id="invalidrecord" value="ข้อมูลผิดพลาด คีย์ว่างเปล่า" client="1" />
+    <phrase id="invalidpostrequest" value="ข้อมูลที่ส่งมาไม่ถูกต้อง (Invalide Post Request)" />
+    <!-- v11 -->
+    <phrase id="invalidparameter" value="ข้อมูลผิดพลาด" />
+    <phrase id="invalidpassword" value="รหัสผ่านผิดพลาด" />
+    <phrase id="invalidpasswordchars" value="รหัสผ่านต้องไม่มีตัว &amp;, &lt;, &gt;, &quot;, '" client="1" />
+    <!-- v2021 -->
+    <phrase id="invalidnewpassword" value="รหัสผ่านใหม่ผิดพลาด" />
+    <phrase id="invaliduidpwd" value="ชื่อผู้ใช้หรือรหัสผ่านผิดพลาด" />
+    <phrase id="invalidusernamechars" value="ชื่อผู้ใช้ต้องไม่มีตัว &amp;, &lt;, &gt;, &quot;, '" client="1" />
+    <!-- v2021 -->
+    <phrase id="keep" value="เก็บไว้" />
+    <phrase id="language" value="ภาษา" />
+    <phrase id="learnmore" value="เพิ่มเติม" />
+    <!-- v2019 -->
+    <phrase id="lightboxtitle" value=" " client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxcurrent" value="รูปภาพ {current} จากทั้งหมด {total}" client="1" />
+    <!-- Note: DO NOT translate "{current}" and "{total}" -->
+    <!-- v11 -->
+    <phrase id="lightboxprevious" value="ก่อนหน้า" client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxnext" value="ถัดไป" client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxclose" value="ปิด" client="1" />
+    <!-- v11 -->
+    <phrase id="lightboxxhrerror" value="ไม่สามารถโหลดข้อมูลได้" client="1" />
+    <!-- v11 -->
+    <phrase id="lightboximgerror" value="ไม่สามารถอัพโหลดได้" client="1" />
+    <!-- v11 -->
+    <phrase id="list" value="" />
+    <!-- v2019 -->
+    <phrase id="listactionbutton" value="กำลังดึงข้อมูล" class="fas fa-ellipsis-v" />
+    <!-- v2020 -->
+    <phrase id="loading" value="กำลังโหลด..." client="1" />
+    <phrase id="login" value="ล็อกอิน" client="1" />
+    <!-- v2020 -->
+    <phrase id="logincancelled" value="ยกเลิกการล็อกอินระบบ" />
+    <phrase id="loginfacebook" value="ล็อกอินด้วย Facebook" />
+    <!-- v2018 -->
+    <phrase id="loginfailed" value="ล็อกอินผิดพลาด %p ครั้ง" />
+    <!-- v2018 -->
+    <phrase id="logingoogle" value="ล็อกอินด้วย Google" />
+    <!-- v2018 -->
+    <phrase id="loginmsg" value="กรุณาเข้าสู่ระบบ" />
+    <!-- v2019 -->
+    <phrase id="loginoptions" value="ตัวเลือก" />
+    <!-- v11 -->
+    <phrase id="loginor" value="- หรือ -" />
+    <!-- v2018 -->
+    <phrase id="loginpage" value="ล็อกอิน" />
+    <phrase id="logout" value="ล็อกเอ้าท์" />
+    <phrase id="lookuplink" value="ดูรายละเอียด - %s" class="fas fa-search ew-icon" />
+    <!-- v2019 -->
+    <phrase id="masterdetailcopylink" value="คัดลอก" class="icon-md-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterdetaileditlink" value="แก้ไข" class="icon-md-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterdetaillistlink" value="รายการ" class="icon-table ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterdetailviewlink" value="ดู" class="icon-md-view ew-icon" />
+    <!-- v11 -->
+    <phrase id="masterrecord" value="ข้อมูลหลัก" />
+    <phrase id="maxfilesize" value="ขนาดไฟล์ใหญ่เกินไป (%s bytes)" client="1" />
+    <phrase id="midnight" value="เที่ยงคืน" client="1" />
+    <!-- v2017 -->
+    <phrase id="mismatchpassword" value="รหัสผ่านไม่ตรงกัน" client="1" />
+    <phrase id="missinglookuptablename" value="ไม่มีชื่อตารางต้นทาง" />
+    <phrase id="missingdisplayfieldname" value="ไม่มีชื่อข้อมูลต้นทาง" />
+    <phrase id="missingdisplayfieldvalue" value="ไม่มีชื่อข้อมูลต้นทางที่ใช้ในการแสดง" />
+    <phrase id="missingpdfobject" value="ไม่มี PDFObject" client="1" />
+    <!-- v2020 -->
+    <phrase id="missinguserlevelid" value="ไม่มีรหัสผู้ใช้" />
+    <phrase id="missinguserlevelname" value="ไม่มีชื่อของระดับผู้ใช้" />
+    <phrase id="mobilemenu" value="เมนู" />
+    <phrase id="monthjan" value="มกราคม" />
+    <!-- v2020 (report) -->
+    <phrase id="monthfeb" value="กุมภาพันธ์" />
+    <!-- v2020 (report) -->
+    <phrase id="monthmar" value="มีนาคม" />
+    <!-- v2020 (report) -->
+    <phrase id="monthapr" value="เมษายน" />
+    <!-- v2020 (report) -->
+    <phrase id="monthmay" value="พฤษภาคม" />
+    <!-- v2020 (report) -->
+    <phrase id="monthjun" value="มิถุนายน" />
+    <!-- v2020 (report) -->
+    <phrase id="monthjul" value="กรกฎาคม" />
+    <!-- v2020 (report) -->
+    <phrase id="monthaug" value="สิงหาคม" />
+    <!-- v2020 (report) -->
+    <phrase id="monthsep" value="กันยายน" />
+    <!-- v2020 (report) -->
+    <phrase id="monthoct" value="ตุลาคม" />
+    <!-- v2020 (report) -->
+    <phrase id="monthnov" value="พฤศจิกายา" />
+    <!-- v2020 (report) -->
+    <phrase id="monthdec" value="ธันวาคม" />
+    <!-- v2020 (report) -->
+    <phrase id="more" value="ดูเพิ่ม" client="1" />
+    <!-- v2018 -->
+    <phrase id="multiplemasterdetails" value="รายละเอียดหลายอย่าง" class="icon-master-detail ew-icon" />
+    <!-- v11 -->
+    <phrase id="new" value="ใหม่" />
+    <phrase id="newpassword" value="รหัสผ่านใหม่" client="1" />
+    <!-- v2021 -->
+    <phrase id="newvalue" value="ค่าใหม่" />
+    <!-- v12 -->
+    <phrase id="next" value="ถัดไป" client="1" />
+    <!-- v12 -->
+    <phrase id="noaddrecord" value="ไม่มีการเพิ่มข้อมูลใด ๆ" client="1" />
+    <phrase id="nofieldselected" value="ไม่มีการเลือกข้อมูล" client="1" />
+    <phrase id="nopermission" value="สิทธิ์ของท่านไม่สามารถเข้าดู %s ได้" />
+    <!-- v12 -->
+    <phrase id="noaddpermission" value="สิทธิ์ของท่านไม่สามารถเพิ่มข้อมูลหน้านี้ได้" />
+    <phrase id="nochartdata" value="ไม่พบข้อมูล" client="1" />
+    <!-- v2020 -->
+    <phrase id="nodeletepermission" value="สิทธิ์ของท่านไม่สามารถลบข้อมูลหน้านี้ได้" />
+    <phrase id="nodistinctcolvals" value="ไม่มี distinct column values สำหรับ SQL: " />
+    <!-- v2020 (report) -->
+    <phrase id="noeditpermission" value="สิทธิ์ของท่านไม่สามารถแก้ไขข้อมูลหน้านี้ได้" />
+    <phrase id="noon" value="เที่ยง" />
+    <!-- v2017 -->
+    <phrase id="norecord" value="ไม่พบข้อมูล" client="1" />
+    <!-- v2017 -->
+    <phrase id="norecordforkey" value="ไม่พบข้อมูลสำหรับ" />
+    <phrase id="noreportorcharts" value="ไม่มีรายการหรือแผนภูมิในหน้านี้" />
+    <!-- v2020 (report) -->
+    <phrase id="norecordselected" value="ไม่มีข้อมูลใดถูกเลือก" client="1" />
+    <phrase id="notablegenerated" value="ไม่มีการสร้างตารางใด ๆ" />
+    <phrase id="notice" value="Notice" />
+    <!-- v2021 -->
+    <phrase id="nouserlevel" value="ไม่มีการตั้งค่าสิทธิ์การใช้งาน" />
+    <phrase id="nulllabel" value="(Null)" />
+    <!-- v2020 (report) -->
+    <phrase id="of" value="จาก" client="1" />
+    <!-- v2017 -->
+    <phrase id="okbtn" value="OK" client="1" />
+    <!-- v2021 -->
+    <phrase id="old" value="เก่า" />
+    <phrase id="oldpassword" value="รหัสผ่านเก่า" client="1" />
+    <!-- v2021 -->
+    <phrase id="optionalreadyexist" value="ตัวเลือกนี้มีอยู่แล้ว" />
+    <phrase id="overwritebtn" value="เขียนทับ" client="1" />
+    <!-- v2017 -->
+    <phrase id="overwritelink" value="เขียนทับ" />
+    <phrase id="page" value="หน้า" client="1" />
+    <!-- v2017 -->
+    <phrase id="pagenotfound" value="ไม่พบ Route '%p'" />
+    <!-- v2021 -->
+    <phrase id="pagerfirst" value="รายการแรก" />
+    <phrase id="pagerlast" value="รายการสุดท้าย" />
+    <phrase id="pagernext" value="รายการถัดไป" />
+    <phrase id="pagerprevious" value="รายการก่อนหน้า" />
+    <phrase id="password" value="รหัสผ่าน" client="1" />
+    <!-- v2021 -->
+    <phrase id="passwordmask" value="********" />
+    <!-- v12 -->
+    <phrase id="passwordrequest" value="ร้องขอรหัสผ่าน" />
+    <phrase id="passwordchanged" value="รหัสผ่านถูกเปลี่ยนเรียบร้อยแล้ว" />
+    <phrase id="passwordexpired" value="รหัสผ่านหมดอายุ กรุณาเปลี่ยนรหัสผ่าน" />
+    <phrase id="passwordstrength" value="ความยาก: %p" client="1" />
+    <!-- v12 -->
+    <phrase id="passwordtoosimple" value="รหัสง่ายเกินไป" client="1" />
+    <!-- v12 -->
+    <phrase id="permission" value="การอนุญาต" class="icon-user ew-icon" />
+    <!-- v11 -->
+    <phrase id="permissionadd" value="เพิ่ม/คัดลอก" client="1" />
+    <!-- v2020 -->
+    <phrase id="permissionadmin" value="แอดมิน" client="1" />
+    <!-- v2019 -->
+    <phrase id="permissiondelete" value="ลบ" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionedit" value="แก้ไข" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionimport" value="นำเข้า" client="1" />
+    <!-- v2020 -->
+    <phrase id="permissionlistsearchview" value="รายการ/ค้นหา/เปิดู" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionlist" value="รายการ" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionlookup" value="เรียกข้อมูล" client="1" />
+    <!-- v2020 -->
+    <phrase id="permissionsearch" value="ค้นหา" client="1" />
+    <!-- v2018 -->
+    <phrase id="permissionview" value="เปิดดู" client="1" />
+    <!-- v2018 -->
+    <phrase id="personaldatabtn" value="ข้อมูลส่วนตัว" />
+    <!-- v2019 -->
+    <phrase id="personaldatacontent" value="ท่านสามารถลบข้อมูลส่วนตัวที่เคยบันทึกไว้ได้จากหน้านี้" />
+    <!-- v2019 -->
+    <phrase id="personaldatadeletefailure" value="เกิดข้อผิดพลาดในการลบผู้ใช้" />
+    <!-- v2019 -->
+    <phrase id="personaldatadeletesuccess" value="ลบข้อมูลส่วนตัวเรียบร้อยแล้ว" />
+    <!-- v2019 -->
+    <phrase id="personaldatatitle" value="ข้อมูลส่วนตัว" />
+    <!-- v2019 -->
+    <phrase id="personaldatawarning" value="กำลังจะลบโดยถาวรและจะไม่สามารถนำกลับข้อมูลมาได้" />
+    <!-- v2019 -->
+    <phrase id="pickdate" value="เลือกวันที่" />
+    <phrase id="pleaseselect" value="กรุณาเลือก" client="1" />
+    <!-- v12 -->
+    <phrase id="pleasewait" value="กรุณารอซักครู่" client="1" />
+    <phrase id="prev" value="ก่อนหน้า" client="1" />
+    <!-- v12 -->
+    <phrase id="primarykeyunspecified" value="ไม่มีการระบุ primary key" />
+    <phrase id="printerfriendly" value="รูปแบบพร้อมพิมพ์" class="icon-print ew-icon" />
+    <!-- v11 -->
+    <phrase id="printerfriendlytext" value="รูปแบบพร้อมพิมพ์" />
+    <phrase id="privacypolicy" value="&lt;section _ngcontent-c2=&quot;&quot; class=&quot;privacy-policy&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;text-item&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;cnt&quot;&gt;โฟลว์แอคเคาท์ตระหนักและให้ความสำคัญกับการคุ้มครองความเป็นส่วนตัวของท่าน ซึ่งเราทำงานอย่างหนักเพื่อความไว้วางใจของคุณ เราจึงได้จัดทำนโยบายความเป็นส่วนตัวนี้ขึ้น เพื่อเป็นหลักประกันในการคุ้มครองข้อมูลส่วนบุคคลของท่านที่ติดต่อเข้ามาหรือทำรายการผ่าน www.flowadvance.com และเพื่อสร้างความเข้าใจถึงแนวทางปฏิบัติของเราในการจัดการข้อมูลส่วนบุคคล ขอท่านได้โปรดอ่านและทำความเข้าใจนโยบายนี้โดยละเอียด เนื่องจากการที่ท่านติดต่อเข้ามายังเว็บไซต์ของเรา หรือสมัครเข้าใช้บริการของ โฟลว์แอคเคาท์ ถือว่าท่านยินยอมผูกพันตามนโยบายฉบับนี้ทุกประการ &lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;cnt pad3&quot;&gt;ทั้งนี้ คำจำกัดความใดๆ ที่ปรากฎในนโยบายความเป็นส่วนตัวนี้ ให้เป็นไปตามที่กำหนดไว้ในเงื่อนไขการใช้บริการ flowadvance.com&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;cnt pad3&quot;&gt;โดยเรายึดมั่นในหลักการดังต่อไปนี้ เพื่อปกป้องสิทธิส่วนบุคคลของท่าน &lt;ul _ngcontent-c2=&quot;&quot;&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;โฟลว์แอคเคาท์ไม่ให้เช่า หรือขายข้อมูลส่วนบุคคลไปยังบุคคลที่สาม&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;โฟลว์แอคเคาท์ จะไม่แบ่งปันข้อมูลที่ติดต่อได้ของท่านให้กับผู้อื่นหรือบุคคลที่สาม โดยปราศจากความยินยอมของสมาชิก&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;1.&lt;/span&gt;ข้อมูลส่วนบุคคล การรวบรวมและการเก็บรักษาข้อมูลส่วนบุคคล&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;โฟลว์แอคเคาท์ให้บริการซฟอท์แวร์ที่มีประสิทธิภาพเทียบเท่าระดับสากลที่ช่วยให้เจ้าของธุรกิจ นักบัญชี และที่ปรึกษาด้านบัญชีและการเงินสามารถตรวจสอบสถานะทางการเงิน ผลการดำเนินงาน และเอกสารประกอบการบันทึกบัญชีได้ด้วยความสะดวก รวดเร็ว และปลอดภัย&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;เพื่ออำนวยความสะดวกในการเข้าใช้บริการดังกล่าว โฟลว์แอคเคาท์ มีความจำเป็นต้องจัดเก็บและรวบรวมข้อมูลส่วนบุคคลของท่านไว้ เพื่อนำไปใช้ในวัตถุประสงค์การดำเนินงานของบริษัทฯ และถูกต้องตามกฎหมายเท่านั้น หากท่านเลือกที่จะให้ข้อมูลส่วนบุคคลดังต่อไปนี้ ผ่านกระบวนการสมัคร &lt;ul _ngcontent-c2=&quot;&quot;&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ชื่อ สกุล ชื่อนิติบุคคล&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;หมายเลขบัตรประชาชน/เลขประจำตัวผู้เสียภาษี&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;อีเมล&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เบอร์โทรศัพท์หรือโทรสาร&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ที่อยู่&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ข้อมูลทางธุรกิจ&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ข้อมูลทางด้านภาษี&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ข้อมูลด้านการบัญชีและการเงิน&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ข้อมูลการจดทะเบียนทางพาณิชย์&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ข้อมูลบัตรเครดิต&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;ให้กับเว็บไซต์ของบริษัทฯ ตลอดจนกิจกรรมทางธุรกิจหรือการดำเนินธุรกรรมใดๆ ของท่านแก่เว็บไซต์โฟลว์แอคเคาท์ ทั้งนี้รวมถึงการติดต่อเพื่อขอรับความช่วยเหลือจากทีมสนับสนุนและบริการลูกค้า ของโฟลว์แอคเคาท์ แล้ว เราจะรักษาข้อมูลเหล่านั้นไว้เป็นความลับตามเกณฑ์มาตรฐานสำหรับการรักษาข้อมูลเป็นความตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;ทั้งนี้เมื่อท่านสมัครใช้บริการใดๆของโฟลว์แอคเคาท์ ถือเป็นการยินยอมให้ เราใช้และเก็บข้อมูลของท่านเเพื่อวัตถุประสงค์ในการให้บริการตามที่กำหนดไว้ในเงื่อนไขการใช้บริการ และตามที่กำหนดไว้ในนโยบายคุ้มครองความเป็นส่วนตัวฉบับนี้เท่านั้น โดยเราจะใช้ข้อมูลของท่าน เพื่อประโยชน์แก่การดังต่อไปนี้ &lt;ul _ngcontent-c2=&quot;&quot;&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อระบุตัวตนของท่าน&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อประโยชน์และการเพิ่มประสิทธิภาพในการให้บริการ&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อประชาสัมพันธ์ในเรื่องการให้บริการ หรือการเปลี่ยนแปลงการให้บริการ&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อออกแบบสินค้าหรือบริการต่างๆ&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อส่งเสริมการตลาดหรือการอบรมใดๆ ที่เกี่ยวข้องกับการให้บริการ&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อช่วยเหลือและแก้ไขปัญหาด้านเทคนิคหรือปัญหาต่างๆที่อาจเกิดขึ้นจากการให้บริการ&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อส่งมอบประสบการณ์ในการใช้งานที่ดีขึ้นกว่าเดิม ซึ่งเป็นไปตามความต้องการของลูกค้า&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อให้เป็นไปตามที่กฎหมายกำหนด&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อติดต่อสื่อสารกับผู้ใช้งาน&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;ท่านมีสิทธิ์โดยชอบธรรมที่จะไม่ให้ข้อมูลส่วนบุคคลของท่านแก่โฟลว์แอคเคาท์ แต่การกระทำเช่นนั้นหมายความว่าท่านจะไม่สามารถใช้บริการใดๆของโฟลว์แอคเคาท์ได้&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;ข้อมูลของท่านจะถูกเก็บรวบรวมและรักษาไว้ในระหว่างระยะเวลาที่โฟลว์แอคเคาท์ให้บริการและท่านยังคงมีการใช้เว็บไซต์ของเรา นอกจากนี้ โฟลว์แอคเคาท์ใช้บริการติดตั้งระบบและฐานข้อมูลไว้บนระบบคลาวด์เซอร์เวอร์ ที่ได้มาตรฐานและเป็นผู้นำในการให้บริการด้านระบบฐานข้อมูลชั้นนำของโลก ประกอบการให้บริการของโฟลว์แอคเคาท์ เพื่อการเก็บรักษาข้อมูลส่วนบุคคล และข้อมูลอื่นๆของผู้ใช้บริการ ดังนั้น การสมัครเข้าใช้บริการของโฟลว์แอคเคาท์ ถือว่าท่านยอมรับว่าข้อมูลของท่านจะถูกเก็บไว้ในระบบฐานข้อมูลของคลาวด์เซอร์เวอร์ที่ตั้งอยู่ในต่างประเทศ &lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;นอกจากนี้เมื่อท่านได้ส่งอีเมล มายังโฟลว์แอคเคาท์ เราจะเก็บเนื้อหาในอีเมล ที่อยู่ของอีเมล และการโต้ตอบอีเมลดังกล่าวไว้ เพื่อตอบข้อสงสัยแก่ท่าน หรือเพื่อความจำเป็นในการติดตามผล และเพื่อการตรวจสอบถึงการโต้ตอบระหว่างผู้ใช้งานและเจ้าหน้าที่ของบริษัทฯ ในส่วนที่ท่านมีข้อสงสัยว่าได้รับการแก้ไขเป็นอย่างดีหรือไม่ &lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;ข้อมูลของท่านจะไม่ถูกนำไปใช้ เก็บรวบรวมหรือรักษาไว้โดยไม่ตรงตามวัตถุประสงค์ข้างต้น อย่างไรก็ตามในกรณีที่บริษัทฯ ต้องการเก็บข้อมูลโดยที่ไม่มีวัตถุประสงค์ในการดำเนินการดังกล่าวข้างต้น บริษัทฯ จะเก็บรวบรวมข้อมูลส่วนบุคคลของท่านโดยการขอข้อมูลจากท่านโดยตรง&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;2.&lt;/span&gt;หน้าที่ของท่านในการดูแลรักษารหัสผู้ใช้งาน (Password)&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;เพื่อให้โฟลว์แอคเคาท์บรรลุวัตถุประสงค์สำเร็จลุล่วงในการเก็บรักษาข้อมูลส่วนบุคคลของท่าน ท่านมีหน้าที่ที่จะต้องเก็บรหัสผู้ใช้งานของท่านไว้เป็นความลับ และท่านมีหน้าที่แจ้งให้โฟลว์แอคเคาท์ทราบในทันทีที่ท่านพบหรือทราบว่ามีการใช้รหัสผู้ใช้งานของท่านโดยไม่ได้รับอนุญาต &lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;3.&lt;/span&gt;การเก็บข้อมูลส่วนบุคคลของบุคคลภายนอก&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;ในกรณีที่ท่านให้ข้อมูลที่เกี่ยวกับบุคคลภายนอกแก่โฟลว์แอคเคาท์ ถือว่าท่านให้การรับประกันว่าท่านกระทำไปโดยมีสิทธิ หรือได้รับอนุญาตโดยชัดแจ้งจากเจ้าของข้อมูลให้กระทำเช่นนั้น และท่านอนุญาตให้ โฟลว์แอคเคาท์ จัดเก็บ ใช้ คัดลอก ข้อมูลดังกล่าวได้ภายในขอบเขตที่กำหนดไว้ในนโยบายคุ้มครองความเป็นส่วนตัวฉบับนี้ ทั้งนี้ท่านมีหน้าที่ในการแจ้งให้บุคคลภายนอกดังกล่าวทราบถึงการกระทำดังกล่าวและนโยบายคุ้มครองความเป็นส่วนตัวโฟลว์แอคเคาท์ด้วยตัวท่านเอง โฟลว์แอคเคาท์ไม่มีความรับผิดใดๆต่อบุคคลภายนอกและไม่มีหน้าที่ใดๆในการแจ้งให้บุคคลภายนอกทราบถึงเหตุดังกล่าว &lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;4.&lt;/span&gt;การเปิดเผยข้อมูลส่วนบุคคล&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt; ข้อมูลส่วนตัวและข้อมูลที่เป็นความลับถือเป็นสิ่งที่สำคัญยิ่ง โฟลว์แอคเคาท์จะไม่เปิดเผยข้อมูลส่วนตัวและข้อมูลที่เป็นความลับของท่านให้แก่บุคคลภายนอกหรือองค์กรอื่นใดไม่ว่าเพื่อวัตถุประสงค์ใดๆ นอกจากเสียจากท่านได้ให้ความยินยอม หรือมีความจำเป็นที่ต้องปฏิบัติตามกฎหมายตามหมายศาล โดยโฟลว์แอคเคาท์ใช้ดุลยพินิจของเราตามเหตุจำเป็นหรือเหมาะสม ทั้งนี้ไม่รวมถึงข้อมูลใดๆ ที่ &lt;ul _ngcontent-c2=&quot;&quot; class=&quot;roman&quot;&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เป็นหรือจะกลายเป็นความรู้สาธารณะนอกเหนือจากการละเมิดข้อตกลงนี้&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ได้รับจากบุคคลที่สามผู้ซึ่งได้รับมาอย่างถูกต้องตามกฎหมายและผู้ซึ่งมิได้อยู่ใต้ภาระผูกพันอันหวงห้ามต่อการเปิดเผย&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;อยู่ในความครอบครองของฝ่ายที่ได้รับมาโดยปราศจากข้อจำกัดอันเกี่ยวข้องกับการเปิดเผยก่อนวันที่ได้รับข้อมูลจากฝ่ายที่เปิดเผยนั้น หรือ &lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ได้รับการพัฒนาอย่างอิสระโดยมิต้องเข้าถึงข้อมูลที่เป็นความลับ&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;5.&lt;/span&gt;การเก็บและใช้ข้อมูลประเภทที่ไม่ใช่ข้อมูลส่วนบุคคล&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;การสมัครใช้บริการของโฟลว์แอคเคาท์ถือว่าท่านอนุญาตให้โฟลว์แอคเคาท์ เข้าถึง หรือใช้ข้อมูลประเภทที่ไม่ใช่ข้อมูลส่วนบุคคลของท่านได้ ในการต่อไปนี้ &lt;ul _ngcontent-c2=&quot;&quot;&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อช่วยให้เราเข้าใจวิธีการที่ท่านใช้บริการของเรา&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อให้ข้อมูลเพิ่มเติมแก่ผู้ใช้บริการเกี่ยวกับการใช้งาน และประโยชน์ที่ผู้ใช้บริการจะได้รับเมื่อใช้บริการ&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เพื่อการช่วยเหลือ สนับสนุน และการเพิ่มประสิทธิภาพและประสิทธิผลของธุรกิจขนาดเล็กและขนาดกลาง ผู้ทำบัญชีและสำนักงาน&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;6.&lt;/span&gt;การเข้าเยี่ยมชมเว็บไซต์ flowadvance.com&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;ท่านสามารถเข้าเยี่ยมชมเว็บไซต์ www.flowadvance.com ได้เพื่อค้นหาสินค้าหรือบริการต่างๆ ของเรา รวมถึงการสืบค้นข้อมูลต่างๆเพื่อประโยชน์ในการจัดการด้านบัญชี บริหารธุรกิจหรือการเงินส่วนบุคคลของท่าน โดยที่ท่านไม่จำเป็นต้องแจ้งข้อมูลเกี่ยวกับตัวท่านให้แก่ทางเว็บไซต์ หากท่านต้องการรับข่าวสารจากเรา หรือยกเลิกการรับข่าวสารได้โดยส่งอีเมลมาที่ &lt;a _ngcontent-c2=&quot;&quot; class=&quot;gray&quot; href=&quot;mailto:support@flowaccount.com?Subject=ติดต่อสอบถามข้อมูล FlowAdvance&quot; target=&quot;_top&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot; class=&quot;hr&quot;&gt;support@flowaccount.com&lt;/span&gt;&lt;/a&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;เว็บไซต์ของบริษัทฯ ได้รับการดำเนินการแก้ไขปรับปรุงให้ดียิ่งขึ้นอย่างต่อเนื่่อง บริษัทฯ อาจใช้อุปกรณ์ ซอฟท์แวร์ เพื่อการเก็บรวบรวมข้อมูลในด้านพฤติกรรมการสืบค้นข้อมูลของผู้ที่เข้ามาเยี่ยมชมเว็บไซต์ของบริษัทฯ ซึ่งบริษัทฯ จะนำข้อมูลดังกล่าวไปใช้ในวัตถุประสงค์เพื่อการปรับปรุงเว็บไซต์ให้เข้าถึงกลุ่มเป้าหมายได้อย่างมีประสิทธิภาพ ซึ่งข้อมูลที่มีการรวบรวมจะเป็นข้อมูล (1) วันและเวลาในการเข้าชมเว็บไซต์ (2) การดูหน้าเว็บเพจต่างๆ (3) เวลาในการเยี่ยมชม (4) ประเภทของการสืบค้น (5) การเข้าเยี่ยมชมก่อนและหลังการเข้าชมเว็บไซต์ของบริษัทฯ &lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;โฟลว์แอคเคาท์อาจทำการตรวจสอบถึงพฤติกรรมการสืบค้นข้อมูลของผู้ใช้งานหรือผู้เข้าชมเว็บไซต์ และใช้บริการต่างๆ โดยส่วนหนึ่งของกระบวนการรักษาความปลอดภัยของเว็บไซต์นั้น โฟลว์แอคเคาท์ใช้ระบบ “คุ้กกี้” (Cookkie) ในการตรวจสอบความถูกต้องแท้จริงของผู้เข้าเยี่ยมชมเว็บไซต์ ระบบ “คุ้กกี้” นั้นคือ ไฟล์คอมพิวเตอร์ขนาดเล็กที่ติดตั้งอยู่บนคอมพิวเตอร์ของท่านเพื่อความสะดวกในการจดจำเว็บไซต์ ที่ท่านเคยเข้าชม “คุกกี้” ไม่สามารถใช้เพื่อระบุถึงตัวท่านหรือมีข้อมูลที่เกี่ยวข้องกับตัวท่านแต่ประการใด แต่ “คุกกี้” นั้นสามารถใช้เพื่อระบุถึงเครื่องคอมพิวเตอร์ของท่านเท่านั้น&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;เมื่อ “คุกกี้” ได้ถูกติดตั้งลงในระบบคอมพิวเตอร์ของท่านแล้ว ก็จะทำให้ท่านได้รับความสะดวกสบายในการใช้ประโยชน์จากเว็บไซต์ของโฟลว์แอคเคาท์ เนื่องจาก “คุกกี้” จะจดจำรูปแบบลักษณะการใช้งานของผู้ใช้บริการเอาไว้ นอกจากนี้เราจะนำข้อมูลที่ “คุกกี้” ได้บันทึกหรือเก็บรวบรวมไว้ เช่น &lt;ul _ngcontent-c2=&quot;&quot;&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;หมายเลขไอพี (IP Address)&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;ชนิดของ Browser ที่ใช้ในการเข้าถึง&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;Web page ที่เข้าเยี่ยมชม&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เวลาที่เยี่ยมชม (Access time)&lt;/li&gt;&lt;li _ngcontent-c2=&quot;&quot;&gt;เว็บไซต์ที่อ้างถึงเว็บไซต์ของบริษํทฯ (Referring website)&lt;/li&gt;&lt;/ul&gt; เพื่อไปใช้ในการวิเคราะห์เชิงสถิติ หรือในกิจกรรมอื่นของ เว็บไซต์ เพื่อปรับปรุงคุณภาพการให้บริการต่อไป ทั้งนี้ ท่านมีสิทธิปฎิเสธที่จะไม่ใช้ “คุกกี้”ได้ แต่ทั้งนี้ ท่านจะต้องตระหนักว่าการปฎิเสธการใช้งาน “คุกกี้” อาจทำให้ท่านไม่สามารถใช้ประโยชน์จากฟังชั่นหรือการใช้งานบางอย่างบนเว็บไซต์ของโฟลว์แอคเคาท์ได้ &lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;7.&lt;/span&gt;กระบวนการรักษาความปลอดภัยเพื่อการปกป้องข้อมูล&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;โฟลว์แอคเคาท์รักษามาตรฐานในการรักษาความปลอดภัยโดยเคร่งครัด ทั้งนี้ เพื่อวัตถุประสงค์ในการปกป้องความเสียหาย หรือการเข้าถึงข้อมูลส่วนบุคคลของท่านโดยไม่มีอำนาจ โดยโฟลว์แอคเคาท์ ได้มีการติดตั้งระบบและฐานข้อมูล (Database) ไว้บนระบบคลาวด์เซอร์เวอร์ ที่ได้มาตรฐานสากล ซึ่งได้รับการรับด้านความปลอดภัยและมีเสถียรภาพสูง ดังนั้นผู้ใช้งานสามารถมั่นใจได้ถึงความปลอดภัยของการจัดเก็บข้อมูลและการใช้งาน &lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail paddingtop&quot;&gt;เนื่องจากโฟลว์แอคเคาท์ ต้องมีการรับส่งข้อมูลสำคัญต่างๆ จากผู้ใช้งานไปยังเซิร์ฟเวอร์โดยผ่านเครือข่ายอินเทอร์เน็ต เราได้ตระหนักถึงความสำคัญในการเก็บรักษาข้อมูลส่วนบุคคลของท่าน ป้องกันการสูญหาย และพยายามอย่างยิ่งเพื่อที่จะป้องกันไม่ให้มีการเข้าถึงข้อมูลส่วนบุคคลโดยไม่ได้รับอนุญาตดังนั้นเพื่อรักษาความลับ และความปลอดภัยของข้อมูลของท่าน บริษัทฯได้มีมาตราฐานในการรักษาความปลอดภัยโดยข้อมูลดังกล่าวจะมีการเข้ารหัส SSL หรือ Secure Socket Layer Protocol&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;8.&lt;/span&gt;สิทธิในการควบคุมข้อมูลส่วนบุคคล&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;เพื่อประโยชน์ในการรักษาความเป็นส่วนตัว ท่านมีสิทธิเลือกที่จะให้มีการใช้หรือแชร์ข้อมูลส่วนบุคคลของท่าน หรืออาจเลือกที่จะไม่รับข้อมูลหรือสื่อทางการตลาดใดๆ จาก เว็บไซต์ ก็ได้ โดยเพียงแต่กรอกความจำนงดังกล่าวเพื่อแจ้งให้โฟลว์แอคเคาท์ ทราบตามช่องทางต่างๆที่ปรากฏบนหน้าเว็บไซต์&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;9.&lt;/span&gt;การร้องเรียนปัญหาเรื่องความเป็นส่วนตัว&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;ในกรณีที่ท่านมีปัญหา ข้อสงสัย ข้อเสนอแนะ หรือข้อติชมใดๆ เกี่ยวกับนโยบายคุ้มครองความเป็นส่วนตัว หรือการปฏิบัติตามนโยบายความเป็นส่วนตัวฉบับนี้ โฟลว์แอคเคาท์ ยินดีที่จะตอบข้อสงสัย รับฟังข้อเสนอแนะ และคำติชมทั้งหลาย อันจะเป็นประโยชน์ต่อการปรับปรุงการให้บริการต่อไป โดยท่านสามารถติดต่อกับโฟลว์แอคเคาท์ ได้ผ่านทางช่องทางต่างๆตามที่ปรากฏบนหน้าเว็บไซต์&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;10.&lt;/span&gt;นโยบายคุ้มครองความเป็นส่วนตัวฉบับนี้อยู่ภายใต้บังคับของเงื่อนไขการใช้บริการ &lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;การจำกัดความรับผิด หรือยกเว้นความรับผิดของโฟลว์แอคเคาท์ ให้ถือตามที่กำหนดไว้ใน เงื่อนไขการใช้บริการ&lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;textdiv&quot;&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;head&quot;&gt;&lt;span _ngcontent-c2=&quot;&quot;&gt;11.&lt;/span&gt;โฟลว์แอคเคาท์ ขอสงวนสิทธิในการปรับปรุงหรือแก้ไขนโยบายคุ้มครองความเป็นส่วนตัว&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;detail&quot;&gt;การปรับปรุงหรือแก้ไขนโยบายคุ้มครองความเป็นส่วนตัว ไม่ต้องแจ้งให้ทราบล่วงหน้า ทั้งนี้ เพื่อความเหมาะสมและมีประสิทธิภาพในการให้บริการ ดังนั้น จึงขอแนะนำให้ผู้ใช้บริการอ่านนโยบายความเป็นส่วนตัวทุกครั้งที่แวะชม หรือเยี่ยมชม หรือมีการใช้บริการจากเว็บไซต์ของโฟลว์แอคเคาท์ &lt;/div&gt;&lt;/div&gt;&lt;div _ngcontent-c2=&quot;&quot; class=&quot;edit-date&quot;&gt;แก้ไขล่าสุดวันที่ 17 กรกฎาคม 2561&lt;/div&gt;&lt;/section&gt;" />
+    <!-- v2019 -->
+    <phrase id="privacypolicycontent" value="ใช้หน้านี้เพื่อให้รายละเอียดนโยบายความเป็นส่วนตัวของระบบ" />
+    <!-- v2019 -->
+    <phrase id="qtr1" value="ไตรมาส 1" />
+    <!-- v2020 (report) -->
+    <phrase id="qtr2" value="ไตรมาส 2" />
+    <!-- v2020 (report) -->
+    <phrase id="qtr3" value="ไตรมาส 3" />
+    <!-- v2020 (report) -->
+    <phrase id="qtr4" value="ไตรมาส 4" />
+    <!-- v2020 (report) -->
+    <phrase id="quicksearch" value="ค้นหาทันใจ" />
+    <phrase id="quicksearchbtn" value="ค้นหา (*)" />
+    <phrase id="quicksearchauto" value="อัตโนมัติ" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchautoshort" value="" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchall" value="ค้นหาทุกคำ" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchallshort" value="ทั้งหมด" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchany" value="คำใดๆ" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchanyshort" value="คำหลัก" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchexact" value="คำที่ตรงกัน" client="1" />
+    <!-- v11 -->
+    <phrase id="quicksearchexactshort" value="ตรงกัน" client="1" />
+    <!-- v11 -->
+    <phrase id="recipient" value="ผู้รับ" client="1" />
+    <!-- v2021 -->
+    <phrase id="record" value="ข้อมูล" client="1" />
+    <!-- v2017 -->
+    <phrase id="recordchangedbyotheruser" value="ข้อมูลถูกเปลี่ยนแปลงโดยผู้ใช้อื่น กดปุ่ม reload เพิ่มดึงข้อมูลใหม่ (ข้อมูลของคุณจะหายไป) หรือกดปุ่ม Overwrite เมื่อบันทึกข้อมูลขอบคุณทับลงไป" />
+    <phrase id="recorddeleted" value="ลบข้อมูลเรียบร้อยแล้ว" />
+    <phrase id="recordinserted" value="เพิ่มข้อมูลเรียบร้อยแล้ว" />
+    <phrase id="recordupdated" value="แก้ไขข้อมูลเรียบร้อยแล้ว" />
+    <phrase id="recordsperpage" value="จำนวนข้อมูลในแต่ละหน้า" client="1" />
+    <!-- v2017 -->
+    <phrase id="register" value="ลงทะเบียน" client="1" />
+    <!-- v2020 -->
+    <phrase id="registerbtn" value="ลงทะเบียน" />
+    <phrase id="registersuccess" value="ลงทะเบียนเสร็จเรียบร้อยแล้ว" />
+    <phrase id="registersuccessactivate" value="ลงทะเบียนอีเมลสำเร็จ อีเมล์ยืนยันได้ถูกส่งไปยังที่อยู่อีเมลของคุณ โปรดคลิกที่ลิงก์ในอีเมลเพื่อเปิดใช้งานบัญชีของคุณ" />
+    <phrase id="registerpage" value="ลงทะเบียน" />
+    <phrase id="relatedrecordrequired" value="คุณไม่สามารถเพิ่มหรือปรับปรุงการบันทึกเพราะค่าคีย์ต่างประเทศไม่ได้อยู่ในตารางต้นแบบ '%t'" />
+    <phrase id="relatedrecordexists" value="ไม่สามารถลบได้เพราะมีข้อมูลส่วนอื่นที่เกี่ยวข้องอยู่ '%t'" />
+    <phrase id="reloadbtn" value="เรียกข้อมูลใหม่" client="1" />
+    <!-- v2017 -->
+    <phrase id="reloadlink" value="เรียกข้อมูลใหม่" />
+    <phrase id="rememberme" value="จำการเข้าระบบไว้" />
+    <phrase id="remove" value="เอาออก" />
+    <phrase id="replace" value="แทนที่" />
+    <phrase id="report" value="รายงาน" />
+    <phrase id="resetpwd" value="รีเซ็ตรหัสผ่าน" />
+    <!-- v2020 -->
+    <phrase id="resetpwdmsg" value="รีเซ็ตรหัสผ่าน" />
+    <!-- v2020 -->
+    <phrase id="resendregisteremailbtn" value="ส่งอีเมลลงทะเบียนอีกครั้ง" />
+    <!-- v12 -->
+    <phrase id="resendregisteremailsuccess" value="อีเมลที่ลงทะเบียนสำหรับผู้ใช้ '%u' ได้รับการส่ง" />
+    <!-- v12 -->
+    <phrase id="resendregisteremailfailure" value="ไม่สามารถที่จะกลับมาลงทะเบียนส่งอีเมลสำหรับผู้ใช้ '%u' ไม่ผ่าน" />
+    <!-- v12 -->
+    <phrase id="reset" value="รีเชต" />
+    <phrase id="resetallfilter" value="รีเซ็ตตัวกรอง" class="icon-reset-search ew-icon" />
+    <!-- v2020 (report) -->
+    <phrase id="resetconcurrentuserbtn" value="รีเซ็ตเซสชั่น ผู้ใช้งาน" />
+    <!-- v12 -->
+    <phrase id="resetconcurrentusersuccess" value="เซสชั่นสำหรับผู้ใช้ '%u' ได้รับการตั้งค่า" />
+    <!-- v12 -->
+    <phrase id="resetconcurrentuserfailure" value="ล้มเหลวในการตั้งค่าเซสชั่นสำหรับผู้ใช้ '%u'" />
+    <!-- v12 -->
+    <phrase id="resetloginretrybtn" value="รีเซ็ตการล็อกอิน" />
+    <!-- v12 -->
+    <phrase id="resetloginretrysuccess" value="รีเชตกผู้เข้าใช้งาน '%u' สำเร็จ" />
+    <!-- v12 -->
+    <phrase id="resetloginretryfailure" value="ล้มเหลวในการรีเชตผู้ใช้งาน '%u'" />
+    <!-- v12 -->
+    <phrase id="resetsearchbtn" value="รีเชต" class="icon-reset-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="resetsearch" value="รีเชต" />
+    <phrase id="rptavg" value="เฉลี่ย" />
+    <!-- v2020 (report) -->
+    <phrase id="rptcnt" value="จำนวน" />
+    <!-- v2020 (report) -->
+    <phrase id="rptdtlrec" value="ข้อมูลรายละเอียด" />
+    <!-- v2020 (report) -->
+    <phrase id="rptgrandsummary" value="รวมทั้งหมด" />
+    <!-- v2020 (report) -->
+    <phrase id="rptmax" value="มากที่สุด" />
+    <!-- v2020 (report) -->
+    <phrase id="rptmin" value="น้อยที่สุด" />
+    <!-- v2020 (report) -->
+    <phrase id="rptpagesummary" value="รวมหน้านี้" />
+    <!-- v2020 (report) -->
+    <phrase id="rptsum" value="ผลรวม" />
+    <!-- v2020 (report) -->
+    <phrase id="rptsumhead" value="ผลรวมของ" />
+    <!-- v2020 (report) -->
+    <phrase id="savebtn" value="บันทึก" client="1" />
+    <!-- v2018 -->
+    <phrase id="savecurrentfilter" value="บันทึกตัวกรองปัจจุบัน" />
+    <!-- v12 -->
+    <phrase id="saveusername" value="บันทึกชื่อผู้ใช้ของฉัน" />
+    <!-- Deprecated since v2018 -->
+    <phrase id="search" value="ค้นหา" client="1" />
+    <!-- v2017 -->
+    <phrase id="searchbtn" value="ค้นหา" client="1" />
+    <!-- v2018 -->
+    <phrase id="searchlink" value="ค้นหา" class="fas fa-search ew-icon" />
+    <!-- v2019 -->
+    <phrase id="searchpanel" value="แผงค้นหา" />
+    <!-- v11 -->
+    <phrase id="selectbtn" value="เลือก" client="1" />
+    <!-- v2017 -->
+    <phrase id="sendemailbtn" value="ส่ง" />
+    <phrase id="sendemailsuccess" value="ส่งอีเมล์สำเร็จ" client="1" />
+    <phrase id="sender" value="ผู้ส่ง" client="1" />
+    <!-- v2021 -->
+    <phrase id="sendpwd" value="ส่งรหัสผ่าน" client="1" />
+    <!-- v2020 -->
+    <phrase id="sequencenumber" value="ลำดับ %s." />
+    <phrase id="servercommunicationerror" value="เกิดข้อผิดพลาด ขณะที่การสื่อสาร ไปยังเซิร์ฟเวอร์" />
+    <!-- v2017 -->
+    <phrase id="servererror" value="พบ internal error ขณะประมวลผล" />
+    <!-- v2021 -->
+    <phrase id="sessionwillexpire" value="เซสชั่นของคุณจะหมดอายุใน %s วินาที.  คลิกตกลงเพื่อดำเนินการต่อเซสชั่นของคุณ" client="1" />
+    <!-- v12 -->
+    <phrase id="sessionexpired" value="เซสชั่นของคุณหมดอายุแล้ว." client="1" />
+    <!-- v12 -->
+    <phrase id="setpasswordexpiredbtn" value="ตั้งรหัสผ่านหมดอายุ" />
+    <!-- v12 -->
+    <phrase id="setpasswordexpiredsuccess" value="รหัสผ่านสำหรับผู้ใช้ '%u' ได้รับการตั้งค่าให้เป็นหมดอายุ" />
+    <!-- v12 -->
+    <phrase id="setpasswordexpiredfailure" value="ล้มเหลวในการตั้งรหัสผ่านสำหรับผู้ใช้ '%u' หมดอายุ" />
+    <!-- v12 -->
+    <phrase id="showallbtn" value="แสดงทั้งหมด" class="icon-reset-search ew-icon" />
+    <!-- v11 -->
+    <phrase id="showall" value="แสดงทั้งหมด" />
+    <!-- v11 -->
+    <phrase id="subject" value="หัวข้อ" client="1" />
+    <!-- v2021 -->
+    <phrase id="success" value="สำเร็จ" client="1" />
+    <!-- v2020 -->
+    <phrase id="summary" value="ภาพรวม" />
+    <!-- v2020 (report) -->
+    <phrase id="summarycolon" value=": " />
+    <!-- v2020 (report) -->
+    <phrase id="table" value="ตาราง" />
+    <phrase id="tableorview" value="ข้อมูล" client="1" />
+    <!-- v2018 -->
+    <phrase id="tasks" value="งาน" />
+    <!-- v2020 (report) -->
+    <phrase id="tbltypetable" value="ตาราง:" />
+    <phrase id="tbltypeview" value="ดู:" />
+    <phrase id="tbltypecustomview" value="กำหนดการดู:" />
+    <phrase id="tbltypereport" value="รายงาน:" />
+    <phrase id="to" value="ถึง" />
+    <phrase id="top" value="บน" />
+    <!-- v2020 (report) -->
+    <phrase id="total" value="รวม" />
+    <phrase id="unauthorizeduserid" value="ผู้ใช้ (%c) ไม่สามารถกำหนดรหัสผู้ใช้ (%u) ได้" />
+    <phrase id="unauthorizedparentuserid" value="ผู้ใช้ (%c) ไม่สามารถกำหนดสิทธิ์ผู้ใช้ (%p) ได้" />
+    <phrase id="unauthorizedmasteruserid" value="ผู้ใช้ (%c) ไม่สามารถเพิ่มข้อมูลใน Master filter: %f ได้" />
+    <phrase id="unsupportedbrowser" value="บราวเซอร์ของท่านไม่รองรับการแสดงผลหน้านี้" client="1" />
+    <!-- v2021 -->
+    <phrase id="update" value="แก้ไข" />
+    <phrase id="updatebtn" value="แก้ไข" client="1" />
+    <!-- v2017 -->
+    <phrase id="updatecancelled" value="ยกเลิกการแก้ไขเรียบร้อยแล้ว" />
+    <phrase id="updatefailed" value="การแก้ไขผิดพลาด" />
+    <phrase id="updatelink" value="แก้ไข" class="fas fa-check ew-icon" />
+    <!-- v2019 -->
+    <phrase id="updateselectall" value="เลือกทั้งหมด" />
+    <!-- v11 -->
+    <phrase id="updateselectedlink" value="แก้ไขรายการที่เลือก" class="icon-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="updatesuccess" value="แก้ไขเรียบร้อยแล้ว" />
+    <phrase id="uploading" value="กำลังอัพโหลด..." client="1" />
+    <phrase id="uploadstart" value="เริ่มอัพโหลด" client="1" />
+    <phrase id="uploadcancel" value="ยกเลิกการอัพโหลด" client="1" />
+    <phrase id="uploaddelete" value="ลบการอัพโหลด" client="1" />
+    <phrase id="uploadoverwrite" value="อัพโหลดทับไฟล์เดิม" client="1" />
+    <phrase id="uploaderrmsg1" value="ไฟล์ที่อัปโหลดเกินสั่ง upload_max_filesize ใน php.ini" />
+    <phrase id="uploaderrmsg2" value="ไฟล์ที่อัปโหลดเกินสั่ง MAX_FILE_SIZE ที่ระบุในรูปแบบ HTML" />
+    <phrase id="uploaderrmsg3" value="อัพโหลดไฟล์ถูกอัพโหลดเพียงบางส่วนเท่านั้น" />
+    <phrase id="uploaderrmsg4" value="ไม่มีไฟล์อัพโหลด" />
+    <phrase id="uploaderrmsg6" value="ไม่พบ temporary folder" />
+    <phrase id="uploaderrmsg7" value="ไม่สามารถเขียนไฟล์ไปยังดิสก์" />
+    <phrase id="uploaderrmsg8" value="A PHP extension หยุดการอัพโหลด" />
+    <phrase id="uploaderrmsgpostmaxsize" value="อัพโหลดผิดพลาด ส่งข้อมูลได้สูงสุด" />
+    <phrase id="uploaderrmsgmaxfilesize" value="อัพโหลดผิดพลาด ขนาดไฟล์สูงสุด" client="1" />
+    <phrase id="uploaderrmsgminfilesize" value="อัพโหลดผิดพลาด ขนาดไฟล์เล็กสุด" client="1" />
+    <phrase id="uploaderrmsgacceptfiletypes" value="อัพโหลดผิดพลาด ประเภทไฟล์ที่อนุญาต" client="1" />
+    <phrase id="uploaderrmsgmaxnumberoffiles" value="อัพโหลดผิดพลาด จำนวนไฟล์มากสุด" client="1" />
+    <phrase id="uploaderrmsgmaxwidth" value="อัพโหลดผิดพลาด ความกว้างมากสุด" />
+    <phrase id="uploaderrmsgminwidth" value="อัพโหลดผิดพลาด ความกว้างน้อยสุด" />
+    <phrase id="uploaderrmsgmaxheight" value="อัพโหลดผิดพลาด ความสูงมากสุด" />
+    <phrase id="uploaderrmsgminheight" value="อัพโหลดผิดพลาด ความสูงน้อยสุด" />
+    <phrase id="uploaderrmsgmaxfilelength" value="ผลรวมของไฟล์ยาวเกินไป ไม่สามารถอัพโหลดได้" client="1" />
+    <phrase id="useradministrator" value="Administrator" client="1" />
+    <!-- v12 -->
+    <phrase id="useranonymous" value="Anonymous" client="1" />
+    <!-- v12 -->
+    <phrase id="userdefault" value="Default" client="1" />
+    <!-- v12 -->
+    <phrase id="useremail" value="อีเมล์" />
+    <phrase id="userexists" value="มีผู้ใช้นี้อยู่แล้ว" />
+    <phrase id="userlevel" value="ระดับผู้ใช้:" />
+    <phrase id="userleveladministratorname" value="ชื่อระดับของผู้ใช้สำหรับระดับ" client="1" />
+    <phrase id="userlevelanonymousname" value="ชื่อระดับผู้ใช้งานระดับผู้ใช้ -2 ต้องเป็น 'ไม่ประสงค์ออกนาม" client="1" />
+    <!-- v12 -->
+    <phrase id="userlevelpermission" value="ระดับการอนุญาตของผู้ใช้" />
+    <phrase id="userlevelidinteger" value="รหัสระดับของผู้ใช้ต้องเป็นเลขจำนวนเต็ม" client="1" />
+    <phrase id="userleveldefaultname" value="ชื่อระดับของผู้ใช้สำหรับระดับ 0 ต้องเป็น 'Default' เท่านั้น" client="1" />
+    <phrase id="userlevelidincorrect" value="ขอบเขตของรหัสระดับผู้ใช้ต้องมากกว่า 0" client="1" />
+    <phrase id="userlevelnameincorrect" value="ขอบเขตของชื่อระดับของผู้ใช้ต้องไม่ใช่ 'Administrator' หรือ 'Default'" client="1" />
+    <phrase id="userloggedin" value="ผู้ใช้ '%u' กำลังอยู่ในระบบ ณ ขณะนี้" />
+    <phrase id="username" value="ชื่อผู้ใช้" client="1" />
+    <!-- v2021 -->
+    <phrase id="usernotfound" value="ไม่มีผู้ใช้ '%u'" />
+    <!-- v2018 -->
+    <phrase id="userprofilecorrupted" value="โปรไฟล์ของผู้ใช้มีปัญหา กรุณาล็อกเอ้าท์และล็อกอินใหม่" />
+    <phrase id="valuenotexist" value="ไม่มีข้อมูล" client="1" />
+    <!-- v11 -->
+    <phrase id="view" value="เปิดดู" />
+    <phrase id="viewimagegallery" value="เปิดดูรูปภาพ" />
+    <!-- v12 -->
+    <phrase id="viewlink" value="เปิดดู" class="icon-view ew-icon" />
+    <!-- v11 -->
+    <phrase id="viewpageaddlink" value="เพิ่ม" class="fas fa-plus ew-icon" />
+    <!-- v2019 -->
+    <phrase id="viewpagecopylink" value="คัดลอก" class="icon-copy ew-icon" />
+    <!-- v11 -->
+    <phrase id="viewpagedeletelink" value="ลบ" class="fas fa-trash ew-icon" />
+    <!-- v2019 -->
+    <phrase id="viewpagedetaillink" value="รายละเอียด" />
+    <phrase id="viewpageeditlink" value="แก้ไข" class="icon-edit ew-icon" />
+    <!-- v11 -->
+    <phrase id="warning" value="แจ้งเตือน" client="1" />
+    <!-- v2020 -->
+    <phrase id="week" value="สัปดาห์" />
+    <!-- v2020 (report) -->
+    <phrase id="wrongfiletype" value="ไม่สามารถใช้ไฟล์ชนิดนี้ได้" client="1" />
+    <phrase id="year" value="ปี" />
+    <!-- v2020 (report) -->
+    <phrase id="=" value="" />
+    <!-- v12 -->
+    <phrase id="equal" value="=" />
+    <!-- v12 -->
+    <phrase id="&lt;&gt;" value="&lt;&gt;" />
+    <phrase id="&lt;" value="&lt;" />
+    <phrase id="&lt;=" value="&lt;=" />
+    <phrase id="&gt;" value="&gt;" />
+    <phrase id="&gt;=" value="&gt;=" />
+    <phrase id="like" value="" />
+    <phrase id="not like" value="ไม่ประกอบด้วย" />
+    <!-- v11.0.3 -->
+    <phrase id="starts with" value="เริ่มต้นด้วย" />
+    <phrase id="ends with" value="ลงท้ายด้วย" />
+    <phrase id="is null" value="เป็นค่าว่าง" />
+    <phrase id="is not null" value="ไม่เป็นค่าว่าง" />
+    <phrase id="between" value="ระหว่าง" />
+    <phrase id="and" value="และ" />
+    <phrase id="or" value="หรือ" />
+    <phrase id="am" value="AM" client="1" />
+    <!-- v2017 -->
+    <phrase id="pm" value="PM" client="1" />
+    <!-- v2017 -->
+    <!-- Menu Prefix/Suffix (report) -->
+    <!-- v2020 -->
+    <phrase id="simplereportmenuitemprefix" value="" />
+    <phrase id="simplereportmenuitemsuffix" value="" />
+    <phrase id="detailsummaryreportmenuitemprefix" value="" />
+    <phrase id="detailsummaryreportmenuitemsuffix" value="" />
+    <phrase id="crosstabreportmenuitemprefix" value="" />
+    <phrase id="crosstabreportmenuitemsuffix" value="" />
+    <phrase id="chartreportmenuitemprefix" value="" />
+    <phrase id="chartreportmenuitemsuffix" value="" />
+    <!-- Advanced Filter (report) -->
+    <!-- v2020 -->
+    <phrase id="future" value="ต่อไป" />
+    <phrase id="past" value="ย้อนหลัง" />
+    <phrase id="last14days" value="14 วันที่ผ่านมา" />
+    <phrase id="last30days" value="30 วันที่ผ่านมา" />
+    <phrase id="last7days" value="7 วันที่ผ่านมา" />
+    <phrase id="next14days" value="14 วันถัดไป" />
+    <phrase id="next30days" value="30 วันถัดไป" />
+    <phrase id="next7days" value="7 วันถัดไป" />
+    <phrase id="today" value="วันนี้" />
+    <phrase id="tomorrow" value="พรุ่งนี้" />
+    <phrase id="yesterday" value="เมื่อวานนี้" />
+    <phrase id="lastmonth" value="เดือนที่แล้ว" />
+    <phrase id="nextmonth" value="เดือนถัดไป" />
+    <phrase id="thismonth" value="เดือนนี้" />
+    <phrase id="lasttwoweeks" value="2 สัปดาห์ที่ผ่านมา" />
+    <phrase id="lastweek" value="สัปดาห์ที่ผ่านมา" />
+    <phrase id="nexttwoweeks" value="2 สัปดาห์ถัดไป" />
+    <phrase id="nextweek" value="สัปดาห์ถัดไป" />
+    <phrase id="thisweek" value="สัปดาห์นี้" />
+    <phrase id="lastyear" value="ปีที่ผ่านมา" />
+    <phrase id="nextyear" value="ปีถัดไป" />
+    <phrase id="thisyear" value="ปีนี้" />
+    <!-- Exceptions -->
+    <!-- v2021 -->
+    <phrase id="400" value="Bad Request" />
+    <phrase id="400desc" value="The server cannot or will not process the request due to an apparent client error." />
+    <phrase id="401" value="Unauthorized" />
+    <phrase id="401desc" value="The request requires valid user authentication." />
+    <phrase id="403" value="Forbidden" />
+    <phrase id="403desc" value="You are not permitted to perform the requested operation." />
+    <phrase id="404" value="Not Found" />
+    <phrase id="404desc" value="The requested resource could not be found. Please verify the URI and try again." />
+    <phrase id="405" value="Method Not Allowed" />
+    <phrase id="405desc" value="The request method is not supported for the requested resource." />
+    <phrase id="500" value="Internal Server Error" />
+    <phrase id="500desc" value="Unexpected condition encountered preventing server from fulfilling request." />
+    <phrase id="501" value="Not Implemented" />
+    <phrase id="501desc" value="The server does not support the functionality required to fulfill the request." />
+  </global>
+  <project>
+    <phrase id="bodytitle" value="In-plaze" />
+    <phrase id="footertext" value="Copyright © 2021 Z-Axis. All rights reserved." />
+    <menu id="60">
+      <phrase id="menutext" value=".htaccess" />
+    </menu>
+    <menu id="40">
+      <phrase id="menutext" value="Back to web page" />
+    </menu>
+    <menu id="2">
+      <phrase id="menutext" value="Text" />
+    </menu>
+    <menu id="58">
+      <phrase id="menutext" value="Content" />
+    </menu>
+    <menu id="32">
+      <phrase id="menutext" value="Image" />
+    </menu>
+    <menu id="59">
+      <phrase id="menutext" value="Blog" />
+    </menu>
+    <menu id="56">
+      <phrase id="menutext" value="Product" />
+    </menu>
+    <menu id="51">
+      <phrase id="menutext" value="Setting" />
+    </menu>
+    <menu id="29">
+      <phrase id="menutext" value="User" />
+    </menu>
+    <menu id="30">
+      <phrase id="menutext" value="Level" />
+    </menu>
+    <menu id="42">
+      <phrase id="menutext" value="Icon Library" />
+    </menu>
+    <menu id="57">
+      <phrase id="menutext" value="Product Category" />
+    </menu>
+    <menu id="41">
+      <phrase id="menutext" value="Icon" />
+    </menu>
+    <menu id="31">
+      <phrase id="menutext" value="Permission" />
+    </menu>
+    <menu id="55">
+      <phrase id="menutext" value="inc_final.php" />
+    </menu>
+    <menu id="52">
+      <phrase id="menutext" value="inc_init.php" />
+    </menu>
+    <menu id="53">
+      <phrase id="menutext" value="inc_js.js" />
+    </menu>
+    <table id="text">
+      <phrase id="tblcaption" value="Text" />
+      <field id="content_id">
+        <phrase id="fldcaption" value="ID" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+      <field id="value">
+        <phrase id="fldcaption" value="Text" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Enable" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="ใช้" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="ไม่ใช้" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="Created Date" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="Modified Date" />
+      </field>
+    </table>
+    <table id="contents">
+      <phrase id="tblcaption" value="Content" />
+      <field id="content_id">
+        <phrase id="fldcaption" value="ID" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+      <field id="value">
+        <phrase id="fldcaption" value="Text" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Enable" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="ใช้" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="ไม่ใช้" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="Created Date" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="Modified Date" />
+      </field>
+    </table>
+    <table id="image">
+      <phrase id="tblcaption" value="Image" />
+      <field id="image_id">
+        <phrase id="fldcaption" value="Image ID" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+      <field id="value">
+        <phrase id="fldcaption" value="Image" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Enable" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="1" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="0" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="Created" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="Modified" />
+      </field>
+    </table>
+    <table id="icon">
+      <phrase id="tblcaption" value="Icon" />
+      <field id="icon_id">
+        <phrase id="fldcaption" value="Icon" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+      <field id="value">
+        <phrase id="fldcaption" value="Icon" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Enable" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="1" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="0" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="Created" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="Modified" />
+      </field>
+    </table>
+    <table id="icon_list">
+      <phrase id="tblcaption" value="Icon Library" />
+      <field id="icon_id">
+        <phrase id="fldcaption" value="Image ID" />
+      </field>
+      <field id="class_name">
+        <phrase id="fldcaption" value="Class Name" />
+      </field>
+      <field id="type">
+        <phrase id="fldcaption" value="Type" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Enable" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="1" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="0" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="Created" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="Modified" />
+      </field>
+    </table>
+    <table id="user">
+      <phrase id="tblcaption" value="User" />
+      <field id="user_id">
+        <phrase id="fldcaption" value="User" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+      <field id="_username">
+        <phrase id="fldcaption" value="Username" />
+      </field>
+      <field id="_password">
+        <phrase id="fldcaption" value="Password" />
+      </field>
+      <field id="user_level_id">
+        <phrase id="fldcaption" value="Level" />
+      </field>
+      <field id="id_card">
+        <phrase id="fldcaption" value="ID Card" />
+      </field>
+      <field id="_email">
+        <phrase id="fldcaption" value="Email" />
+      </field>
+      <field id="active">
+        <phrase id="fldcaption" value="Active" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="1" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="0" />
+      </field>
+      <field id="address">
+        <phrase id="fldcaption" value="Address" />
+      </field>
+      <field id="phone">
+        <phrase id="fldcaption" value="Phone" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Status" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="ใช้งาน" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="ระงับ" />
+      </field>
+      <field id="created_time">
+        <phrase id="fldcaption" value="Created Time" />
+      </field>
+      <field id="modified_time">
+        <phrase id="fldcaption" value="Modified Time" />
+      </field>
+    </table>
+    <table id="user_level2">
+      <phrase id="tblcaption" value="Level" />
+      <field id="user_level_id">
+        <phrase id="fldcaption" value="Level ID" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Level Name" />
+      </field>
+    </table>
+    <table id="inc_init">
+      <phrase id="tblcaption" value="inc_init.php" />
+    </table>
+    <table id="inc_jsjs">
+      <phrase id="tblcaption" value="inc_js.js" />
+    </table>
+    <table id="inc_final">
+      <phrase id="tblcaption" value="inc_final.php" />
+    </table>
+    <table id="user_level_permission">
+      <phrase id="tblcaption" value="Permission" />
+      <field id="user_level_id">
+        <phrase id="fldcaption" value="User Level ID" />
+      </field>
+      <field id="table_name">
+        <phrase id="fldcaption" value="Table Name" />
+      </field>
+      <field id="_permission">
+        <phrase id="fldcaption" value="Permission" />
+      </field>
+    </table>
+    <table id="category">
+      <phrase id="tblcaption" value="Category" />
+      <field id="category_id">
+        <phrase id="fldcaption" value="รหัส" />
+      </field>
+      <field id="image">
+        <phrase id="fldcaption" value="รูปภาพ" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="ชื่อ" />
+      </field>
+      <field id="priority">
+        <phrase id="fldcaption" value="ลำดับ" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="Description" />
+      </field>
+    </table>
+    <table id="product">
+      <phrase id="tblcaption" value="Product" />
+      <field id="product_id">
+        <phrase id="fldcaption" value="รหัส" />
+      </field>
+      <field id="category_id">
+        <phrase id="fldcaption" value="หมวดหมู่" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="ชื่อ" />
+      </field>
+      <field id="intro">
+        <phrase id="fldcaption" value="รายละเอียดย่อ" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="รายละเอียด" />
+      </field>
+      <field id="price">
+        <phrase id="fldcaption" value="ราคา" />
+      </field>
+      <field id="priority">
+        <phrase id="fldcaption" value="ลำดับ" />
+      </field>
+      <field id="_new">
+        <phrase id="fldcaption" value="ใหม่" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="No" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="Yes" />
+      </field>
+      <field id="image">
+        <phrase id="fldcaption" value="รูปภาพหลัก" />
+      </field>
+      <field id="view">
+        <phrase id="fldcaption" value="เข้าชม" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="เปิดใช้งาน" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="0" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="1" />
+      </field>
+      <field id="images">
+        <phrase id="fldcaption" value="รูปภาพอื่นๆ" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="สร้าง" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="แก้ไข" />
+      </field>
+    </table>
+    <table id="blog">
+      <phrase id="tblcaption" value="Blog" />
+      <field id="blog_id">
+        <phrase id="fldcaption" value="รหัส" />
+      </field>
+      <field id="image">
+        <phrase id="fldcaption" value="รูปภาพหลัก" />
+      </field>
+      <field id="title">
+        <phrase id="fldcaption" value="หัวข้อ" />
+      </field>
+      <field id="intro">
+        <phrase id="fldcaption" value="รายละเอียดย่อ" />
+      </field>
+      <field id="_content">
+        <phrase id="fldcaption" value="เนื้อหา" />
+      </field>
+      <field id="priority">
+        <phrase id="fldcaption" value="ลำดับ" />
+      </field>
+      <field id="_new">
+        <phrase id="fldcaption" value="ใหม่" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="No" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="Yes" />
+      </field>
+      <field id="view">
+        <phrase id="fldcaption" value="เข้าชม" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="เปิดใช้งาน" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="0" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="1" />
+      </field>
+      <field id="images">
+        <phrase id="fldcaption" value="รูปภาพอื่นๆ" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="สร้าง" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="แก้ไข" />
+      </field>
+    </table>
+    <table id="htaccess">
+      <phrase id="tblcaption" value=".htaccess" />
+    </table>
+  </project>
+</ew-language>
