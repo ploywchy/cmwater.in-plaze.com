@@ -340,7 +340,7 @@ h6 > span:not(.nocolor):not(.badge) { color: #1e9bd6; }
 	margin-bottom: 0;
 	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 0px;
 	color: #333;
 }
 
@@ -350,4 +350,9 @@ h6 > span:not(.nocolor):not(.badge) { color: #1e9bd6; }
 	color: #FFF;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 	box-shadow: 0 0 0 rgba(0,0,0,0.2);
+}
+
+.promo h3 {
+	font-weight: 500;
+	margin-bottom: 0;
 }
