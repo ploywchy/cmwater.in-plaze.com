@@ -356,3 +356,7 @@ h6 > span:not(.nocolor):not(.badge) { color: #1e9bd6; }
 	font-weight: 500;
 	margin-bottom: 0;
 }
+
+.portfolio-desc h3 a:hover {
+    color: #1e9bd6;
+}
