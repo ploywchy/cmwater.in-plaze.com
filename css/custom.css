@@ -330,3 +330,16 @@ h6 > span:not(.nocolor):not(.badge) { color: #a26d5e; }
 	margin-bottom: 0;
 	color: #333;
 }
+
+.heading-block h1,
+.heading-block h2,
+.heading-block h3,
+.heading-block h4,
+.emphasis-title h1,
+.emphasis-title h2 {
+	margin-bottom: 0;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #333;
+}
