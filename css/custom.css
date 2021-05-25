@@ -40,8 +40,8 @@ h6 {
 	color: #444;
 	font-weight: 500;
 	font-size: 0.85rem;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+	letter-spacing: 0px;
+	text-transform: none;
 	font-family: 'Poppins', 'Prompt', sans-serif;
 }
 

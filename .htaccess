@@ -8,8 +8,11 @@ RewriteEngine On
 RewriteRule ^[B|b]log-(\d+)\..*?$ /blog-single.html?Blog_ID=$1 [L,QSA]
 RewriteRule ^[B|b]log-(\d+)-?([^.]*)(\.)?.*?$ /blog-single.html?Blog_ID=$1&slug=$2 [L,QSA]
 
-RewriteRule ^[P|p]roduct-(\d+)\..*?$ /product.html?Product_ID=$1 [L,QSA]
-RewriteRule ^[P|p]roduct-(\d+)-?([^.]*)(\.)?.*?$ /product.html?Product_ID=$1&slug=$2 [L,QSA]
+RewriteRule ^[P|p]roduct-(\d+)\..*?$ /portfolio-single.html?Product_ID=$1 [L,QSA]
+RewriteRule ^[P|p]roduct-(\d+)-?([^.]*)(\.)?.*?$ /portfolio-single.html?Product_ID=$1&slug=$2 [L,QSA]
+
+RewriteRule ^[P|p]ortfolio-(\d+)\..*?$ /portfolio-single.html?Product_ID=$1 [L,QSA]
+RewriteRule ^[P|p]ortfolio-(\d+)-?([^.]*)(\.)?.*?$ /portfolio-single.html?Product_ID=$1&slug=$2 [L,QSA]
 
 RewriteRule ^[C|c]ategory-(\d+)\..*?$ /category.html?Category_ID=$1 [L,QSA]
 RewriteRule ^[C|c]ategory-(\d+)-?([^.]*)(\.)?.*?$ /category.html?Category_ID=$1&slug=$2 [L,QSA]
@@ -69,7 +72,7 @@ php_value log_errors_max_len 0
 AddType application/x-httpd-php .html
 AddType application/x-httpd-php .htm
 
-php_value include_path "./:../:../../:../../../:../../../../:;./;../;../../;../../../;../../../../"
+# php_value include_path "./:../:../../:../../../:../../../../:;./;../;../../;../../../;../../../../"
 php_value auto_prepend_file inc_init.php
 php_value auto_append_file inc_final.php
 
