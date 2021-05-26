@@ -548,7 +548,7 @@ class Image extends DbTable
     public function deleteUploadedFiles($row)
     {
         $this->loadDbValues($row);
-        $this->Value->OldUploadPath = "../upload/";
+        $this->Value->OldUploadPath = "upload";
         $oldFiles = EmptyValue($row['Value']) ? [] : [$row['Value']];
         foreach ($oldFiles as $oldFile) {
             if (file_exists($this->Value->oldPhysicalUploadPath() . $oldFile)) {
@@ -915,7 +915,7 @@ SORTHTML;
         $this->Name->ViewCustomAttributes = "";
 
         // Value
-        $this->Value->UploadPath = "../upload/";
+        $this->Value->UploadPath = "upload";
         if (!EmptyValue($this->Value->Upload->DbValue)) {
             $this->Value->ImageAlt = $this->Value->alt();
             $this->Value->ViewValue = $this->Value->Upload->DbValue;
@@ -954,7 +954,7 @@ SORTHTML;
 
         // Value
         $this->Value->LinkCustomAttributes = "";
-        $this->Value->UploadPath = "../upload/";
+        $this->Value->UploadPath = "upload";
         if (!EmptyValue($this->Value->Upload->DbValue)) {
             $this->Value->HrefValue = GetFileUploadUrl($this->Value, $this->Value->htmlDecode($this->Value->Upload->DbValue)); // Add prefix/suffix
             $this->Value->LinkAttrs["target"] = ""; // Add target
@@ -1015,7 +1015,7 @@ SORTHTML;
         // Value
         $this->Value->EditAttrs["class"] = "form-control";
         $this->Value->EditCustomAttributes = "";
-        $this->Value->UploadPath = "../upload/";
+        $this->Value->UploadPath = "upload";
         if (!EmptyValue($this->Value->Upload->DbValue)) {
             $this->Value->ImageAlt = $this->Value->alt();
             $this->Value->EditValue = $this->Value->Upload->DbValue;

@@ -289,7 +289,7 @@ class ImageAdd extends Image
         if (is_object($rs)) { // Recordset
             while ($rs && !$rs->EOF) {
                 $this->loadRowValues($rs); // Set up DbValue/CurrentValue
-		        $this->Value->OldUploadPath = "../upload/";
+		        $this->Value->OldUploadPath = "upload";
 		        $this->Value->UploadPath = $this->Value->OldUploadPath;
                 $row = $this->getRecordFromArray($rs->fields);
                 if ($current) {
@@ -653,7 +653,7 @@ class ImageAdd extends Image
 
         // Check field name 'Image_ID' first before field var 'x_Image_ID'
         $val = $CurrentForm->hasValue("Image_ID") ? $CurrentForm->getValue("Image_ID") : $CurrentForm->getValue("x_Image_ID");
-		$this->Value->OldUploadPath = "../upload/";
+		$this->Value->OldUploadPath = "upload";
 		$this->Value->UploadPath = $this->Value->OldUploadPath;
         $this->getUploadFiles(); // Get upload files
     }
@@ -784,7 +784,7 @@ class ImageAdd extends Image
             $this->Name->ViewCustomAttributes = "";
 
             // Value
-            $this->Value->UploadPath = "../upload/";
+            $this->Value->UploadPath = "upload";
             if (!EmptyValue($this->Value->Upload->DbValue)) {
                 $this->Value->ImageAlt = $this->Value->alt();
                 $this->Value->ViewValue = $this->Value->Upload->DbValue;
@@ -800,7 +800,7 @@ class ImageAdd extends Image
 
             // Value
             $this->Value->LinkCustomAttributes = "";
-            $this->Value->UploadPath = "../upload/";
+            $this->Value->UploadPath = "upload";
             if (!EmptyValue($this->Value->Upload->DbValue)) {
                 $this->Value->HrefValue = GetFileUploadUrl($this->Value, $this->Value->htmlDecode($this->Value->Upload->DbValue)); // Add prefix/suffix
                 $this->Value->LinkAttrs["target"] = ""; // Add target
@@ -825,7 +825,7 @@ class ImageAdd extends Image
             // Value
             $this->Value->EditAttrs["class"] = "form-control";
             $this->Value->EditCustomAttributes = "";
-            $this->Value->UploadPath = "../upload/";
+            $this->Value->UploadPath = "upload";
             if (!EmptyValue($this->Value->Upload->DbValue)) {
                 $this->Value->ImageAlt = $this->Value->alt();
                 $this->Value->EditValue = $this->Value->Upload->DbValue;
@@ -847,7 +847,7 @@ class ImageAdd extends Image
 
             // Value
             $this->Value->LinkCustomAttributes = "";
-            $this->Value->UploadPath = "../upload/";
+            $this->Value->UploadPath = "upload";
             if (!EmptyValue($this->Value->Upload->DbValue)) {
                 $this->Value->HrefValue = GetFileUploadUrl($this->Value, $this->Value->htmlDecode($this->Value->Upload->DbValue)); // Add prefix/suffix
                 $this->Value->LinkAttrs["target"] = ""; // Add target
@@ -920,7 +920,7 @@ class ImageAdd extends Image
         // Load db values from rsold
         $this->loadDbValues($rsold);
         if ($rsold) {
-            $this->Value->OldUploadPath = "../upload/";
+            $this->Value->OldUploadPath = "upload";
             $this->Value->UploadPath = $this->Value->OldUploadPath;
         }
         $rsnew = [];
@@ -939,7 +939,7 @@ class ImageAdd extends Image
             }
         }
         if ($this->Value->Visible && !$this->Value->Upload->KeepFile) {
-            $this->Value->UploadPath = "../upload/";
+            $this->Value->UploadPath = "upload";
             $oldFiles = EmptyValue($this->Value->Upload->DbValue) ? [] : [$this->Value->htmlDecode($this->Value->Upload->DbValue)];
             if (!EmptyValue($this->Value->Upload->FileName)) {
                 $newFiles = [$this->Value->Upload->FileName];

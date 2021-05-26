@@ -158,7 +158,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 								$data['Slug'] = slugify(mb_substr($data['Title'], 0, 80));
 								if (($ns = $xpath->query($selector = './/h2/a', $parent->item(0))) AND !empty($ns->length))
 									$ns->item(0)->nodeValue = $data['Title'];
-								$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "upload/{$data['Image']}");
+								$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 								// $xpath->query('.//p', $elements)->item(0)->nodeValue = $data['Intro'];
 								$xpath->query('.//div[contains(@class,"entry-meta")]//span', $elements)->item(0)->nodeValue = $data['Blog_Date'];
 								foreach ($xpath->query('.//a', $elements) as $element) {
@@ -237,7 +237,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 								if (($ns = $xpath->query($selector = './/h2/a|.//h3/a', $parent->item(0))) AND !empty($ns->length)) {
 									$ns->item(0)->nodeValue = $data['Title'];
 								}
-								$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "upload/{$data['Image']}");
+								$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 								// $xpath->query('.//p', $prototype)->item(0)->nodeValue = $data['Intro'];
 								// $xpath->query('.//ul[contains(@class,"entry-meta")]//li/text()', $prototype)->item(0)->nodeValue = $data['Blog_Date'];
 								if (($ns = $xpath->query('.//*[contains(@class,"entry-meta")]//li/text()', $prototype)) AND !empty($ns->length)) {
@@ -310,8 +310,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					// Execute("UPDATE `blog` SET `View` = View + 1 WHERE `blog`.`Blog_ID` = ?", array($_GET['Blog_ID']));
 					if (!empty($datas)) {
 						foreach ($datas as $key => $data) {
-							$elements->setAttribute("href", "upload/{$data}");
-							$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "upload/{$data}");
+							$elements->setAttribute("href", "in-plaze/upload/{$data}");
+							$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "in-plaze/upload/{$data}");
 							$children[$key] = $elements->cloneNode(true);
 						}
 						while ($parent->item(0)->hasChildNodes()) {
@@ -342,7 +342,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							$data['Slug'] = slugify(mb_substr($data['Title'], 0, 80));
 							if (($ns = $xpath->query($selector = './/h2/a', $parent->item(0))) AND !empty($ns->length))
 								$ns->item(0)->nodeValue = $data['Title'];
-							$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "upload/{$data['Image']}");
+							$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 							$xpath->query('.//p', $elements)->item(0)->nodeValue = $data['Content'];
 							$xpath->query('.//span[@class="post-meta-date"]/text()', $elements)->item(0)->nodeValue = $data['Blog_Date'];
 							foreach ($xpath->query('.//a', $elements) as $element) {
@@ -385,7 +385,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 						$elements->setAttribute("data-inplaze", "true");
 						if (($ns = $xpath->query($selector = './/h2', $parent->item(0))) AND !empty($ns->length))
 							$ns->item(0)->nodeValue = $data['Title'];
-						$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "upload/{$data['Image']}");
+						$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 						$xpath->query('.//span[@class="post-meta-date"]/text()', $elements)->item(0)->nodeValue = $data['Blog_Date'];
 						foreach ($xpath->query('.//span[@class="post-meta-comments"]', $elements) as $element)
 							$element->parentNode->removeChild($element);
@@ -478,7 +478,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				$elements = $xpath->query($selector = "//div[contains(@class,'portfolio-single-image')]/a/img");
 				if (!empty($elements->length) AND !empty($data['Image'])) {
 					// fb($selector);
-					$elements->item(0)->setAttribute("src", "upload/{$data['Image']}");
+					$elements->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 					$elements->item(0)->setAttribute("alt", $data['Name']);
 				}
 				if (!empty($data['Images'])) {
@@ -497,8 +497,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							// fb($elements->item(0)->parentNode->childNodes->item(1)->nodeValue);
 							// fb($elements->item(0)->nodeName);
 							// fb($elements->item(0)->parentNode->nodeName);
-							$elements->item(0)->parentNode->setAttribute("href", "upload/{$value}");
-							$elements->item(0)->setAttribute("src", "upload/{$value}");
+							$elements->item(0)->parentNode->setAttribute("href", "in-plaze/upload/{$value}");
+							$elements->item(0)->setAttribute("src", "in-plaze/upload/{$value}");
 							$elements->item(0)->setAttribute("alt", $data['Name']);
 							// $elements->item(0)->parentNode->childNodes->item(1)->firstChild->nodeValue = $value['Name'];
 							$children[$key] = $elements->item(0)->parentNode->cloneNode(true);
@@ -508,7 +508,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							$parent->appendChild($children[$key]);
 						}
 						// if (!empty($value = ExecuteScalar("SELECT Images FROM product WHERE Product_ID = {$_GET['Product_ID']}"))) {
-							// $elements->item(0)->setAttribute("src", "upload/{$value}");
+							// $elements->item(0)->setAttribute("src", "in-plaze/upload/{$value}");
 						// }
 					} else {
 						$element = $xpath->query($selector = '//a[@data-lightbox="gallery-item"]/ancestor::div[@class="col_full clearfix"]');
@@ -533,9 +533,9 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 								// $data['Slug'] = slugify(mb_substr($data['Name'], 0, 80));
 								 
 									// $ns->item(0)->nodeValue = $data['Name'];
-								if (!empty($data) AND file_exists("upload/{$data}") AND exif_imagetype("upload/{$data}") !== false AND filter_var("upload/{$data}", FILTER_VALIDATE_URL) === false) {
-									$prototype->setAttribute("data-thumb", "upload/{$data}");
-									$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "upload/{$data}");
+								if (!empty($data) AND file_exists("in-plaze/upload/{$data}") AND exif_imagetype("in-plaze/upload/{$data}") !== false AND filter_var("in-plaze/upload/{$data}", FILTER_VALIDATE_URL) === false) {
+									$prototype->setAttribute("data-thumb", "in-plaze/upload/{$data}");
+									$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "in-plaze/upload/{$data}");
 								}
 								if (Session(SESSION_STATUS) == 'login')
 									foreach ($xpath->query('.//a', $prototype) as $element)
@@ -577,8 +577,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 								if (($ns = $xpath->query($selector = './/span', $prototype)) AND !empty($ns->length)) {
 									$ns->item(0)->nodeValue = $data['Intro'];
 								}
-								if (($ns = $xpath->query($selector = './/img', $prototype)) AND !empty($ns->length) AND !empty($data['Image']) AND file_exists("upload/{$data['Image']}") AND exif_imagetype("upload/{$data['Image']}") !== false AND filter_var("upload/{$data['Image']}", FILTER_VALIDATE_URL) === false) {
-									$ns->item(0)->setAttribute("src", "upload/{$data['Image']}");
+								if (($ns = $xpath->query($selector = './/img', $prototype)) AND !empty($ns->length) AND !empty($data['Image']) AND file_exists("in-plaze/upload/{$data['Image']}") AND exif_imagetype("in-plaze/upload/{$data['Image']}") !== false AND filter_var("in-plaze/upload/{$data['Image']}", FILTER_VALIDATE_URL) === false) {
+									$ns->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 								}
 								foreach (($ns = $xpath->query($selector = './/a', $prototype)) as $n) {
 									$n->setAttribute("href", "product-{$data['ID']}-{$data['Slug']}");
@@ -621,8 +621,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							$data['Slug'] = slugify(mb_substr($data['Name'], 0, 80));
 							if (($ns = $xpath->query($selector = './/h2/a', $parent->item(0))) AND !empty($ns->length))
 								$ns->item(0)->nodeValue = $data['Name'];
-							if (!empty($data['Image']) AND file_exists("upload/{$data['Image']}") AND exif_imagetype("upload/{$data['Image']}") !== false AND filter_var("upload/{$data['Image']}", FILTER_VALIDATE_URL) === false) {
-								$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "upload/{$data['Image']}");
+							if (!empty($data['Image']) AND file_exists("in-plaze/upload/{$data['Image']}") AND exif_imagetype("in-plaze/upload/{$data['Image']}") !== false AND filter_var("in-plaze/upload/{$data['Image']}", FILTER_VALIDATE_URL) === false) {
+								$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 							}
 							if (!empty($element = $xpath->query('.//h3/a', $prototype)->item(0)))
 								$element->nodeValue = $data['Name'];
@@ -662,7 +662,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					foreach ($datas as $data) {
 						$newNode = $prototype->cloneNode(true);
 						$data['Slug'] = slugify($data['Name']);
-						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("src", "upload/{$data['Image']}"); }
+						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("src", "in-plaze/upload/{$data['Image']}"); }
 						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("alt", $data['Name']); }
 						foreach ($ns = $xpath->query('.//h3/a', $newNode) as $n) { $n->nodeValue = $data['Name']; }
 						foreach ($ns = $xpath->query('.//a', $newNode) as $n) { $n->setAttribute("href", "product-{$data['Product_ID']}-{$data['Slug']}"); }
@@ -687,7 +687,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					foreach ($ns = $xpath->query('//section[@id="page-title"]//h1') as $n) { $n->nodeValue = $data['Name']; }
 					$parent = $parent->item(0);
 					$parent->setAttribute('data-inplaze', true);
-					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("src", "upload/{$data['Image']}"); }
+					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("src", "in-plaze/upload/{$data['Image']}"); }
 					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("alt", $data['Name']); }
 					// foreach ($ns = $xpath->query('.//h2', $parent) as $n) { $n->nodeValue = $data['Name']; }
 					foreach ($ns = $xpath->query('.//p', $parent) as $n) { setInnerHTMLP($n, empty($data['Description']) ? '' : nl2br($data['Description'])); }
@@ -714,7 +714,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					foreach ($datas as $data) {
 						$newNode = $prototype->cloneNode(true);
 						$data['Slug'] = slugify($data['Name']);
-						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("src", "upload/{$data['Image']}"); }
+						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("src", "in-plaze/upload/{$data['Image']}"); }
 						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("alt", $data['Name']); }
 						foreach ($ns = $xpath->query('.//h3/a', $newNode) as $n) { $n->nodeValue = $data['Name']; }
 						// foreach ($ns = $xpath->query('.//a', $newNode) as $n) { $n->setAttribute("href", "portfolio.html?Product_ID={$data['Product_ID']}"); }
@@ -741,7 +741,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					foreach ($ns = $xpath->query('//section[@id="page-title"]//h1') as $n) { $n->nodeValue = $data['Title']; }
 					$parent = $parent->item(0);
 					$parent->setAttribute('data-inplaze', true);
-					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("src", "upload/{$data['Image']}"); }
+					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("src", "in-plaze/upload/{$data['Image']}"); }
 					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("alt", $data['Title']); }
 					foreach ($ns = $xpath->query('.//div[@class="entry-title"]//p', $parent) as $n) { $n->nodeValue = empty($data['Intro']) ? '' : $data['Intro']; }
 					foreach ($ns = $xpath->query('.//i/following-sibling::text()', $parent) as $n) { $n->nodeValue = empty($data['Blog_Date']) ? '' : $data['Blog_Date']; }
@@ -771,7 +771,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					foreach ($datas as $data) {
 						$newNode = $prototype->cloneNode(true);
 						$data['Slug'] = slugify($data['Title']);
-						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("src", "upload/{$data['Image']}"); }
+						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("src", "in-plaze/upload/{$data['Image']}"); }
 						foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("alt", $data['Title']); }
 						foreach ($ns = $xpath->query('.//h3/a', $newNode) as $n) { $n->nodeValue = $data['Title']; }
 						foreach ($ns = $xpath->query('.//i/following-sibling::text()', $parent) as $n) { $n->nodeValue = empty($data['Blog_Date']) ? '' : $data['Blog_Date']; }
@@ -807,8 +807,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							$data['Slug'] = slugify(mb_substr($data['Name'], 0, 80));
 							if (($ns = $xpath->query($selector = './/h2/a', $parent->item(0))) AND !empty($ns->length))
 								$ns->item(0)->nodeValue = $data['Name'];
-							if (!empty($data['Image']) AND file_exists("upload/{$data['Image']}") AND exif_imagetype("upload/{$data['Image']}") !== false AND filter_var("upload/{$data['Image']}", FILTER_VALIDATE_URL) === false) {
-								$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "upload/{$data['Image']}");
+							if (!empty($data['Image']) AND file_exists("in-plaze/upload/{$data['Image']}") AND exif_imagetype("in-plaze/upload/{$data['Image']}") !== false AND filter_var("in-plaze/upload/{$data['Image']}", FILTER_VALIDATE_URL) === false) {
+								$xpath->query('.//img', $prototype)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 							}
 							if (!empty($element = $xpath->query('.//h3/a', $prototype)->item(0)))
 								$element->nodeValue = $data['Name'];
@@ -846,7 +846,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							$elements->item(0)->nodeValue = $value['Name'];
 							$elements->item(0)->parentNode->childNodes->item(1)->firstChild->nodeValue = $value['Name'];
 							$elements->item(0)->parentNode->childNodes->item(1)->firstChild->setAttribute("href", "category-{$value['Category_ID']}-{$value['Name']}");
-							$elements->item(0)->parentNode->parentNode->childNodes->item(0)->childNodes->item(1)->setAttribute("src", "upload/{$value['Image']}");
+							$elements->item(0)->parentNode->parentNode->childNodes->item(0)->childNodes->item(1)->setAttribute("src", "in-plaze/upload/{$value['Image']}");
 							$elements->item(0)->parentNode->parentNode->childNodes->item(0)->childNodes->item(1)->setAttribute("alt", $value['Name']);
 							if (Session(SESSION_STATUS) == 'login') {
 								$elements->item(0)->parentNode->childNodes->item(1)->firstChild->setAttribute("onclick", "if (confirm('Do you want to edit this?')) { window.location.href = 'in-plaze/CategoryEdit/{$value['Category_ID']}'; return false; }");
@@ -881,7 +881,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							$elements->item(0)->parentNode->childNodes->item(1)->firstChild->nodeValue = $value['Name'];
 							$elements->item(0)->parentNode->childNodes->item(1)->firstChild->setAttribute("href", "product-{$value['Product_ID']}-{$value['Slug']}");
 							if (!empty($value['Image']))
-								$elements->item(0)->parentNode->parentNode->childNodes->item(0)->childNodes->item(1)->setAttribute("src", "upload/{$value['Image']}");
+								$elements->item(0)->parentNode->parentNode->childNodes->item(0)->childNodes->item(1)->setAttribute("src", "in-plaze/upload/{$value['Image']}");
 							if (Session(SESSION_STATUS) == 'login') {
 								$elements->item(0)->parentNode->childNodes->item(1)->firstChild->setAttribute("onclick", "if (confirm('Do you want to edit this?')) { window.location.href = 'in-plaze/ProductEdit/{$value['Product_ID']}'; return false; }");
 								$elements->item(0)->parentNode->childNodes->item(1)->firstChild->setAttribute("style", "cursor: pointer;" . $elements->item(0)->parentNode->childNodes->item(1)->firstChild->getAttribute("style"));
@@ -910,7 +910,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 						foreach ($products as $key => $value) {
 							$value['Slug'] = slugify($value['Name']);
 							$xpath->query('//article/div/a', $elements->item(0))->item(0)->setAttribute("href", "product-{$value['Product_ID']}-{$value['Slug']}");
-							$xpath->query('//article/div/a/img', $elements->item(0))->item(0)->setAttribute("src", "upload/{$value['Image']}");
+							$xpath->query('//article/div/a/img', $elements->item(0))->item(0)->setAttribute("src", "in-plaze/upload/{$value['Image']}");
 							$xpath->query('//article/div/a/img', $elements->item(0))->item(0)->setAttribute("alt", $value['Name']);
 							$xpath->query('//article/div/h3/a', $elements->item(0))->item(0)->nodeValue = $value['Name'];
 							$xpath->query('//article/div/h3/a', $elements->item(0))->item(0)->setAttribute("href", "product-{$value['Product_ID']}-{$value['Slug']}");
@@ -960,13 +960,13 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					if (!empty($data)) {
 						$site_title = $data['Title'];
 						$meta_description = $data['Intro'];
-						$og_image = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' . "upload/{$data['Image']}";
+						$og_image = (!empty($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '/' . "in-plaze/upload/{$data['Image']}";
 						if (($ns = $xpath->query($selector = './/h1', $parent->item(0))) AND !empty($ns->length))
 							$ns->item(0)->nodeValue = $data['Title'];
 						if (($ns = $xpath->query($selector = './/h2', $parent->item(0))) AND !empty($ns->length))
 							$ns->item(0)->nodeValue = $data['Title'];
 						$xpath->query('.//div[contains(@class, "heading-block")]/span', $elements)->item(0)->nodeValue = $data['Blog_Date'];
-						$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "upload/{$data['Image']}");
+						$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 						$html_element = $xpath->query('.//div[contains(@class, "portfolio-single-content")]', $elements);
 						if (!empty($data['Content'])) {
 							setInnerHTMLP($html_element->item(0), $data['Content']);
@@ -1224,14 +1224,14 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							$image_info = getimagesize(urldecode($elements->item($key)->getAttribute("src")));
 							// fb($image_info, 'working');
 						}
-						if (!empty($value = ExecuteScalar("SELECT Value FROM image WHERE Enable = 1 AND Name = '{$id}'")) AND !empty($value) AND file_exists("upload/{$value}") AND exif_imagetype("upload/{$value}") !== false AND filter_var("upload/{$value}", FILTER_VALIDATE_URL) === false) {
-							$elements->item($key)->setAttribute("src", "upload/{$value}");
+						if (!empty($value = ExecuteScalar("SELECT Value FROM image WHERE Enable = 1 AND Name = '{$id}'")) AND !empty($value) AND file_exists("in-plaze/upload/{$value}") AND exif_imagetype("in-plaze/upload/{$value}") !== false AND filter_var("in-plaze/upload/{$value}", FILTER_VALIDATE_URL) === false) {
+							$elements->item($key)->setAttribute("src", "in-plaze/upload/{$value}");
 							if ($elements->item($key)->parentNode->getAttribute("href") != "index.html" AND $elements->item($key)->parentNode->getAttribute("href") != "home.php")
-								$elements->item($key)->parentNode->setAttribute("href", "upload/{$value}");
+								$elements->item($key)->parentNode->setAttribute("href", "in-plaze/upload/{$value}");
 							if ($elements->item($key)->parentNode->getAttribute("data-dark-logo") != "")
-								$elements->item($key)->parentNode->setAttribute("data-dark-logo", "upload/{$value}");
+								$elements->item($key)->parentNode->setAttribute("data-dark-logo", "in-plaze/upload/{$value}");
 							if ($elements->item($key)->parentNode->getAttribute("data-thumb") != "")
-								$elements->item($key)->parentNode->setAttribute("data-thumb", "upload/{$value}");
+								$elements->item($key)->parentNode->setAttribute("data-thumb", "in-plaze/upload/{$value}");
 						}
 						if (Session(SESSION_STATUS) == 'login') {
 							if (!empty($image_info))
@@ -1274,14 +1274,19 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 						if (!empty($matches['image'][0])) {
 							$id = ip_get_element_id($matches['image'][0]);
 							if (
-								!empty($value = ExecuteScalar("SELECT Value FROM image WHERE Enable = 1 AND Name = '{$id}'")) AND
 								!empty($matches['image'][0]) AND
-								file_exists("upload/{$matches['image'][0]}") AND 
-								exif_imagetype("upload/{$matches['image'][0]}") !== false AND 
-								filter_var("upload/{$matches['image'][0]}", FILTER_VALIDATE_URL) === false
+								file_exists("in-plaze/upload/{$matches['image'][0]}") AND
+								exif_imagetype("in-plaze/upload/{$matches['image'][0]}") !== false AND
+								filter_var("in-plaze/upload/{$matches['image'][0]}", FILTER_VALIDATE_URL) === false
 							) {
 								$image_info = getimagesize(urldecode($matches['image'][0]));
-								$elements->item($key)->setAttribute("style", str_replace($matches['image'][0], "upload/{$value}", $elements->item($key)->getAttribute("style")));
+								// fb($image_info, 'working');
+							}
+							if (
+								!empty($value = ExecuteScalar("SELECT Value FROM image WHERE Enable = 1 AND Name = '{$id}'")) AND
+								file_exists("in-plaze/upload/{$value}")
+							) {
+								$elements->item($key)->setAttribute("style", str_replace($matches['image'][0], "in-plaze/upload/{$value}", $elements->item($key)->getAttribute("style")));
 							}
 							if (Session(SESSION_STATUS) == 'login') {
 								$elements->item($key)->setAttribute("style", "cursor: pointer;" . $elements->item($key)->getAttribute("style"));

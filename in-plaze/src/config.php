@@ -171,7 +171,7 @@ $CONFIG = [
 
     // General
     "UNFORMAT_YEAR" => 50, // Unformat year
-    "RANDOM_KEY" => 'SJcBaQJOtqCRSOcd', // Random key for encryption
+    "RANDOM_KEY" => '889CHoBzicyZ9GzY', // Random key for encryption
     "ENCRYPTION_KEY" => '', // Encryption key for data protection
     "PROJECT_STYLESHEET_FILENAME" => "css/inplaze.css", // Project stylesheet file name
     "PROJECT_CHARSET" => "utf-8", // Project charset
@@ -407,7 +407,7 @@ $CONFIG = [
     // File upload
     "UPLOAD_TEMP_PATH" => "", // Upload temp path (absolute local physical path)
     "UPLOAD_TEMP_HREF_PATH" => "", // Upload temp href path (absolute URL path for download)
-    "UPLOAD_DEST_PATH" => "/upload/", // Upload destination path (relative to app root)
+    "UPLOAD_DEST_PATH" => "upload/", // Upload destination path (relative to app root)
     "UPLOAD_HREF_PATH" => "", // Upload file href path (for download)
     "UPLOAD_TEMP_FOLDER_PREFIX" => "temp__", // Upload temp folders prefix
     "UPLOAD_TEMP_FOLDER_TIME_LIMIT" => 1440, // Upload temp folder time limit (minutes)

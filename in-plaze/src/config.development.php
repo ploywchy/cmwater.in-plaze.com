@@ -17,7 +17,7 @@ return [
         "SERVER_PASSWORD" => "", // SMTP server password
     ],
     "JWT" => [
-        "SECRET_KEY" => "qQLnz1P75c8xR23l", // API Secret Key
+        "SECRET_KEY" => "1nsZRYyoylrpu28Q", // API Secret Key
         "ALGORITHM" => "HS512", // API Algorithm
         "AUTH_HEADER" => "X-Authorization", // API Auth Header (Note: The "Authorization" header is removed by IIS, use "X-Authorization" instead.)
         "NOT_BEFORE_TIME" => 10, // API access time before login

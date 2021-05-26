@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9
+class ComposerStaticInit229cd25ab25bcba0d3055c5058387b1a
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -15,9 +15,9 @@ class ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
-        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         'eb4b9a88ca7cdbf7954ca398426b339c' => __DIR__ . '/..' . '/hkvstore/richfilemanager-php/src/helpers.php',
+        '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'f9e61f18f0291090ecf3f67a829046de' => __DIR__ . '/..' . '/athari/yalinqo/YaLinqo/Linq.php',
         '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
         '0a80d26768cd24fcdbe75bdd719255c1' => __DIR__ . '/..' . '/firephp/firephp-core/lib/FirePHPCore/fb.php',
@@ -223,8 +223,8 @@ class ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Container\\' => 
         array (
@@ -514,10 +514,10 @@ class ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitbb67445144ad75d54ea9d1c2d00f68e9::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit229cd25ab25bcba0d3055c5058387b1a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit229cd25ab25bcba0d3055c5058387b1a::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit229cd25ab25bcba0d3055c5058387b1a::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit229cd25ab25bcba0d3055c5058387b1a::$classMap;
 
         }, null, ClassLoader::class);
     }

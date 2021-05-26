@@ -58,12 +58,12 @@
     ),
     'doctrine/cache' => 
     array (
-      'pretty_version' => '1.11.2',
-      'version' => '1.11.2.0',
+      'pretty_version' => '1.11.3',
+      'version' => '1.11.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9c53086695937c50c47936ed86d96150ffbcf60d',
+      'reference' => '3bb5588cec00a0268829cc4a518490df6741af9d',
     ),
     'doctrine/dbal' => 
     array (

@@ -417,8 +417,8 @@ loadjs.ready("head", function() {
 <?php if ($Grid->RowType == ROWTYPE_ADD) { // Add record ?>
 <span id="el<?= $Grid->RowCount ?>_product__New" class="form-group">
 <div class="custom-control custom-checkbox d-inline-block">
-    <input type="checkbox" class="custom-control-input<?= $Grid->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x<?= $Grid->RowIndex ?>__New[]" id="x<?= $Grid->RowIndex ?>__New_722931" value="1"<?= ConvertToBool($Grid->_New->CurrentValue) ? " checked" : "" ?><?= $Grid->_New->editAttributes() ?>>
-    <label class="custom-control-label" for="x<?= $Grid->RowIndex ?>__New_722931"></label>
+    <input type="checkbox" class="custom-control-input<?= $Grid->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x<?= $Grid->RowIndex ?>__New[]" id="x<?= $Grid->RowIndex ?>__New_849450" value="1"<?= ConvertToBool($Grid->_New->CurrentValue) ? " checked" : "" ?><?= $Grid->_New->editAttributes() ?>>
+    <label class="custom-control-label" for="x<?= $Grid->RowIndex ?>__New_849450"></label>
 </div>
 <div class="invalid-feedback"><?= $Grid->_New->getErrorMessage() ?></div>
 </span>
@@ -427,8 +427,8 @@ loadjs.ready("head", function() {
 <?php if ($Grid->RowType == ROWTYPE_EDIT) { // Edit record ?>
 <span id="el<?= $Grid->RowCount ?>_product__New" class="form-group">
 <div class="custom-control custom-checkbox d-inline-block">
-    <input type="checkbox" class="custom-control-input<?= $Grid->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x<?= $Grid->RowIndex ?>__New[]" id="x<?= $Grid->RowIndex ?>__New_754039" value="1"<?= ConvertToBool($Grid->_New->CurrentValue) ? " checked" : "" ?><?= $Grid->_New->editAttributes() ?>>
-    <label class="custom-control-label" for="x<?= $Grid->RowIndex ?>__New_754039"></label>
+    <input type="checkbox" class="custom-control-input<?= $Grid->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x<?= $Grid->RowIndex ?>__New[]" id="x<?= $Grid->RowIndex ?>__New_546754" value="1"<?= ConvertToBool($Grid->_New->CurrentValue) ? " checked" : "" ?><?= $Grid->_New->editAttributes() ?>>
+    <label class="custom-control-label" for="x<?= $Grid->RowIndex ?>__New_546754"></label>
 </div>
 <div class="invalid-feedback"><?= $Grid->_New->getErrorMessage() ?></div>
 </span>
@@ -630,8 +630,8 @@ loadjs.ready("head", function() {
 <?php if (!$Grid->isConfirm()) { ?>
 <span id="el$rowindex$_product__New" class="form-group product__New">
 <div class="custom-control custom-checkbox d-inline-block">
-    <input type="checkbox" class="custom-control-input<?= $Grid->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x<?= $Grid->RowIndex ?>__New[]" id="x<?= $Grid->RowIndex ?>__New_995093" value="1"<?= ConvertToBool($Grid->_New->CurrentValue) ? " checked" : "" ?><?= $Grid->_New->editAttributes() ?>>
-    <label class="custom-control-label" for="x<?= $Grid->RowIndex ?>__New_995093"></label>
+    <input type="checkbox" class="custom-control-input<?= $Grid->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x<?= $Grid->RowIndex ?>__New[]" id="x<?= $Grid->RowIndex ?>__New_405013" value="1"<?= ConvertToBool($Grid->_New->CurrentValue) ? " checked" : "" ?><?= $Grid->_New->editAttributes() ?>>
+    <label class="custom-control-label" for="x<?= $Grid->RowIndex ?>__New_405013"></label>
 </div>
 <div class="invalid-feedback"><?= $Grid->_New->getErrorMessage() ?></div>
 </span>

@@ -344,7 +344,7 @@ class ImageView extends Image
         if (is_object($rs)) { // Recordset
             while ($rs && !$rs->EOF) {
                 $this->loadRowValues($rs); // Set up DbValue/CurrentValue
-		        $this->Value->OldUploadPath = "../upload/";
+		        $this->Value->OldUploadPath = "upload";
 		        $this->Value->UploadPath = $this->Value->OldUploadPath;
                 $row = $this->getRecordFromArray($rs->fields);
                 if ($current) {
@@ -786,7 +786,7 @@ class ImageView extends Image
             $this->Name->ViewCustomAttributes = "";
 
             // Value
-            $this->Value->UploadPath = "../upload/";
+            $this->Value->UploadPath = "upload";
             if (!EmptyValue($this->Value->Upload->DbValue)) {
                 $this->Value->ImageAlt = $this->Value->alt();
                 $this->Value->ViewValue = $this->Value->Upload->DbValue;
@@ -825,7 +825,7 @@ class ImageView extends Image
 
             // Value
             $this->Value->LinkCustomAttributes = "";
-            $this->Value->UploadPath = "../upload/";
+            $this->Value->UploadPath = "upload";
             if (!EmptyValue($this->Value->Upload->DbValue)) {
                 $this->Value->HrefValue = GetFileUploadUrl($this->Value, $this->Value->htmlDecode($this->Value->Upload->DbValue)); // Add prefix/suffix
                 $this->Value->LinkAttrs["target"] = ""; // Add target
