@@ -360,3 +360,11 @@ h6 > span:not(.nocolor):not(.badge) { color: #1e9bd6; }
 .portfolio-desc h3 a:hover {
     color: #1e9bd6;
 }
+
+blockquote {
+	padding: 10px 20px;
+	margin: 0 0 20px;
+	font-size: 1rem;
+	border-left: 5px solid #EEE;
+	font-style: italic;
+}
