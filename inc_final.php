@@ -2,6 +2,9 @@
 namespace PHPMaker2021\inplaze;
 
 function setInnerHTMLDiv($parent, $html) {
+	while ($parent->hasChildNodes()) {
+		$parent->removeChild($parent->firstChild);
+	}
     $tmpDoc = new \DOMDocument();
 	$tmpDoc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
     foreach ($tmpDoc->getElementsByTagName('body')->item(0)->childNodes as $n) {
@@ -34,10 +37,11 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			// , 'Error_Message' => 'HTML content from ob_get_contents is empty. Please check the cause.'
 		// ], 1), 'tzgmZeRAuIzsdK8JmFocCO1CYf5aLl1ieahZTX5njx2');
 	} else {
-		$dom->loadHTML($content, LIBXML_NOBLANKS);
+		// $dom->loadHTML($content, LIBXML_NOBLANKS);
+		$dom->loadHTML($content);
 		$xpath = new \DomXPath($dom);
 		$sub_folder = '';
-		$font = 'Prompt';
+		$font = 'Prompt:300,400,400i,700';
 
 		// แก้ http เป็น https ทุกจุดที่เป็น CDN ตาม attribute href
 		$elements = $xpath->query("//link[contains(@href, 'http://')]");
@@ -50,6 +54,9 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 		// เฉพาะของ demo template นี้เท่านั้น โดยดูจาก css เป็นหลัก
 		if (($n = $xpath->query($selector = '//link[@href="demos/real-estate/real-estate.css"]')) AND !empty($n->length)) {
 			require_once 'real-estate.php';
+		}
+		if (($n = $xpath->query($selector = '//link[@href="demos/course/course.css"]')) AND !empty($n->length)) {
+			require_once 'course.php';
 		}
 
 		if ($_SERVER['SERVER_NAME'] == 'polo5.in-plaze.com') {
@@ -113,7 +120,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			// เพิ่มฟอนต์ Prompt เข้าไปในแต่ละหน้า แต่ยังต้องไป replace sans-serif ให้เป็น 'Prompt' ในไฟล์ style.css แบบ manual อยู่ ต้องทำใน custom.css
 			// https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700%7CRoboto:300,400,500,700&display=swap
 			if (($n = $xpath->query($selector = '/html/head/link[contains(@href, "fonts.googleapis.com")]')) AND !empty($n->length) AND $n = $n->item(0)) {
-				$n->setAttribute('href', str_replace('family=', "family={$font}:300,400,400i,700|", $n->getAttribute('href')));
+				$n->setAttribute('href', str_replace('family=', "family={$font}|", $n->getAttribute('href')));
 			}
 
 			// เอา favicon จาก PHPMaker มาใส่ด้วย
