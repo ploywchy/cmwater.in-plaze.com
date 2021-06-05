@@ -579,6 +579,7 @@ class BlogList extends Blog
         $this->Title->setVisibility();
         $this->Intro->Visible = false;
         $this->_Content->Visible = false;
+        $this->Tags->Visible = false;
         $this->Priority->Visible = false;
         $this->_New->Visible = false;
         $this->View->Visible = false;
@@ -613,6 +614,7 @@ class BlogList extends Blog
         }
 
         // Set up lookup cache
+        $this->setupLookupOptions($this->Tags);
 
         // Search filters
         $srchAdvanced = ""; // Advanced search filter
@@ -866,6 +868,7 @@ class BlogList extends Blog
                 $this->Title->setSort("");
                 $this->Intro->setSort("");
                 $this->_Content->setSort("");
+                $this->Tags->setSort("");
                 $this->Priority->setSort("");
                 $this->_New->setSort("");
                 $this->View->setSort("");
@@ -1260,6 +1263,7 @@ class BlogList extends Blog
         $this->Title->setDbValue($row['Title']);
         $this->Intro->setDbValue($row['Intro']);
         $this->_Content->setDbValue($row['Content']);
+        $this->Tags->setDbValue($row['Tags']);
         $this->Priority->setDbValue($row['Priority']);
         $this->_New->setDbValue($row['New']);
         $this->View->setDbValue($row['View']);
@@ -1279,6 +1283,7 @@ class BlogList extends Blog
         $row['Title'] = null;
         $row['Intro'] = null;
         $row['Content'] = null;
+        $row['Tags'] = null;
         $row['Priority'] = null;
         $row['New'] = null;
         $row['View'] = null;
@@ -1335,6 +1340,8 @@ class BlogList extends Blog
         // Intro
 
         // Content
+
+        // Tags
 
         // Priority
         $this->Priority->CellCssStyle = "white-space: nowrap;";
@@ -1466,6 +1473,8 @@ class BlogList extends Blog
 
             // Set up lookup SQL and connection
             switch ($fld->FieldVar) {
+                case "x_Tags":
+                    break;
                 case "x__New":
                     break;
                 case "x_Enable":

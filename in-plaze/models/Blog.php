@@ -33,6 +33,7 @@ class Blog extends DbTable
     public $Title;
     public $Intro;
     public $_Content;
+    public $Tags;
     public $Priority;
     public $_New;
     public $View;
@@ -110,6 +111,26 @@ class Blog extends DbTable
         $this->_Content->Sortable = true; // Allow sort
         $this->_Content->CustomMsg = $Language->FieldPhrase($this->TableVar, $this->_Content->Param, "CustomMsg");
         $this->Fields['Content'] = &$this->_Content;
+
+        // Tags
+        $this->Tags = new DbField('blog', 'blog', 'x_Tags', 'Tags', '`Tags`', '`Tags`', 200, 60, -1, false, '`Tags`', false, false, false, 'FORMATTED TEXT', 'SELECT');
+        $this->Tags->Nullable = false; // NOT NULL field
+        $this->Tags->Required = true; // Required field
+        $this->Tags->Sortable = true; // Allow sort
+        $this->Tags->SelectMultiple = true; // Multiple select
+        switch ($CurrentLanguage) {
+            case "en":
+                $this->Tags->Lookup = new Lookup('Tags', 'tag', false, 'Tag_ID', ["Name","","",""], [], [], [], [], [], [], '', '');
+                break;
+            case "th":
+                $this->Tags->Lookup = new Lookup('Tags', 'tag', false, 'Tag_ID', ["Name","","",""], [], [], [], [], [], [], '', '');
+                break;
+            default:
+                $this->Tags->Lookup = new Lookup('Tags', 'tag', false, 'Tag_ID', ["Name","","",""], [], [], [], [], [], [], '', '');
+                break;
+        }
+        $this->Tags->CustomMsg = $Language->FieldPhrase($this->TableVar, $this->Tags->Param, "CustomMsg");
+        $this->Fields['Tags'] = &$this->Tags;
 
         // Priority
         $this->Priority = new DbField('blog', 'blog', 'x_Priority', 'Priority', '`Priority`', '`Priority`', 3, 5, -1, false, '`Priority`', false, false, false, 'FORMATTED TEXT', 'TEXT');
@@ -610,6 +631,7 @@ class Blog extends DbTable
         $this->Title->DbValue = $row['Title'];
         $this->Intro->DbValue = $row['Intro'];
         $this->_Content->DbValue = $row['Content'];
+        $this->Tags->DbValue = $row['Tags'];
         $this->Priority->DbValue = $row['Priority'];
         $this->_New->DbValue = $row['New'];
         $this->View->DbValue = $row['View'];
@@ -955,6 +977,7 @@ SORTHTML;
         $this->Title->setDbValue($row['Title']);
         $this->Intro->setDbValue($row['Intro']);
         $this->_Content->setDbValue($row['Content']);
+        $this->Tags->setDbValue($row['Tags']);
         $this->Priority->setDbValue($row['Priority']);
         $this->_New->setDbValue($row['New']);
         $this->View->setDbValue($row['View']);
@@ -987,6 +1010,8 @@ SORTHTML;
         // Intro
 
         // Content
+
+        // Tags
 
         // Priority
         $this->Priority->CellCssStyle = "white-space: nowrap;";
@@ -1035,6 +1060,37 @@ SORTHTML;
         // Content
         $this->_Content->ViewValue = $this->_Content->CurrentValue;
         $this->_Content->ViewCustomAttributes = "";
+
+        // Tags
+        $curVal = trim(strval($this->Tags->CurrentValue));
+        if ($curVal != "") {
+            $this->Tags->ViewValue = $this->Tags->lookupCacheOption($curVal);
+            if ($this->Tags->ViewValue === null) { // Lookup from database
+                $arwrk = explode(",", $curVal);
+                $filterWrk = "";
+                foreach ($arwrk as $wrk) {
+                    if ($filterWrk != "") {
+                        $filterWrk .= " OR ";
+                    }
+                    $filterWrk .= "`Tag_ID`" . SearchString("=", trim($wrk), DATATYPE_NUMBER, "");
+                }
+                $sqlWrk = $this->Tags->Lookup->getSql(false, $filterWrk, '', $this, true, true);
+                $rswrk = Conn()->executeQuery($sqlWrk)->fetchAll(\PDO::FETCH_BOTH);
+                $ari = count($rswrk);
+                if ($ari > 0) { // Lookup values found
+                    $this->Tags->ViewValue = new OptionValues();
+                    foreach ($rswrk as $row) {
+                        $arwrk = $this->Tags->Lookup->renderViewRow($row);
+                        $this->Tags->ViewValue->add($this->Tags->displayValue($arwrk));
+                    }
+                } else {
+                    $this->Tags->ViewValue = $this->Tags->CurrentValue;
+                }
+            }
+        } else {
+            $this->Tags->ViewValue = null;
+        }
+        $this->Tags->ViewCustomAttributes = "";
 
         // Priority
         $this->Priority->ViewValue = $this->Priority->CurrentValue;
@@ -1122,6 +1178,11 @@ SORTHTML;
         $this->_Content->LinkCustomAttributes = "";
         $this->_Content->HrefValue = "";
         $this->_Content->TooltipValue = "";
+
+        // Tags
+        $this->Tags->LinkCustomAttributes = "";
+        $this->Tags->HrefValue = "";
+        $this->Tags->TooltipValue = "";
 
         // Priority
         $this->Priority->LinkCustomAttributes = "";
@@ -1231,6 +1292,11 @@ SORTHTML;
         $this->_Content->EditValue = $this->_Content->CurrentValue;
         $this->_Content->PlaceHolder = RemoveHtml($this->_Content->caption());
 
+        // Tags
+        $this->Tags->EditAttrs["class"] = "form-control";
+        $this->Tags->EditCustomAttributes = "";
+        $this->Tags->PlaceHolder = RemoveHtml($this->Tags->caption());
+
         // Priority
         $this->Priority->EditAttrs["class"] = "form-control";
         $this->Priority->EditCustomAttributes = "";
@@ -1304,6 +1370,7 @@ SORTHTML;
                     $doc->exportCaption($this->Title);
                     $doc->exportCaption($this->Intro);
                     $doc->exportCaption($this->_Content);
+                    $doc->exportCaption($this->Tags);
                     $doc->exportCaption($this->Created);
                     $doc->exportCaption($this->Modified);
                 } else {
@@ -1344,6 +1411,7 @@ SORTHTML;
                         $doc->exportField($this->Title);
                         $doc->exportField($this->Intro);
                         $doc->exportField($this->_Content);
+                        $doc->exportField($this->Tags);
                         $doc->exportField($this->Created);
                         $doc->exportField($this->Modified);
                     } else {

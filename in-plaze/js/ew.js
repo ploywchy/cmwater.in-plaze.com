@@ -1,5 +1,5 @@
 /*!
- * JavaScript for PHPMaker v2021.0.13
+ * JavaScript for PHPMaker v2021.0.14
  * Copyright (c) e.World Technology Limited. All rights reserved.
  */
 (function ($) {
@@ -3209,8 +3209,8 @@
    * Constructor
    */
   function SelectionListOption(value, text, selected) {
-    this.value = String(value || "");
-    this.text = String(text || "");
+    this.value = String(value);
+    this.text = String(text);
     this.selected = !!selected;
   };
 
@@ -3899,7 +3899,7 @@
           timerProgressBar: true,
           allowOutsideClick: false,
           allowEscapeKey: false,
-          onBeforeOpen: function onBeforeOpen() {
+          willOpen: function willOpen() {
             timerInterval = setInterval(function () {
               var content = Swal.getContent(),
                   min = content.querySelector(".ew-session-counter-minute"),
@@ -3979,53 +3979,55 @@
   } // Download file
 
   function fileDownload(href, data) {
-    var win = window,
-        jq = win.jQuery,
-        swal = win.Swal,
-        doc = win.document,
-        $doc = jq(doc),
-        method = data ? "POST" : "GET",
-        isHtml = href.includes("export=html");
-    return swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+    var isHtml = href.includes("export=html");
+    return Swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+      showConfirmButton: false,
       html: "<p>" + ew.language.phrase("Exporting") + "</p>",
       allowOutsideClick: false,
       allowEscapeKey: false,
-      onBeforeOpen: function onBeforeOpen() {
-        swal.showLoading(), jq.ajax({
+      willOpen: function willOpen() {
+        Swal.showLoading(), $__default['default'].ajax({
           url: href,
-          type: method,
+          type: data ? "POST" : "GET",
           cache: false,
           data: data || null,
           xhrFields: {
             responseType: isHtml ? "text" : "blob"
           }
         }).done(function (data, textStatus, jqXHR) {
-          var url = win.URL.createObjectURL(isHtml ? new Blob([data], {
+          var url = URL.createObjectURL(isHtml ? new Blob([data], {
             type: "text/html"
           }) : data),
-              a = doc.createElement("a"),
+              a = document.createElement("a"),
               cd = jqXHR.getResponseHeader("Content-Disposition"),
               m = cd.match(/\bfilename=((['"])(.+)\2|([^;]+))/i);
           a.style.display = "none";
           a.href = url;
           if (m) a.download = m[3] || m[4];
-          doc.body.appendChild(a);
+          document.body.appendChild(a);
           a.click();
-          $doc.trigger("export", [{
+          $document$1.trigger("export", [{
             "type": "done",
             "url": href,
             "objectUrl": url
           }]);
-          win.URL.revokeObjectURL(url);
-          swal.close();
-        }).fail(function () {
-          swal.showValidationMessage("<div class='text-danger'><h4>" + ew.language.phrase("FailedToExport") + "</h4>" + response + "</div>");
-          $doc.trigger("export", [{
+          URL.revokeObjectURL(url);
+          Swal.close();
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+          var _Swal$getActions;
+
+          Swal.hideLoading();
+          Swal.update({
+            showConfirmButton: true
+          });
+          (_Swal$getActions = Swal.getActions()) === null || _Swal$getActions === void 0 ? void 0 : _Swal$getActions.classList.add("d-flex");
+          Swal.showValidationMessage("<div class='text-danger'>" + (errorThrown || ew.language.phrase("FailedToExport")) + "</div>");
+          $document$1.trigger("export", [{
             "type": "fail",
             "url": href
           }]);
         }).always(function () {
-          $doc.trigger("export", [{
+          $document$1.trigger("export", [{
             "type": "always",
             "url": href
           }]);
@@ -5875,9 +5877,20 @@
 
   function executeScript(html, id) {
     var matches = html.replace(/<head>[\s\S]*<\/head>/, "").matchAll(/<script([^>]*)>([\s\S]*?)<\/script\s*>/ig);
-    Array.from(matches).forEach(function (ar, i) {
+    Array.from(matches).filter(function (ar, i) {
       var text = ar[2];
-      if (/(\s+type\s*=\s*['"]*text\/javascript['"]*)|^((?!\s+type\s*=).)*$/i.test(ar[1]) && text) addScript(text, "scr_" + id + "_" + i++);
+
+      if (/(\s+type\s*=\s*['"]*text\/javascript['"]*)|^((?!\s+type\s*=).)*$/i.test(ar[1]) && text) {
+        if (ar[1].includes('class="ew-apply-template"')) {
+          // Apply Custom Template first
+          addScript(text, "scr_" + id + "_0");
+          return false;
+        }
+
+        return true;
+      }
+    }).forEach(function (ar, i) {
+      return addScript(ar[2], "scr_" + id + "_" + (i + 1));
     });
   } // Strip JavaScript in HTML loaded by Ajax
 
@@ -7648,10 +7661,20 @@
   function showMessage(arg) {
     var _arg$target;
 
-    var win = window.parent,
-        // Note: If a window does not have a parent, its parent property is a reference to itself.
-    p = (_arg$target = arg === null || arg === void 0 ? void 0 : arg.target) !== null && _arg$target !== void 0 ? _arg$target : win.document,
-        swal = win.Swal,
+    var doc, swal;
+
+    try {
+      var win = window.parent; // Note: If a window does not have a parent, its parent property is a reference to itself.
+
+      doc = win.document;
+      swal = win.Swal;
+    } catch (e) {
+      // In case win.document cannot be accessed
+      doc = window.document;
+      swal = window.Swal;
+    }
+
+    var p = (_arg$target = arg === null || arg === void 0 ? void 0 : arg.target) !== null && _arg$target !== void 0 ? _arg$target : doc,
         $div = $__default['default'](p).find("div.ew-message-dialog:hidden").first(),
         msg = $div.length ? $div.text() : ""; // Text only
 

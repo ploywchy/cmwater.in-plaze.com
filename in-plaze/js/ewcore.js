@@ -1,5 +1,5 @@
 /*!
- * Core JavaScript for PHPMaker v2021.0.13
+ * Core JavaScript for PHPMaker v2021.0.14
  * Copyright (c) e.World Technology Limited. All rights reserved.
  */
 var ew = (function () {
@@ -5520,8 +5520,8 @@ var ew = (function () {
    * Constructor
    */
   function SelectionListOption(value, text, selected) {
-    this.value = String(value || "");
-    this.text = String(text || "");
+    this.value = String(value);
+    this.text = String(text);
     this.selected = !!selected;
   };
 

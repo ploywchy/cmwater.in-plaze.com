@@ -523,6 +523,7 @@ class BlogView extends Blog
         $this->Title->setVisibility();
         $this->Intro->setVisibility();
         $this->_Content->setVisibility();
+        $this->Tags->setVisibility();
         $this->Priority->setVisibility();
         $this->_New->setVisibility();
         $this->View->setVisibility();
@@ -544,6 +545,7 @@ class BlogView extends Blog
         }
 
         // Set up lookup cache
+        $this->setupLookupOptions($this->Tags);
 
         // Check modal
         if ($this->IsModal) {
@@ -735,6 +737,7 @@ class BlogView extends Blog
         $this->Title->setDbValue($row['Title']);
         $this->Intro->setDbValue($row['Intro']);
         $this->_Content->setDbValue($row['Content']);
+        $this->Tags->setDbValue($row['Tags']);
         $this->Priority->setDbValue($row['Priority']);
         $this->_New->setDbValue($row['New']);
         $this->View->setDbValue($row['View']);
@@ -754,6 +757,7 @@ class BlogView extends Blog
         $row['Title'] = null;
         $row['Intro'] = null;
         $row['Content'] = null;
+        $row['Tags'] = null;
         $row['Priority'] = null;
         $row['New'] = null;
         $row['View'] = null;
@@ -792,6 +796,8 @@ class BlogView extends Blog
 
         // Content
 
+        // Tags
+
         // Priority
 
         // New
@@ -828,6 +834,37 @@ class BlogView extends Blog
             // Content
             $this->_Content->ViewValue = $this->_Content->CurrentValue;
             $this->_Content->ViewCustomAttributes = "";
+
+            // Tags
+            $curVal = trim(strval($this->Tags->CurrentValue));
+            if ($curVal != "") {
+                $this->Tags->ViewValue = $this->Tags->lookupCacheOption($curVal);
+                if ($this->Tags->ViewValue === null) { // Lookup from database
+                    $arwrk = explode(",", $curVal);
+                    $filterWrk = "";
+                    foreach ($arwrk as $wrk) {
+                        if ($filterWrk != "") {
+                            $filterWrk .= " OR ";
+                        }
+                        $filterWrk .= "`Tag_ID`" . SearchString("=", trim($wrk), DATATYPE_NUMBER, "");
+                    }
+                    $sqlWrk = $this->Tags->Lookup->getSql(false, $filterWrk, '', $this, true, true);
+                    $rswrk = Conn()->executeQuery($sqlWrk)->fetchAll(\PDO::FETCH_BOTH);
+                    $ari = count($rswrk);
+                    if ($ari > 0) { // Lookup values found
+                        $this->Tags->ViewValue = new OptionValues();
+                        foreach ($rswrk as $row) {
+                            $arwrk = $this->Tags->Lookup->renderViewRow($row);
+                            $this->Tags->ViewValue->add($this->Tags->displayValue($arwrk));
+                        }
+                    } else {
+                        $this->Tags->ViewValue = $this->Tags->CurrentValue;
+                    }
+                }
+            } else {
+                $this->Tags->ViewValue = null;
+            }
+            $this->Tags->ViewCustomAttributes = "";
 
             // Created
             $this->Created->ViewValue = $this->Created->CurrentValue;
@@ -875,6 +912,11 @@ class BlogView extends Blog
             $this->_Content->HrefValue = "";
             $this->_Content->TooltipValue = "";
 
+            // Tags
+            $this->Tags->LinkCustomAttributes = "";
+            $this->Tags->HrefValue = "";
+            $this->Tags->TooltipValue = "";
+
             // Created
             $this->Created->LinkCustomAttributes = "";
             $this->Created->HrefValue = "";
@@ -916,6 +958,8 @@ class BlogView extends Blog
 
             // Set up lookup SQL and connection
             switch ($fld->FieldVar) {
+                case "x_Tags":
+                    break;
                 case "x__New":
                     break;
                 case "x_Enable":

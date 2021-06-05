@@ -28,4 +28,5 @@ $sideMenu->addMenuItem(51, "mci_Setting", $MenuLanguage->MenuPhrase("51", "MenuT
 $sideMenu->addMenuItem(29, "mi_user", $MenuLanguage->MenuPhrase("29", "MenuText"), $MenuRelativePath . "UserList", 51, "", AllowListMenu('{inplaze}user'), false, false, "fa-user", "", false);
 $sideMenu->addMenuItem(30, "mi_user_level2", $MenuLanguage->MenuPhrase("30", "MenuText"), $MenuRelativePath . "UserLevel2List", 51, "", AllowListMenu('{inplaze}user_level'), false, false, "fa-users", "", false);
 $sideMenu->addMenuItem(57, "mi_category", $MenuLanguage->MenuPhrase("57", "MenuText"), $MenuRelativePath . "CategoryList", 51, "", AllowListMenu('{inplaze}category'), false, false, "fa-folder", "", false);
+$sideMenu->addMenuItem(63, "mi_tag", $MenuLanguage->MenuPhrase("63", "MenuText"), $MenuRelativePath . "TagList", 51, "", AllowListMenu('{inplaze}tag'), false, false, "fa-tags", "", false);
 echo $sideMenu->toScript();

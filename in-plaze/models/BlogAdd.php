@@ -469,6 +469,7 @@ class BlogAdd extends Blog
         $this->Title->setVisibility();
         $this->Intro->setVisibility();
         $this->_Content->setVisibility();
+        $this->Tags->setVisibility();
         $this->Priority->Visible = false;
         $this->_New->Visible = false;
         $this->View->Visible = false;
@@ -490,6 +491,7 @@ class BlogAdd extends Blog
         }
 
         // Set up lookup cache
+        $this->setupLookupOptions($this->Tags);
 
         // Check modal
         if ($this->IsModal) {
@@ -639,6 +641,8 @@ class BlogAdd extends Blog
         $this->Intro->OldValue = $this->Intro->CurrentValue;
         $this->_Content->CurrentValue = null;
         $this->_Content->OldValue = $this->_Content->CurrentValue;
+        $this->Tags->CurrentValue = null;
+        $this->Tags->OldValue = $this->Tags->CurrentValue;
         $this->Priority->CurrentValue = null;
         $this->Priority->OldValue = $this->Priority->CurrentValue;
         $this->_New->CurrentValue = 1;
@@ -691,6 +695,16 @@ class BlogAdd extends Blog
             }
         }
 
+        // Check field name 'Tags' first before field var 'x_Tags'
+        $val = $CurrentForm->hasValue("Tags") ? $CurrentForm->getValue("Tags") : $CurrentForm->getValue("x_Tags");
+        if (!$this->Tags->IsDetailKey) {
+            if (IsApi() && $val === null) {
+                $this->Tags->Visible = false; // Disable update for API request
+            } else {
+                $this->Tags->setFormValue($val);
+            }
+        }
+
         // Check field name 'Created' first before field var 'x_Created'
         $val = $CurrentForm->hasValue("Created") ? $CurrentForm->getValue("Created") : $CurrentForm->getValue("x_Created");
         if (!$this->Created->IsDetailKey) {
@@ -725,6 +739,7 @@ class BlogAdd extends Blog
         $this->Title->CurrentValue = $this->Title->FormValue;
         $this->Intro->CurrentValue = $this->Intro->FormValue;
         $this->_Content->CurrentValue = $this->_Content->FormValue;
+        $this->Tags->CurrentValue = $this->Tags->FormValue;
         $this->Created->CurrentValue = $this->Created->FormValue;
         $this->Created->CurrentValue = UnFormatDateTime($this->Created->CurrentValue, 0);
         $this->Modified->CurrentValue = $this->Modified->FormValue;
@@ -784,6 +799,7 @@ class BlogAdd extends Blog
         $this->Title->setDbValue($row['Title']);
         $this->Intro->setDbValue($row['Intro']);
         $this->_Content->setDbValue($row['Content']);
+        $this->Tags->setDbValue($row['Tags']);
         $this->Priority->setDbValue($row['Priority']);
         $this->_New->setDbValue($row['New']);
         $this->View->setDbValue($row['View']);
@@ -804,6 +820,7 @@ class BlogAdd extends Blog
         $row['Title'] = $this->Title->CurrentValue;
         $row['Intro'] = $this->Intro->CurrentValue;
         $row['Content'] = $this->_Content->CurrentValue;
+        $row['Tags'] = $this->Tags->CurrentValue;
         $row['Priority'] = $this->Priority->CurrentValue;
         $row['New'] = $this->_New->CurrentValue;
         $row['View'] = $this->View->CurrentValue;
@@ -852,6 +869,8 @@ class BlogAdd extends Blog
 
         // Content
 
+        // Tags
+
         // Priority
 
         // New
@@ -888,6 +907,37 @@ class BlogAdd extends Blog
             // Content
             $this->_Content->ViewValue = $this->_Content->CurrentValue;
             $this->_Content->ViewCustomAttributes = "";
+
+            // Tags
+            $curVal = trim(strval($this->Tags->CurrentValue));
+            if ($curVal != "") {
+                $this->Tags->ViewValue = $this->Tags->lookupCacheOption($curVal);
+                if ($this->Tags->ViewValue === null) { // Lookup from database
+                    $arwrk = explode(",", $curVal);
+                    $filterWrk = "";
+                    foreach ($arwrk as $wrk) {
+                        if ($filterWrk != "") {
+                            $filterWrk .= " OR ";
+                        }
+                        $filterWrk .= "`Tag_ID`" . SearchString("=", trim($wrk), DATATYPE_NUMBER, "");
+                    }
+                    $sqlWrk = $this->Tags->Lookup->getSql(false, $filterWrk, '', $this, true, true);
+                    $rswrk = Conn()->executeQuery($sqlWrk)->fetchAll(\PDO::FETCH_BOTH);
+                    $ari = count($rswrk);
+                    if ($ari > 0) { // Lookup values found
+                        $this->Tags->ViewValue = new OptionValues();
+                        foreach ($rswrk as $row) {
+                            $arwrk = $this->Tags->Lookup->renderViewRow($row);
+                            $this->Tags->ViewValue->add($this->Tags->displayValue($arwrk));
+                        }
+                    } else {
+                        $this->Tags->ViewValue = $this->Tags->CurrentValue;
+                    }
+                }
+            } else {
+                $this->Tags->ViewValue = null;
+            }
+            $this->Tags->ViewCustomAttributes = "";
 
             // Images
             if (!EmptyValue($this->Images->Upload->DbValue)) {
@@ -943,6 +993,11 @@ class BlogAdd extends Blog
             $this->_Content->LinkCustomAttributes = "";
             $this->_Content->HrefValue = "";
             $this->_Content->TooltipValue = "";
+
+            // Tags
+            $this->Tags->LinkCustomAttributes = "";
+            $this->Tags->HrefValue = "";
+            $this->Tags->TooltipValue = "";
 
             // Images
             $this->Images->LinkCustomAttributes = "";
@@ -1014,6 +1069,38 @@ class BlogAdd extends Blog
             $this->_Content->EditValue = HtmlEncode($this->_Content->CurrentValue);
             $this->_Content->PlaceHolder = RemoveHtml($this->_Content->caption());
 
+            // Tags
+            $this->Tags->EditAttrs["class"] = "form-control";
+            $this->Tags->EditCustomAttributes = "";
+            $curVal = trim(strval($this->Tags->CurrentValue));
+            if ($curVal != "") {
+                $this->Tags->ViewValue = $this->Tags->lookupCacheOption($curVal);
+            } else {
+                $this->Tags->ViewValue = $this->Tags->Lookup !== null && is_array($this->Tags->Lookup->Options) ? $curVal : null;
+            }
+            if ($this->Tags->ViewValue !== null) { // Load from cache
+                $this->Tags->EditValue = array_values($this->Tags->Lookup->Options);
+            } else { // Lookup from database
+                if ($curVal == "") {
+                    $filterWrk = "0=1";
+                } else {
+                    $arwrk = explode(",", $curVal);
+                    $filterWrk = "";
+                    foreach ($arwrk as $wrk) {
+                        if ($filterWrk != "") {
+                            $filterWrk .= " OR ";
+                        }
+                        $filterWrk .= "`Tag_ID`" . SearchString("=", trim($wrk), DATATYPE_NUMBER, "");
+                    }
+                }
+                $sqlWrk = $this->Tags->Lookup->getSql(true, $filterWrk, '', $this, false, true);
+                $rswrk = Conn()->executeQuery($sqlWrk)->fetchAll(\PDO::FETCH_BOTH);
+                $ari = count($rswrk);
+                $arwrk = $rswrk;
+                $this->Tags->EditValue = $arwrk;
+            }
+            $this->Tags->PlaceHolder = RemoveHtml($this->Tags->caption());
+
             // Images
             $this->Images->EditAttrs["class"] = "form-control";
             $this->Images->EditCustomAttributes = "";
@@ -1060,6 +1147,10 @@ class BlogAdd extends Blog
             // Content
             $this->_Content->LinkCustomAttributes = "";
             $this->_Content->HrefValue = "";
+
+            // Tags
+            $this->Tags->LinkCustomAttributes = "";
+            $this->Tags->HrefValue = "";
 
             // Images
             $this->Images->LinkCustomAttributes = "";
@@ -1121,6 +1212,11 @@ class BlogAdd extends Blog
                 $this->_Content->addErrorMessage(str_replace("%s", $this->_Content->caption(), $this->_Content->RequiredErrorMessage));
             }
         }
+        if ($this->Tags->Required) {
+            if ($this->Tags->FormValue == "") {
+                $this->Tags->addErrorMessage(str_replace("%s", $this->Tags->caption(), $this->Tags->RequiredErrorMessage));
+            }
+        }
         if ($this->Images->Required) {
             if ($this->Images->Upload->FileName == "" && !$this->Images->Upload->KeepFile) {
                 $this->Images->addErrorMessage(str_replace("%s", $this->Images->caption(), $this->Images->RequiredErrorMessage));
@@ -1179,6 +1275,9 @@ class BlogAdd extends Blog
 
         // Content
         $this->_Content->setDbValueDef($rsnew, $this->_Content->CurrentValue, null, false);
+
+        // Tags
+        $this->Tags->setDbValueDef($rsnew, $this->Tags->CurrentValue, "", false);
 
         // Images
         if ($this->Images->Visible && !$this->Images->Upload->KeepFile) {
@@ -1412,6 +1511,8 @@ class BlogAdd extends Blog
 
             // Set up lookup SQL and connection
             switch ($fld->FieldVar) {
+                case "x_Tags":
+                    break;
                 case "x__New":
                     break;
                 case "x_Enable":

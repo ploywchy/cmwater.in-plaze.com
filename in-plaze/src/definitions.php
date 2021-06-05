@@ -51,17 +51,18 @@ return [
     "session" => \DI\create(HttpSession::class),
 
     // Tables
-    "text" => \DI\create(Text::class),
+    "blog" => \DI\create(Blog::class),
+    "category" => \DI\create(Category::class),
     "contents" => \DI\create(Contents::class),
-    "image" => \DI\create(Image::class),
     "icon" => \DI\create(Icon::class),
     "icon_list" => \DI\create(IconList::class),
+    "image" => \DI\create(Image::class),
+    "product" => \DI\create(Product::class),
+    "tag" => \DI\create(Tag::class),
+    "text" => \DI\create(Text::class),
     "user" => \DI\create(User::class),
     "user_level2" => \DI\create(UserLevel2::class),
     "user_level_permission" => \DI\create(UserLevelPermission::class),
-    "category" => \DI\create(Category::class),
-    "product" => \DI\create(Product::class),
-    "blog" => \DI\create(Blog::class),
 
     // User table
     "usertable" => \DI\get("user"),

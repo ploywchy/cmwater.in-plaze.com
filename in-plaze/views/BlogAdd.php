@@ -24,6 +24,7 @@ loadjs.ready("head", function () {
         ["Title", [fields.Title.visible && fields.Title.required ? ew.Validators.required(fields.Title.caption) : null], fields.Title.isInvalid],
         ["Intro", [fields.Intro.visible && fields.Intro.required ? ew.Validators.required(fields.Intro.caption) : null], fields.Intro.isInvalid],
         ["_Content", [fields._Content.visible && fields._Content.required ? ew.Validators.required(fields._Content.caption) : null], fields._Content.isInvalid],
+        ["Tags", [fields.Tags.visible && fields.Tags.required ? ew.Validators.required(fields.Tags.caption) : null], fields.Tags.isInvalid],
         ["Images", [fields.Images.visible && fields.Images.required ? ew.Validators.fileRequired(fields.Images.caption) : null], fields.Images.isInvalid],
         ["Created", [fields.Created.visible && fields.Created.required ? ew.Validators.required(fields.Created.caption) : null], fields.Created.isInvalid],
         ["Modified", [fields.Modified.visible && fields.Modified.required ? ew.Validators.required(fields.Modified.caption) : null], fields.Modified.isInvalid]
@@ -93,6 +94,7 @@ loadjs.ready("head", function () {
     fblogadd.validateRequired = <?= Config("CLIENT_VALIDATE") ? "true" : "false" ?>;
 
     // Dynamic selection lists
+    fblogadd.lists.Tags = <?= $Page->Tags->toClientList($Page) ?>;
     loadjs.done("fblogadd");
 });
 </script>
@@ -176,6 +178,48 @@ $Page->showMessage();
 <script>
 loadjs.ready(["fblogadd", "editor"], function() {
 	ew.createEditor("fblogadd", "x__Content", 35, 4, <?= $Page->_Content->ReadOnly || false ? "true" : "false" ?>);
+});
+</script>
+</span>
+</div></div>
+    </div>
+<?php } ?>
+<?php if ($Page->Tags->Visible) { // Tags ?>
+    <div id="r_Tags" class="form-group row">
+        <label id="elh_blog_Tags" for="x_Tags" class="<?= $Page->LeftColumnClass ?>"><?= $Page->Tags->caption() ?><?= $Page->Tags->Required ? $Language->phrase("FieldRequiredIndicator") : "" ?></label>
+        <div class="<?= $Page->RightColumnClass ?>"><div <?= $Page->Tags->cellAttributes() ?>>
+<span id="el_blog_Tags">
+<div class="input-group flex-nowrap">
+    <select
+        id="x_Tags[]"
+        name="x_Tags[]"
+        class="form-control ew-select<?= $Page->Tags->isInvalidClass() ?>"
+        data-select2-id="blog_x_Tags[]"
+        data-table="blog"
+        data-field="x_Tags"
+        multiple
+        size="1"
+        data-value-separator="<?= $Page->Tags->displayValueSeparatorAttribute() ?>"
+        data-placeholder="<?= HtmlEncode($Page->Tags->getPlaceHolder()) ?>"
+        <?= $Page->Tags->editAttributes() ?>>
+        <?= $Page->Tags->selectOptionListHtml("x_Tags[]") ?>
+    </select>
+    <?php if (AllowAdd(CurrentProjectID() . "tag") && !$Page->Tags->ReadOnly) { ?>
+    <div class="input-group-append"><button type="button" class="btn btn-default ew-add-opt-btn" id="aol_x_Tags" title="<?= HtmlTitle($Language->phrase("AddLink")) . "&nbsp;" . $Page->Tags->caption() ?>" data-title="<?= $Page->Tags->caption() ?>" onclick="ew.addOptionDialogShow({lnk:this,el:'x_Tags[]',url:'<?= GetUrl("TagAddopt") ?>'});"><i class="fas fa-plus ew-icon"></i></button></div>
+    <?php } ?>
+</div>
+<?= $Page->Tags->getCustomMessage() ?>
+<div class="invalid-feedback"><?= $Page->Tags->getErrorMessage() ?></div>
+<?= $Page->Tags->Lookup->getParamTag($Page, "p_x_Tags") ?>
+<script>
+loadjs.ready("head", function() {
+    var el = document.querySelector("select[data-select2-id='blog_x_Tags[]']"),
+        options = { name: "x_Tags[]", selectId: "blog_x_Tags[]", language: ew.LANGUAGE_ID, dir: ew.IS_RTL ? "rtl" : "ltr" };
+    options.multiple = true;
+    options.closeOnSelect = false;
+    options.dropdownParent = $(el).closest("#ew-modal-dialog, #ew-add-opt-dialog")[0];
+    Object.assign(options, ew.vars.tables.blog.fields.Tags.selectOptions);
+    ew.createSelect(options);
 });
 </script>
 </span>

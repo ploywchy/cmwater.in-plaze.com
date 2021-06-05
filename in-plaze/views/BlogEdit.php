@@ -24,6 +24,7 @@ loadjs.ready("head", function () {
         ["Title", [fields.Title.visible && fields.Title.required ? ew.Validators.required(fields.Title.caption) : null], fields.Title.isInvalid],
         ["Intro", [fields.Intro.visible && fields.Intro.required ? ew.Validators.required(fields.Intro.caption) : null], fields.Intro.isInvalid],
         ["_Content", [fields._Content.visible && fields._Content.required ? ew.Validators.required(fields._Content.caption) : null], fields._Content.isInvalid],
+        ["Tags", [fields.Tags.visible && fields.Tags.required ? ew.Validators.required(fields.Tags.caption) : null], fields.Tags.isInvalid],
         ["_New", [fields._New.visible && fields._New.required ? ew.Validators.required(fields._New.caption) : null], fields._New.isInvalid],
         ["Images", [fields.Images.visible && fields.Images.required ? ew.Validators.fileRequired(fields.Images.caption) : null], fields.Images.isInvalid],
         ["Modified", [fields.Modified.visible && fields.Modified.required ? ew.Validators.required(fields.Modified.caption) : null], fields.Modified.isInvalid]
@@ -93,6 +94,7 @@ loadjs.ready("head", function () {
     fblogedit.validateRequired = <?= Config("CLIENT_VALIDATE") ? "true" : "false" ?>;
 
     // Dynamic selection lists
+    fblogedit.lists.Tags = <?= $Page->Tags->toClientList($Page) ?>;
     fblogedit.lists._New = <?= $Page->_New->toClientList($Page) ?>;
     loadjs.done("fblogedit");
 });
@@ -183,14 +185,56 @@ loadjs.ready(["fblogedit", "editor"], function() {
 </div></div>
     </div>
 <?php } ?>
+<?php if ($Page->Tags->Visible) { // Tags ?>
+    <div id="r_Tags" class="form-group row">
+        <label id="elh_blog_Tags" for="x_Tags" class="<?= $Page->LeftColumnClass ?>"><?= $Page->Tags->caption() ?><?= $Page->Tags->Required ? $Language->phrase("FieldRequiredIndicator") : "" ?></label>
+        <div class="<?= $Page->RightColumnClass ?>"><div <?= $Page->Tags->cellAttributes() ?>>
+<span id="el_blog_Tags">
+<div class="input-group flex-nowrap">
+    <select
+        id="x_Tags[]"
+        name="x_Tags[]"
+        class="form-control ew-select<?= $Page->Tags->isInvalidClass() ?>"
+        data-select2-id="blog_x_Tags[]"
+        data-table="blog"
+        data-field="x_Tags"
+        multiple
+        size="1"
+        data-value-separator="<?= $Page->Tags->displayValueSeparatorAttribute() ?>"
+        data-placeholder="<?= HtmlEncode($Page->Tags->getPlaceHolder()) ?>"
+        <?= $Page->Tags->editAttributes() ?>>
+        <?= $Page->Tags->selectOptionListHtml("x_Tags[]") ?>
+    </select>
+    <?php if (AllowAdd(CurrentProjectID() . "tag") && !$Page->Tags->ReadOnly) { ?>
+    <div class="input-group-append"><button type="button" class="btn btn-default ew-add-opt-btn" id="aol_x_Tags" title="<?= HtmlTitle($Language->phrase("AddLink")) . "&nbsp;" . $Page->Tags->caption() ?>" data-title="<?= $Page->Tags->caption() ?>" onclick="ew.addOptionDialogShow({lnk:this,el:'x_Tags[]',url:'<?= GetUrl("TagAddopt") ?>'});"><i class="fas fa-plus ew-icon"></i></button></div>
+    <?php } ?>
+</div>
+<?= $Page->Tags->getCustomMessage() ?>
+<div class="invalid-feedback"><?= $Page->Tags->getErrorMessage() ?></div>
+<?= $Page->Tags->Lookup->getParamTag($Page, "p_x_Tags") ?>
+<script>
+loadjs.ready("head", function() {
+    var el = document.querySelector("select[data-select2-id='blog_x_Tags[]']"),
+        options = { name: "x_Tags[]", selectId: "blog_x_Tags[]", language: ew.LANGUAGE_ID, dir: ew.IS_RTL ? "rtl" : "ltr" };
+    options.multiple = true;
+    options.closeOnSelect = false;
+    options.dropdownParent = $(el).closest("#ew-modal-dialog, #ew-add-opt-dialog")[0];
+    Object.assign(options, ew.vars.tables.blog.fields.Tags.selectOptions);
+    ew.createSelect(options);
+});
+</script>
+</span>
+</div></div>
+    </div>
+<?php } ?>
 <?php if ($Page->_New->Visible) { // New ?>
     <div id="r__New" class="form-group row">
         <label id="elh_blog__New" class="<?= $Page->LeftColumnClass ?>"><?= $Page->_New->caption() ?><?= $Page->_New->Required ? $Language->phrase("FieldRequiredIndicator") : "" ?></label>
         <div class="<?= $Page->RightColumnClass ?>"><div <?= $Page->_New->cellAttributes() ?>>
 <span id="el_blog__New">
 <div class="custom-control custom-checkbox d-inline-block">
-    <input type="checkbox" class="custom-control-input<?= $Page->_New->isInvalidClass() ?>" data-table="blog" data-field="x__New" name="x__New[]" id="x__New_840501" value="1"<?= ConvertToBool($Page->_New->CurrentValue) ? " checked" : "" ?><?= $Page->_New->editAttributes() ?> aria-describedby="x__New_help">
-    <label class="custom-control-label" for="x__New_840501"></label>
+    <input type="checkbox" class="custom-control-input<?= $Page->_New->isInvalidClass() ?>" data-table="blog" data-field="x__New" name="x__New[]" id="x__New_839462" value="1"<?= ConvertToBool($Page->_New->CurrentValue) ? " checked" : "" ?><?= $Page->_New->editAttributes() ?> aria-describedby="x__New_help">
+    <label class="custom-control-label" for="x__New_839462"></label>
 </div>
 <?= $Page->_New->getCustomMessage() ?>
 <div class="invalid-feedback"><?= $Page->_New->getErrorMessage() ?></div>

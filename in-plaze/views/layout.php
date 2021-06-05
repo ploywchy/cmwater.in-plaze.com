@@ -287,7 +287,7 @@ ew.ready("head", [ew.PATH_BASE + "ckeditor/ckeditor.js", ew.PATH_BASE + "js/ewed
 </script>
 <link rel="shortcut icon" type="image/x-icon" href="<?= BasePath() ?>/favicon.ico">
 <link rel="icon" type="image/x-icon" href="<?= BasePath() ?>/favicon.ico">
-<meta name="generator" content="PHPMaker 2021.0.13">
+<meta name="generator" content="PHPMaker 2021.0.14">
 </head>
 <body class="<?= Config("BODY_CLASS") ?>" dir="<?= IsRTL() ? "rtl" : "ltr" ?>">
 <?php if (@!$SkipHeaderFooter) { ?>

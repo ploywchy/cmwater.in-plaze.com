@@ -675,9 +675,20 @@ function CanTrackCookie()
  */
 function CreateConsentCookie()
 {
-    $date = new \DateTime();
-    $date->setTimestamp(Config("COOKIE_EXPIRY_TIME"));
-    return PROJECT_NAME . "[" . Config("COOKIE_CONSENT_NAME") . "]=1;path=/;expires=" . $date->format(\DateTime::COOKIE); // Do not use Delight\Cookie\Cookie()
+    $params = session_get_cookie_params();
+    $cookie = new \Delight\Cookie\Cookie(PROJECT_NAME . "[" . Config("COOKIE_CONSENT_NAME") . "]");
+    $cookie->setValue(1);
+    $cookie->setExpiryTime(Config("COOKIE_EXPIRY_TIME"));
+    $cookie->setSameSiteRestriction(Config("COOKIE_SAMESITE"));
+    $cookie->setHttpOnly(false); // Note: Must be false
+    $cookie->setSecureOnly(Config("COOKIE_SAMESITE") == "None" || IsHttps() && Config("COOKIE_SECURE"));
+    if ($params["domain"]) {
+        $cookie->setDomain($params["domain"]);
+    }
+    if ($params["path"]) {
+        $cookie->setPath($params["path"]);
+    }
+    return str_replace(\Delight\Cookie\Cookie::HEADER_PREFIX, "", (string)$cookie);
 }
 
 /**
@@ -692,6 +703,7 @@ function CreateConsentCookie()
  */
 function WriteCookie($name, $value, $expiry = -1, $essential = true, $httpOnly = false)
 {
+    $params = session_get_cookie_params();
     $expiry = ($expiry > -1) ? $expiry : Config("COOKIE_EXPIRY_TIME");
     if ($essential || CanTrackCookie()) {
         $cookie = new \Delight\Cookie\Cookie(PROJECT_NAME . "[" . $name . "]");
@@ -700,6 +712,12 @@ function WriteCookie($name, $value, $expiry = -1, $essential = true, $httpOnly =
         $cookie->setSameSiteRestriction(Config("COOKIE_SAMESITE"));
         $cookie->setHttpOnly($httpOnly || Config("COOKIE_HTTP_ONLY"));
         $cookie->setSecureOnly(Config("COOKIE_SAMESITE") == "None" || IsHttps() && Config("COOKIE_SECURE"));
+        if ($params["domain"]) {
+            $cookie->setDomain($params["domain"]);
+        }
+        if ($params["path"]) {
+            $cookie->setPath($params["path"]);
+        }
         $cookie->save();
     }
 }
@@ -4808,7 +4826,7 @@ function CheckSum($value)
 }
 
 // Check US social security number
-function CheckSsc($value)
+function CheckSsn($value)
 {
     if (strval($value) == "") {
         return true;

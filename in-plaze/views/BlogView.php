@@ -90,6 +90,17 @@ $Page->showMessage();
 </td>
     </tr>
 <?php } ?>
+<?php if ($Page->Tags->Visible) { // Tags ?>
+    <tr id="r_Tags">
+        <td class="<?= $Page->TableLeftColumnClass ?>"><span id="elh_blog_Tags"><?= $Page->Tags->caption() ?></span></td>
+        <td data-name="Tags" <?= $Page->Tags->cellAttributes() ?>>
+<span id="el_blog_Tags">
+<span<?= $Page->Tags->viewAttributes() ?>>
+<?= $Page->Tags->getViewValue() ?></span>
+</span>
+</td>
+    </tr>
+<?php } ?>
 <?php if ($Page->Created->Visible) { // Created ?>
     <tr id="r_Created">
         <td class="<?= $Page->TableLeftColumnClass ?>"><span id="elh_blog_Created"><?= $Page->Created->caption() ?></span></td>

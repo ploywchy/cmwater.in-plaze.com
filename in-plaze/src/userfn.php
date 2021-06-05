@@ -168,13 +168,20 @@ function Container_Build($builder)
 }
 if ("Global Code") {
 	$htaccess = 'in-plaze/.htaccess';
-	// $prepend_append = "\n\nphp_value auto_prepend_file none\nphp_value auto_append_file none";
 	$prepend_append = "\r\n\r\nphp_value auto_prepend_file none\r\nphp_value auto_append_file none";
 	if (file_exists($htaccess) AND strpos(file_get_contents($htaccess), $prepend_append) === FALSE) {
 		file_put_contents($htaccess, $prepend_append, FILE_APPEND);
-		ob_end_clean();
-		header("location:{$_SERVER['REQUEST_URI']}");
-		exit();
+		// ob_end_clean();
+		// header("location:{$_SERVER['REQUEST_URI']}");
+		// exit();
+	}
+	$htaccess = 'css/.htaccess';
+	if (!file_exists($htaccess) OR strpos(file_get_contents($htaccess), $prepend_append) === FALSE) {
+		file_put_contents($htaccess, $prepend_append, FILE_APPEND);
+		// die('if');
+		// ob_end_clean();
+		// header("location:{$_SERVER['REQUEST_URI']}");
+		// exit();
 	}
 
 	function notify ($token, $message) {

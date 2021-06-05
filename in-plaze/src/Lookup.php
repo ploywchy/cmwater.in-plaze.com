@@ -341,7 +341,6 @@ class Lookup
         }
 
         // Check if render View function exists
-        $renderer->RowType = ROWTYPE_VIEW;
         $fn = $this->RenderViewFunc;
         $render = method_exists($renderer, $fn);
         if (!$render) {
@@ -359,7 +358,10 @@ class Lookup
         }
 
         // Render data
+        $rowType = $renderer->RowType; // Save RowType
+        $renderer->RowType = ROWTYPE_VIEW;
         $renderer->$fn();
+        $renderer->RowType = $rowType; // Restore RowType
 
         // Output data from ViewValue
         foreach ($this->DisplayFields as $index => $name) {

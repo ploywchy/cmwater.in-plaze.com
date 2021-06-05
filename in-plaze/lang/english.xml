@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<ew-language date="2021/5/26" version="17.0.5" id="en" name="English" desc="English" author="e.World Technology Limited">
+<ew-language date="2021/6/5" version="17.0.5" id="en" name="English" desc="English" author="e.World Technology Limited">
   <!--
     *** Important Notes:
     1. Language ID should follow: https://developers.google.com/recaptcha/docs/language,
@@ -928,6 +928,9 @@
     <menu id="61">
       <phrase id="menutext" value="real-estate.php" />
     </menu>
+    <menu id="62">
+      <phrase id="menutext" value="course.php" />
+    </menu>
     <menu id="60">
       <phrase id="menutext" value=".htaccess" />
     </menu>
@@ -964,6 +967,9 @@
     <menu id="57">
       <phrase id="menutext" value="Product Category" />
     </menu>
+    <menu id="63">
+      <phrase id="menutext" value="Tag" />
+    </menu>
     <menu id="41">
       <phrase id="menutext" value="Icon" />
     </menu>
@@ -979,29 +985,75 @@
     <menu id="53">
       <phrase id="menutext" value="inc_js.js" />
     </menu>
-    <table id="text">
-      <phrase id="tblcaption" value="Text" />
-      <field id="content_id">
-        <phrase id="fldcaption" value="ID" />
+    <table id="htaccess">
+      <phrase id="tblcaption" value=".htaccess" />
+    </table>
+    <table id="blog">
+      <phrase id="tblcaption" value="Blog" />
+      <field id="blog_id">
+        <phrase id="fldcaption" value="รหัส" />
       </field>
-      <field id="name">
-        <phrase id="fldcaption" value="Name" />
+      <field id="image">
+        <phrase id="fldcaption" value="รูปภาพหลัก" />
       </field>
-      <field id="value">
-        <phrase id="fldcaption" value="Text" />
+      <field id="title">
+        <phrase id="fldcaption" value="หัวข้อ" />
+      </field>
+      <field id="intro">
+        <phrase id="fldcaption" value="รายละเอียดย่อ" />
+      </field>
+      <field id="_content">
+        <phrase id="fldcaption" value="เนื้อหา" />
+      </field>
+      <field id="tags">
+        <phrase id="fldcaption" value="แท็ก" />
+      </field>
+      <field id="priority">
+        <phrase id="fldcaption" value="ลำดับ" />
+      </field>
+      <field id="_new">
+        <phrase id="fldcaption" value="ใหม่" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="No" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="Yes" />
+      </field>
+      <field id="view">
+        <phrase id="fldcaption" value="เข้าชม" />
       </field>
       <field id="enable">
-        <phrase id="fldcaption" value="Enable" />
-        <phrase id="fldtagvalue1" value="1" />
-        <phrase id="fldtagcaption1" value="ใช้" />
-        <phrase id="fldtagvalue2" value="0" />
-        <phrase id="fldtagcaption2" value="ไม่ใช้" />
+        <phrase id="fldcaption" value="เปิดใช้งาน" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="0" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="1" />
+      </field>
+      <field id="images">
+        <phrase id="fldcaption" value="รูปภาพอื่นๆ" />
       </field>
       <field id="created">
-        <phrase id="fldcaption" value="Created Date" />
+        <phrase id="fldcaption" value="สร้าง" />
       </field>
       <field id="modified">
-        <phrase id="fldcaption" value="Modified Date" />
+        <phrase id="fldcaption" value="แก้ไข" />
+      </field>
+    </table>
+    <table id="category">
+      <phrase id="tblcaption" value="Category" />
+      <field id="category_id">
+        <phrase id="fldcaption" value="รหัส" />
+      </field>
+      <field id="image">
+        <phrase id="fldcaption" value="รูปภาพ" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="ชื่อ" />
+      </field>
+      <field id="priority">
+        <phrase id="fldcaption" value="ลำดับ" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="Description" />
       </field>
     </table>
     <table id="contents">
@@ -1029,30 +1081,8 @@
         <phrase id="fldcaption" value="Modified Date" />
       </field>
     </table>
-    <table id="image">
-      <phrase id="tblcaption" value="Image" />
-      <field id="image_id">
-        <phrase id="fldcaption" value="Image ID" />
-      </field>
-      <field id="name">
-        <phrase id="fldcaption" value="Name" />
-      </field>
-      <field id="value">
-        <phrase id="fldcaption" value="Image" />
-      </field>
-      <field id="enable">
-        <phrase id="fldcaption" value="Enable" />
-        <phrase id="fldtagvalue1" value="1" />
-        <phrase id="fldtagcaption1" value="1" />
-        <phrase id="fldtagvalue2" value="0" />
-        <phrase id="fldtagcaption2" value="0" />
-      </field>
-      <field id="created">
-        <phrase id="fldcaption" value="Created" />
-      </field>
-      <field id="modified">
-        <phrase id="fldcaption" value="Modified" />
-      </field>
+    <table id="course">
+      <phrase id="tblcaption" value="course.php" />
     </table>
     <table id="icon">
       <phrase id="tblcaption" value="Icon" />
@@ -1102,6 +1132,130 @@
       </field>
       <field id="modified">
         <phrase id="fldcaption" value="Modified" />
+      </field>
+    </table>
+    <table id="image">
+      <phrase id="tblcaption" value="Image" />
+      <field id="image_id">
+        <phrase id="fldcaption" value="Image ID" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+      <field id="value">
+        <phrase id="fldcaption" value="Image" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Enable" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="1" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="0" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="Created" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="Modified" />
+      </field>
+    </table>
+    <table id="inc_final">
+      <phrase id="tblcaption" value="inc_final.php" />
+    </table>
+    <table id="inc_init">
+      <phrase id="tblcaption" value="inc_init.php" />
+    </table>
+    <table id="inc_jsjs">
+      <phrase id="tblcaption" value="inc_js.js" />
+    </table>
+    <table id="product">
+      <phrase id="tblcaption" value="Product" />
+      <field id="product_id">
+        <phrase id="fldcaption" value="รหัส" />
+      </field>
+      <field id="category_id">
+        <phrase id="fldcaption" value="หมวดหมู่" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="ชื่อ" />
+      </field>
+      <field id="intro">
+        <phrase id="fldcaption" value="รายละเอียดย่อ" />
+      </field>
+      <field id="description">
+        <phrase id="fldcaption" value="รายละเอียด" />
+      </field>
+      <field id="price">
+        <phrase id="fldcaption" value="ราคา" />
+      </field>
+      <field id="priority">
+        <phrase id="fldcaption" value="ลำดับ" />
+      </field>
+      <field id="_new">
+        <phrase id="fldcaption" value="ใหม่" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="No" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="Yes" />
+      </field>
+      <field id="image">
+        <phrase id="fldcaption" value="รูปภาพหลัก" />
+      </field>
+      <field id="view">
+        <phrase id="fldcaption" value="เข้าชม" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="เปิดใช้งาน" />
+        <phrase id="fldtagvalue1" value="0" />
+        <phrase id="fldtagcaption1" value="0" />
+        <phrase id="fldtagvalue2" value="1" />
+        <phrase id="fldtagcaption2" value="1" />
+      </field>
+      <field id="images">
+        <phrase id="fldcaption" value="รูปภาพอื่นๆ" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="สร้าง" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="แก้ไข" />
+      </field>
+    </table>
+    <table id="realestate">
+      <phrase id="tblcaption" value="real-estate.php" />
+    </table>
+    <table id="tag">
+      <phrase id="tblcaption" value="Tag" />
+      <field id="tag_id">
+        <phrase id="fldcaption" value="Tag ID" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+    </table>
+    <table id="text">
+      <phrase id="tblcaption" value="Text" />
+      <field id="content_id">
+        <phrase id="fldcaption" value="ID" />
+      </field>
+      <field id="name">
+        <phrase id="fldcaption" value="Name" />
+      </field>
+      <field id="value">
+        <phrase id="fldcaption" value="Text" />
+      </field>
+      <field id="enable">
+        <phrase id="fldcaption" value="Enable" />
+        <phrase id="fldtagvalue1" value="1" />
+        <phrase id="fldtagcaption1" value="ใช้" />
+        <phrase id="fldtagvalue2" value="0" />
+        <phrase id="fldtagcaption2" value="ไม่ใช้" />
+      </field>
+      <field id="created">
+        <phrase id="fldcaption" value="Created Date" />
+      </field>
+      <field id="modified">
+        <phrase id="fldcaption" value="Modified Date" />
       </field>
     </table>
     <table id="user">
@@ -1163,15 +1317,6 @@
         <phrase id="fldcaption" value="Level Name" />
       </field>
     </table>
-    <table id="inc_init">
-      <phrase id="tblcaption" value="inc_init.php" />
-    </table>
-    <table id="inc_jsjs">
-      <phrase id="tblcaption" value="inc_js.js" />
-    </table>
-    <table id="inc_final">
-      <phrase id="tblcaption" value="inc_final.php" />
-    </table>
     <table id="user_level_permission">
       <phrase id="tblcaption" value="Permission" />
       <field id="user_level_id">
@@ -1183,130 +1328,6 @@
       <field id="_permission">
         <phrase id="fldcaption" value="Permission" />
       </field>
-    </table>
-    <table id="category">
-      <phrase id="tblcaption" value="Category" />
-      <field id="category_id">
-        <phrase id="fldcaption" value="รหัส" />
-      </field>
-      <field id="image">
-        <phrase id="fldcaption" value="รูปภาพ" />
-      </field>
-      <field id="name">
-        <phrase id="fldcaption" value="ชื่อ" />
-      </field>
-      <field id="priority">
-        <phrase id="fldcaption" value="ลำดับ" />
-      </field>
-      <field id="description">
-        <phrase id="fldcaption" value="Description" />
-      </field>
-    </table>
-    <table id="product">
-      <phrase id="tblcaption" value="Product" />
-      <field id="product_id">
-        <phrase id="fldcaption" value="รหัส" />
-      </field>
-      <field id="category_id">
-        <phrase id="fldcaption" value="หมวดหมู่" />
-      </field>
-      <field id="name">
-        <phrase id="fldcaption" value="ชื่อ" />
-      </field>
-      <field id="intro">
-        <phrase id="fldcaption" value="รายละเอียดย่อ" />
-      </field>
-      <field id="description">
-        <phrase id="fldcaption" value="รายละเอียด" />
-      </field>
-      <field id="price">
-        <phrase id="fldcaption" value="ราคา" />
-      </field>
-      <field id="priority">
-        <phrase id="fldcaption" value="ลำดับ" />
-      </field>
-      <field id="_new">
-        <phrase id="fldcaption" value="ใหม่" />
-        <phrase id="fldtagvalue1" value="0" />
-        <phrase id="fldtagcaption1" value="No" />
-        <phrase id="fldtagvalue2" value="1" />
-        <phrase id="fldtagcaption2" value="Yes" />
-      </field>
-      <field id="image">
-        <phrase id="fldcaption" value="รูปภาพหลัก" />
-      </field>
-      <field id="view">
-        <phrase id="fldcaption" value="เข้าชม" />
-      </field>
-      <field id="enable">
-        <phrase id="fldcaption" value="เปิดใช้งาน" />
-        <phrase id="fldtagvalue1" value="0" />
-        <phrase id="fldtagcaption1" value="0" />
-        <phrase id="fldtagvalue2" value="1" />
-        <phrase id="fldtagcaption2" value="1" />
-      </field>
-      <field id="images">
-        <phrase id="fldcaption" value="รูปภาพอื่นๆ" />
-      </field>
-      <field id="created">
-        <phrase id="fldcaption" value="สร้าง" />
-      </field>
-      <field id="modified">
-        <phrase id="fldcaption" value="แก้ไข" />
-      </field>
-    </table>
-    <table id="blog">
-      <phrase id="tblcaption" value="Blog" />
-      <field id="blog_id">
-        <phrase id="fldcaption" value="รหัส" />
-      </field>
-      <field id="image">
-        <phrase id="fldcaption" value="รูปภาพหลัก" />
-      </field>
-      <field id="title">
-        <phrase id="fldcaption" value="หัวข้อ" />
-      </field>
-      <field id="intro">
-        <phrase id="fldcaption" value="รายละเอียดย่อ" />
-      </field>
-      <field id="_content">
-        <phrase id="fldcaption" value="เนื้อหา" />
-      </field>
-      <field id="priority">
-        <phrase id="fldcaption" value="ลำดับ" />
-      </field>
-      <field id="_new">
-        <phrase id="fldcaption" value="ใหม่" />
-        <phrase id="fldtagvalue1" value="0" />
-        <phrase id="fldtagcaption1" value="No" />
-        <phrase id="fldtagvalue2" value="1" />
-        <phrase id="fldtagcaption2" value="Yes" />
-      </field>
-      <field id="view">
-        <phrase id="fldcaption" value="เข้าชม" />
-      </field>
-      <field id="enable">
-        <phrase id="fldcaption" value="เปิดใช้งาน" />
-        <phrase id="fldtagvalue1" value="0" />
-        <phrase id="fldtagcaption1" value="0" />
-        <phrase id="fldtagvalue2" value="1" />
-        <phrase id="fldtagcaption2" value="1" />
-      </field>
-      <field id="images">
-        <phrase id="fldcaption" value="รูปภาพอื่นๆ" />
-      </field>
-      <field id="created">
-        <phrase id="fldcaption" value="สร้าง" />
-      </field>
-      <field id="modified">
-        <phrase id="fldcaption" value="แก้ไข" />
-      </field>
-    </table>
-    <table id="htaccess">
-      <phrase id="tblcaption" value=".htaccess" />
-    </table>
-    <table id="realestate">
-      <phrase id="tblcaption" value="real-estate.php" />
     </table>
   </project>
 </ew-language>

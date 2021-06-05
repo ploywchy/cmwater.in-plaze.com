@@ -42,7 +42,7 @@ class ExportReportPdf
         $options->setChroot($chroot);
         $dompdf = new \Dompdf\Dompdf($options);
         $doc = new \DOMDocument("1.0", "utf-8");
-        @$doc->loadHTML('<?xml encoding="uft-8">' . ConvertToUtf8($html)); // Convert to utf-8
+        @$doc->loadHTML('<?xml encoding="utf-8">' . ConvertToUtf8($html)); // Convert to utf-8
         $spans = $doc->getElementsByTagName("span");
         foreach ($spans as $span) {
             $classNames = $span->getAttribute("class");

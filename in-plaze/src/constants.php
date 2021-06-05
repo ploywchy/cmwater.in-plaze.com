@@ -80,7 +80,7 @@ define(PROJECT_NAMESPACE . "ALLOW_LOOKUP", 256); // Lookup
 define(PROJECT_NAMESPACE . "ALLOW_ALL", 511); // All (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256)
 
 // Product version
-define(PROJECT_NAMESPACE . "PRODUCT_VERSION", "17.0.13");
+define(PROJECT_NAMESPACE . "PRODUCT_VERSION", "17.0.14");
 
 // Project
 define(PROJECT_NAMESPACE . "PROJECT_NAME", "inplaze"); // Project name
