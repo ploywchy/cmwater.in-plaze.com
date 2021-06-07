@@ -214,8 +214,8 @@ loadjs.ready("head", function() {
         <div class="<?= $Page->RightColumnClass ?>"><div <?= $Page->Enable->cellAttributes() ?>>
 <span id="el_user_Enable">
 <div class="custom-control custom-checkbox d-inline-block">
-    <input type="checkbox" class="custom-control-input<?= $Page->Enable->isInvalidClass() ?>" data-table="user" data-field="x_Enable" name="x_Enable[]" id="x_Enable_992651" value="1"<?= ConvertToBool($Page->Enable->CurrentValue) ? " checked" : "" ?><?= $Page->Enable->editAttributes() ?> aria-describedby="x_Enable_help">
-    <label class="custom-control-label" for="x_Enable_992651"></label>
+    <input type="checkbox" class="custom-control-input<?= $Page->Enable->isInvalidClass() ?>" data-table="user" data-field="x_Enable" name="x_Enable[]" id="x_Enable_687287" value="1"<?= ConvertToBool($Page->Enable->CurrentValue) ? " checked" : "" ?><?= $Page->Enable->editAttributes() ?> aria-describedby="x_Enable_help">
+    <label class="custom-control-label" for="x_Enable_687287"></label>
 </div>
 <?= $Page->Enable->getCustomMessage() ?>
 <div class="invalid-feedback"><?= $Page->Enable->getErrorMessage() ?></div>

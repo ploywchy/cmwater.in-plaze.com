@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<ew-language date="2021/6/5" version="17.0.5" id="th" name="Thai" desc="English" author="Z-Axis Co.,Ltd.">
+<ew-language date="2021/6/6" version="17.0.5" id="th" name="Thai" desc="Thai" author="Z-Axis Co.,Ltd.">
   <!--
     *** Important Notes:
     1. Language ID should follow: https://developers.google.com/recaptcha/docs/language,
@@ -931,6 +931,9 @@
     <menu id="62">
       <phrase id="menutext" value="course.php" />
     </menu>
+    <menu id="64">
+      <phrase id="menutext" value="detox.php" />
+    </menu>
     <menu id="60">
       <phrase id="menutext" value=".htaccess" />
     </menu>
@@ -1328,6 +1331,9 @@
       <field id="_permission">
         <phrase id="fldcaption" value="Permission" />
       </field>
+    </table>
+    <table id="detox">
+      <phrase id="tblcaption" value="detox.php" />
     </table>
   </project>
 </ew-language>

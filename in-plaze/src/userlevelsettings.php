@@ -43,13 +43,15 @@ $USER_LEVEL_PRIVS = [["{inplaze}.htaccess","-2","0"],
     ["{inplaze}user_level","-2","0"],
     ["{inplaze}user_level","0","0"],
     ["{inplaze}user_level_permission","-2","0"],
-    ["{inplaze}user_level_permission","0","0"]];
+    ["{inplaze}user_level_permission","0","0"],
+    ["{inplaze}detox.php","-2","0"],
+    ["{inplaze}detox.php","0","0"]];
 // User level table info
-$USER_LEVEL_TABLES = [[".htaccess","htaccess",".htaccess",true,"{inplaze}","Htaccess"],
+$USER_LEVEL_TABLES = [[".htaccess","htaccess",".htaccess",false,"{inplaze}","Htaccess"],
     ["blog","blog","Blog",true,"{inplaze}","BlogList"],
     ["category","category","Category",true,"{inplaze}","CategoryList"],
     ["contents","contents","Content",true,"{inplaze}","ContentsList"],
-    ["course.php","course","course.php",true,"{inplaze}","Course"],
+    ["course.php","course","course.php",false,"{inplaze}","Course"],
     ["icon","icon","Icon",true,"{inplaze}",""],
     ["icon_list","icon_list","Icon Library",true,"{inplaze}",""],
     ["image","image","Image",true,"{inplaze}","ImageList"],
@@ -57,9 +59,10 @@ $USER_LEVEL_TABLES = [[".htaccess","htaccess",".htaccess",true,"{inplaze}","Htac
     ["inc_init.php","inc_init","inc_init.php",false,"{inplaze}","IncInit"],
     ["inc_js.js","inc_jsjs","inc_js.js",false,"{inplaze}","IncJsJs"],
     ["product","product","Product",true,"{inplaze}","ProductList"],
-    ["real-estate.php","realestate","real-estate.php",true,"{inplaze}","RealEstate"],
+    ["real-estate.php","realestate","real-estate.php",false,"{inplaze}","RealEstate"],
     ["tag","tag","Tag",true,"{inplaze}","TagList"],
     ["text","text","Text",true,"{inplaze}","TextList"],
     ["user","user","User",true,"{inplaze}","UserList"],
     ["user_level","user_level2","Level",true,"{inplaze}","UserLevel2List"],
-    ["user_level_permission","user_level_permission","Permission",true,"{inplaze}",""]];
+    ["user_level_permission","user_level_permission","Permission",true,"{inplaze}",""],
+    ["detox.php","detox","detox.php",false,"{inplaze}","Detox"]];

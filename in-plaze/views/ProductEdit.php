@@ -223,8 +223,8 @@ loadjs.ready("head", function() {
         <div class="<?= $Page->RightColumnClass ?>"><div <?= $Page->_New->cellAttributes() ?>>
 <span id="el_product__New">
 <div class="custom-control custom-checkbox d-inline-block">
-    <input type="checkbox" class="custom-control-input<?= $Page->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x__New[]" id="x__New_620389" value="1"<?= ConvertToBool($Page->_New->CurrentValue) ? " checked" : "" ?><?= $Page->_New->editAttributes() ?> aria-describedby="x__New_help">
-    <label class="custom-control-label" for="x__New_620389"></label>
+    <input type="checkbox" class="custom-control-input<?= $Page->_New->isInvalidClass() ?>" data-table="product" data-field="x__New" name="x__New[]" id="x__New_718962" value="1"<?= ConvertToBool($Page->_New->CurrentValue) ? " checked" : "" ?><?= $Page->_New->editAttributes() ?> aria-describedby="x__New_help">
+    <label class="custom-control-label" for="x__New_718962"></label>
 </div>
 <?= $Page->_New->getCustomMessage() ?>
 <div class="invalid-feedback"><?= $Page->_New->getErrorMessage() ?></div>
