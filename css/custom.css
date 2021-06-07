@@ -369,4 +369,16 @@ blockquote {
 	font-style: italic;
 }
 
-.bg-blue {background-color: #1e9bd6;}
+.icon-color {background-color: #1e9bd6;}
+
+.heading-block h1, .heading-block h2, .heading-block h3, .heading-block h4, .emphasis-title h1, .emphasis-title h2 {
+    margin-bottom: 0;
+    font-weight: 500;
+    text-transform: none;
+    letter-spacing: 0px;
+    color: #333;
+}
+
+.portfolio-desc h3 a:hover {
+    color: #1e9bd6;
+}
