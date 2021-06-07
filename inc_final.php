@@ -1,7 +1,7 @@
 <?php
 namespace PHPMaker2021\inplaze;
 
-function setInnerHTMLDiv($parent, $html) {
+function setInnerHTML($parent, $html) {
 	while ($parent->hasChildNodes()) {
 		$parent->removeChild($parent->firstChild);
 	}
@@ -11,16 +11,6 @@ function setInnerHTMLDiv($parent, $html) {
         $n = $parent->ownerDocument->importNode($n, true);
         $parent->appendChild($n);
     }
-}
-
-function setInnerHTMLP($element, $html) {
-	$html = str_replace('&nbsp;', ' ', $html);
-	$fragment = $element->ownerDocument->createDocumentFragment();
-	$fragment->appendXML($html);
-	$clone = $element->cloneNode();
-	$clone->appendChild($fragment);
-	$element->parentNode->replaceChild($clone, $element);
-	return $element;
 }
 
 // ไฟล์ที่จะถูกประมวลต้องเป็น .html เท่านั้น นอกนั้นแสดงผลตามปกติโดยไม่ถูกประมวลผล
@@ -37,11 +27,10 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			// , 'Error_Message' => 'HTML content from ob_get_contents is empty. Please check the cause.'
 		// ], 1), 'tzgmZeRAuIzsdK8JmFocCO1CYf5aLl1ieahZTX5njx2');
 	} else {
-		// $dom->loadHTML($content, LIBXML_NOBLANKS);
-		$dom->loadHTML($content);
+		$dom->loadHTML($content, LIBXML_NOBLANKS);
 		$xpath = new \DomXPath($dom);
 		$sub_folder = '';
-		$font = 'Prompt:300,400,400i,700';
+		$font = 'Prompt';
 
 		// แก้ http เป็น https ทุกจุดที่เป็น CDN ตาม attribute href
 		$elements = $xpath->query("//link[contains(@href, 'http://')]");
@@ -54,9 +43,10 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 		// เฉพาะของ demo template นี้เท่านั้น โดยดูจาก css เป็นหลัก
 		if (($n = $xpath->query($selector = '//link[@href="demos/real-estate/real-estate.css"]')) AND !empty($n->length)) {
 			require_once 'real-estate.php';
-		}
-		if (($n = $xpath->query($selector = '//link[@href="demos/course/course.css"]')) AND !empty($n->length)) {
+		} else if (($n = $xpath->query($selector = '//link[@href="demos/course/course.css"]')) AND !empty($n->length)) {
 			require_once 'course.php';
+		} else if ($_SERVER['SERVER_NAME'] == 'detox.in-plaze.local' OR $_SERVER['SERVER_NAME'] == 'detox.in-plaze.com') {
+			require_once 'detox.php';
 		}
 
 		if ($_SERVER['SERVER_NAME'] == 'polo5.in-plaze.com') {
@@ -120,7 +110,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			// เพิ่มฟอนต์ Prompt เข้าไปในแต่ละหน้า แต่ยังต้องไป replace sans-serif ให้เป็น 'Prompt' ในไฟล์ style.css แบบ manual อยู่ ต้องทำใน custom.css
 			// https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700%7CRoboto:300,400,500,700&display=swap
 			if (($n = $xpath->query($selector = '/html/head/link[contains(@href, "fonts.googleapis.com")]')) AND !empty($n->length) AND $n = $n->item(0)) {
-				$n->setAttribute('href', str_replace('family=', "family={$font}|", $n->getAttribute('href')));
+				$n->setAttribute('href', str_replace('family=', "family={$font}:300,400,400i,700|", $n->getAttribute('href')));
 			}
 
 			// เอา favicon จาก PHPMaker มาใส่ด้วย
@@ -691,18 +681,45 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					($parent = $xpath->query($selector = '//div[contains(@class,"row")][div[contains(@class,"portfolio-single-content")]]')) AND
 					!empty($parent->length)
 				) {
-					foreach ($ns = $xpath->query('//section[@id="page-title"]//h1') as $n) { $n->nodeValue = $data['Name']; }
+					foreach ($ns = $xpath->query('//section[@id="page-title"]//h1') as $n) {
+						$n->parentNode->setAttribute('data-inplaze', true);
+						$n->nodeValue = $data['Name'];
+						$n->setAttribute("onclick", "if (confirm('Do you want to edit this?')) { window.location.href = 'in-plaze/ProductEdit/{$data['Product_ID']}'; return false; }");
+					}
 					$parent = $parent->item(0);
 					$parent->setAttribute('data-inplaze', true);
 					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("src", "in-plaze/upload/{$data['Image']}"); }
 					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("alt", $data['Name']); }
 					// foreach ($ns = $xpath->query('.//h2', $parent) as $n) { $n->nodeValue = $data['Name']; }
-					foreach ($ns = $xpath->query('.//p', $parent) as $n) { setInnerHTMLP($n, empty($data['Description']) ? '' : nl2br($data['Description'])); }
+					foreach ($ns = $xpath->query('.//p', $parent) as $n) { setInnerHTML($n, empty($data['Description']) ? '' : nl2br($data['Description'])); }
 					if (Session(SESSION_STATUS) == 'login') {
 						foreach ($ns = $xpath->query('.//a|.//h2|.//p', $parent) as $n) {
 							$n->setAttribute("onclick", "if (confirm('Do you want to edit this?')) { window.location.href = 'in-plaze/ProductEdit/{$data['Product_ID']}'; return false; }");
 							$n->setAttribute("style", "cursor: pointer;");
 						}
+					}
+				}
+			}
+
+			if ($template = 'Canvas - Portfolio Single @ portfolio.html : Dynamic Product Gallery') {
+				if (
+					!empty($_GET['Product_ID']) AND
+					!empty($datas = ExecuteRow("SELECT Images FROM product WHERE Product_ID = {$_GET['Product_ID']}", 2)) AND
+					($firstChild = $xpath->query($selector = '//a[contains(@class,"grid-item")][ancestor::div[@data-lightbox="gallery"]]')) AND
+					!empty($firstChild->length)
+				) {
+					$datas = explode(',', $datas['Images']);
+					$prototype = $firstChild->item(0)->cloneNode(true);
+					$parent = $firstChild->item(0)->parentNode;
+					$parent->setAttribute('data-inplaze', true);
+					while ($parent->hasChildNodes()) $parent->removeChild($parent->firstChild);
+					foreach ($datas as $data) {
+						$newNode = $prototype->cloneNode(true);
+						if (!empty($data) AND file_exists("in-plaze/upload/{$data}") AND exif_imagetype("in-plaze/upload/{$data}") !== false AND filter_var("in-plaze/upload/{$data}", FILTER_VALIDATE_URL) === false) {
+							$newNode->setAttribute("href", "in-plaze/upload/{$data}");
+							foreach ($ns = $xpath->query('.//img', $newNode) as $n) { $n->setAttribute("src", "in-plaze/upload/{$data}"); }
+						}
+						$parent->appendChild($newNode);
 					}
 				}
 			}
@@ -752,7 +769,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 					foreach ($ns = $xpath->query('.//img', $parent) as $n) { $n->setAttribute("alt", $data['Title']); }
 					foreach ($ns = $xpath->query('.//div[@class="entry-title"]//p', $parent) as $n) { $n->nodeValue = empty($data['Intro']) ? '' : $data['Intro']; }
 					foreach ($ns = $xpath->query('.//i/following-sibling::text()', $parent) as $n) { $n->nodeValue = empty($data['Blog_Date']) ? '' : $data['Blog_Date']; }
-					foreach ($ns = $xpath->query('.//div[contains(@class,"entry-content")]/p', $parent) as $n) { setInnerHTMLP($n, empty($data['Content']) ? '' : $data['Content']); }
+					foreach ($ns = $xpath->query('.//div[contains(@class,"entry-content")]/p', $parent) as $n) { setInnerHTML($n, empty($data['Content']) ? '' : $data['Content']); }
 					foreach ($ns = $xpath->query('.//div[contains(@class,"tagcloud")]', $parent) as $n) { $n->parentNode->removeChild($n); }
 					foreach ($ns = $xpath->query('.//div[contains(@class,"si-share")]', $parent) as $n) { $n->parentNode->removeChild($n); }
 					if (Session(SESSION_STATUS) == 'login') {
@@ -976,7 +993,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 						$xpath->query('.//img', $elements)->item(0)->setAttribute("src", "in-plaze/upload/{$data['Image']}");
 						$html_element = $xpath->query('.//div[contains(@class, "portfolio-single-content")]', $elements);
 						if (!empty($data['Content'])) {
-							setInnerHTMLP($html_element->item(0), $data['Content']);
+							setInnerHTML($html_element->item(0), $data['Content']);
 						}
 					}
 					if (Session(SESSION_STATUS) == 'login') {
@@ -1180,7 +1197,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							}
 							if (!empty($value = ExecuteScalar("SELECT Value FROM contents WHERE Enable = 1 AND Name = '{$id}'"))) {
 								// $value = strip_tags($value, get_p_child_tags());
-								setInnerHTMLP($elements->item($key), $value);
+								setInnerHTML($elements->item($key), $value);
 							}
 						} else {
 							// fb($pattern, $selector, 'exclude_pattern');
@@ -1212,7 +1229,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 							}
 							if (!empty($value = ExecuteScalar("SELECT Value FROM contents WHERE Enable = 1 AND Name = '{$id}'"))) {
 								// $value = strip_tags($value, get_p_child_tags());
-								setInnerHTMLDiv($elements->item($key), $value);
+								setInnerHTML($elements->item($key), $value);
 							}
 						// } else {
 							// fb($pattern, $selector, 'exclude_pattern');

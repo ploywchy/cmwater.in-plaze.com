@@ -8,4 +8,5 @@ CREATE TABLE IF NOT EXISTS `tag` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 RENAME TABLE `content` TO `contents`;
+
 ALTER TABLE `category` ADD `Description` TEXT NULL AFTER `Name`;
