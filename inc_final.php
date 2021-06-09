@@ -1078,15 +1078,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				$parent->item(0)->setAttribute("data-inplaze", "true");
 
 			// Link to Backend
-			foreach ($ns = $xpath->query($selector = "//a[@href='/in-plaze/login']") as $n) {
-				$n->setAttribute("data-inplaze", "true");
-				if (Session(SESSION_STATUS) == 'login') {
-					$n->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
-					// $n->setAttribute("onclick", "");
-				} else {
-					$n->setAttribute("href", "/in-plaze/BlogList");
-				}
-			}
+			// foreach ($ns = $xpath->query($selector = "//a[@href='/in-plaze/login']") as $n) {}
 
 			// Image in header and footer and topbar
 			$elements = $xpath->query($selector = "//*[ancestor::header]|//*[ancestor::footer]|//*[ancestor::div[@id='top-bar']]");
