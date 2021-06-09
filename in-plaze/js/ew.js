@@ -11,10 +11,6 @@
 
   var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
-  function unwrapExports (x) {
-  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-  }
-
   function createCommonjsModule(fn, basedir, module) {
   	return module = {
   	  path: basedir,
@@ -760,7 +756,7 @@
     // as the regeneratorRuntime namespace. Otherwise create a new empty
     // object. Either way, the resulting object will be used to initialize
     // the regeneratorRuntime variable at the top of this file.
-    module.exports 
+     module.exports 
   ));
 
   try {
@@ -781,11 +777,11 @@
 
   var regenerator = runtime_1;
 
-  function _createForOfIteratorHelperLoose$3(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (it) return (it = it.call(o)).next.bind(it); if (Array.isArray(o) || (it = _unsupportedIterableToArray$3(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+  function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
 
-  function _unsupportedIterableToArray$3(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$3(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$3(o, minLen); }
+  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 
-  function _arrayLikeToArray$3(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
   /* global FormData self Blob File */
 
   /* eslint-disable no-inner-declarations */
@@ -989,7 +985,7 @@
                 }
 
                 name = _context.t1.value;
-                _iterator = _createForOfIteratorHelperLoose$3(map[name]);
+                _iterator = _createForOfIteratorHelperLoose(map[name]);
 
               case 5:
                 if ((_step = _iterator()).done) {
@@ -1028,7 +1024,7 @@
       _proto.forEach = function forEach(callback, thisArg) {
         ensureArgs(arguments, 1);
 
-        for (var _iterator2 = _createForOfIteratorHelperLoose$3(this), _step2; !(_step2 = _iterator2()).done;) {
+        for (var _iterator2 = _createForOfIteratorHelperLoose(this), _step2; !(_step2 = _iterator2()).done;) {
           var _step2$value = _step2.value,
               name = _step2$value[0],
               value = _step2$value[1];
@@ -1090,7 +1086,7 @@
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _iterator3 = _createForOfIteratorHelperLoose$3(this);
+                _iterator3 = _createForOfIteratorHelperLoose(this);
 
               case 1:
                 if ((_step3 = _iterator3()).done) {
@@ -1144,7 +1140,7 @@
           while (1) {
             switch (_context3.prev = _context3.next) {
               case 0:
-                _iterator4 = _createForOfIteratorHelperLoose$3(this);
+                _iterator4 = _createForOfIteratorHelperLoose(this);
 
               case 1:
                 if ((_step4 = _iterator4()).done) {
@@ -1178,7 +1174,7 @@
       _proto['_asNative'] = function _asNative() {
         var fd = new _FormData();
 
-        for (var _iterator5 = _createForOfIteratorHelperLoose$3(this), _step5; !(_step5 = _iterator5()).done;) {
+        for (var _iterator5 = _createForOfIteratorHelperLoose(this), _step5; !(_step5 = _iterator5()).done;) {
           var _step5$value = _step5.value,
               name = _step5$value[0],
               value = _step5$value[1];
@@ -1198,7 +1194,7 @@
         var boundary = '----formdata-polyfill-' + Math.random();
         var chunks = [];
 
-        for (var _iterator6 = _createForOfIteratorHelperLoose$3(this), _step6; !(_step6 = _iterator6()).done;) {
+        for (var _iterator6 = _createForOfIteratorHelperLoose(this), _step6; !(_step6 = _iterator6()).done;) {
           var _step6$value = _step6.value,
               name = _step6$value[0],
               value = _step6$value[1];
@@ -1992,7 +1988,6 @@
     recaptcha: recaptcha
   };
 
-  var createClass = createCommonjsModule(function (module) {
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
       var descriptor = props[i];
@@ -2009,13 +2004,8 @@
     return Constructor;
   }
 
-  module.exports = _createClass;
-  module.exports["default"] = module.exports, module.exports.__esModule = true;
-  });
+  var createClass = _createClass;
 
-  var _createClass = unwrapExports(createClass);
-
-  var assertThisInitialized = createCommonjsModule(function (module) {
   function _assertThisInitialized(self) {
     if (self === void 0) {
       throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -2024,43 +2014,16 @@
     return self;
   }
 
-  module.exports = _assertThisInitialized;
-  module.exports["default"] = module.exports, module.exports.__esModule = true;
-  });
+  var assertThisInitialized = _assertThisInitialized;
 
-  var _assertThisInitialized = unwrapExports(assertThisInitialized);
-
-  var setPrototypeOf = createCommonjsModule(function (module) {
-  function _setPrototypeOf(o, p) {
-    module.exports = _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-      o.__proto__ = p;
-      return o;
-    };
-
-    module.exports["default"] = module.exports, module.exports.__esModule = true;
-    return _setPrototypeOf(o, p);
-  }
-
-  module.exports = _setPrototypeOf;
-  module.exports["default"] = module.exports, module.exports.__esModule = true;
-  });
-
-  unwrapExports(setPrototypeOf);
-
-  var inheritsLoose = createCommonjsModule(function (module) {
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
     subClass.prototype.constructor = subClass;
-    setPrototypeOf(subClass, superClass);
+    subClass.__proto__ = superClass;
   }
 
-  module.exports = _inheritsLoose;
-  module.exports["default"] = module.exports, module.exports.__esModule = true;
-  });
+  var inheritsLoose = _inheritsLoose;
 
-  var _inheritsLoose = unwrapExports(inheritsLoose);
-
-  var defineProperty = createCommonjsModule(function (module) {
   function _defineProperty(obj, key, value) {
     if (key in obj) {
       Object.defineProperty(obj, key, {
@@ -2076,13 +2039,8 @@
     return obj;
   }
 
-  module.exports = _defineProperty;
-  module.exports["default"] = module.exports, module.exports.__esModule = true;
-  });
+  var defineProperty = _defineProperty;
 
-  var _defineProperty = unwrapExports(defineProperty);
-
-  var asyncToGenerator = createCommonjsModule(function (module) {
   function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
     try {
       var info = gen[key](arg);
@@ -2119,11 +2077,7 @@
     };
   }
 
-  module.exports = _asyncToGenerator;
-  module.exports["default"] = module.exports, module.exports.__esModule = true;
-  });
-
-  var _asyncToGenerator = unwrapExports(asyncToGenerator);
+  var asyncToGenerator = _asyncToGenerator;
 
   function FormBase(id, pageId) {
     var self = this;
@@ -2224,7 +2178,7 @@
     }; // Submit
 
     this.submit = /*#__PURE__*/function () {
-      var _ref = _asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee(e, action) {
+      var _ref = asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee(e, action) {
         var form, args, result;
         return regenerator.wrap(function _callee$(_context) {
           while (1) {
@@ -2465,8 +2419,8 @@
           $sf = $__default['default'](".ew-save-filter[data-form=" + id + "]").toggleClass("disabled", !data),
           $df = $__default['default'](".ew-delete-filter[data-form=" + id + "]").toggleClass("disabled", !filters.length).toggleClass("dropdown-toggle", !!filters.length),
           $delete = $df.parent("li").toggleClass("dropdown-submenu dropdown-hover", !!filters.length).toggleClass("disabled", !filters.length),
-          $save = $sf.parent("li").toggleClass("disabled", !data);
-          $__default['default'](e.target);
+          $save = $sf.parent("li").toggleClass("disabled", !data),
+          $btn = $__default['default'](e.target);
 
       var saveFilters = function saveFilters(id, filters) {
         if (ew.SEARCH_FILTER_OPTION == "Client") {
@@ -2652,15 +2606,15 @@
     ew.forms.add(this);
   }
 
-  function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-  function _createForOfIteratorHelperLoose$2(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (it) return (it = it.call(o)).next.bind(it); if (Array.isArray(o) || (it = _unsupportedIterableToArray$2(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+  function _createForOfIteratorHelperLoose$1(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
 
-  function _unsupportedIterableToArray$2(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$2(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen); }
+  function _unsupportedIterableToArray$1(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$1(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen); }
 
-  function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+  function _arrayLikeToArray$1(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
   /**
    * Class Field
@@ -2673,16 +2627,16 @@
      * @param {bool} invalid Initial valid status (e.g. server side)
      */
     function Field(fldvar, validators, invalid) {
-      _defineProperty(this, "name", "");
+      defineProperty(this, "name", "");
 
-      _defineProperty(this, "validators", []);
+      defineProperty(this, "validators", []);
 
-      _defineProperty(this, "_validate", true);
+      defineProperty(this, "_validate", true);
 
       this.name = fldvar;
 
       if (Array.isArray(validators)) {
-        for (var _iterator = _createForOfIteratorHelperLoose$2(validators), _step; !(_step = _iterator()).done;) {
+        for (var _iterator = _createForOfIteratorHelperLoose$1(validators), _step; !(_step = _iterator()).done;) {
           var validator = _step.value;
           this.addValidator(validator);
         }
@@ -2717,7 +2671,7 @@
         var _this$_error;
 
         var error = (_this$_error = this._error) !== null && _this$_error !== void 0 ? _this$_error : {};
-        this._error = _objectSpread$2(_objectSpread$2({}, error), err);
+        this._error = _objectSpread(_objectSpread({}, error), err);
         this.invalid = true;
       }
     }
@@ -2754,7 +2708,7 @@
 
       if (this._element && this.shouldValidate) {
         if (Array.isArray(this.validators)) {
-          for (var _iterator2 = _createForOfIteratorHelperLoose$2(this.validators), _step2; !(_step2 = _iterator2()).done;) {
+          for (var _iterator2 = _createForOfIteratorHelperLoose$1(this.validators), _step2; !(_step2 = _iterator2()).done;) {
             var validator = _step2.value;
             var err = validator(this._element);
 
@@ -2792,7 +2746,7 @@
       if (this._element) ew.setFocus(this._element);
     };
 
-    _createClass(Field, [{
+    createClass(Field, [{
       key: "error",
       get: function get() {
         return this._error;
@@ -2821,25 +2775,25 @@
 
     }, {
       key: "element",
-      get:
-      /**
-       * Get form element
-       * @returns {HTMLElement|HTMLElement[]}
-       */
-      function get() {
-        return this._element;
-      }
-      /**
-       * Get field value from form element
-       * @returns {string|Array}
-       */
-      ,
       set: function set(el) {
         var _this$_element, _this$_element$id;
 
         this._element = el;
         this._checkbox = (_this$_element = this._element) !== null && _this$_element !== void 0 && (_this$_element$id = _this$_element.id) !== null && _this$_element$id !== void 0 && _this$_element$id.match(/^[xy]_/) ? document.getElementById(this._element.id.replace(/^[xy]_/, "u_")) : null; // Find the checkbox for the field in Update page
       }
+      /**
+       * Get form element
+       * @returns {HTMLElement|HTMLElement[]}
+       */
+      ,
+      get: function get() {
+        return this._element;
+      }
+      /**
+       * Get field value from form element
+       * @returns {string|Array}
+       */
+
     }, {
       key: "value",
       get: function get() {
@@ -2850,21 +2804,21 @@
     return Field;
   }();
 
-  function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+  function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-  function _createForOfIteratorHelperLoose$1(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (it) return (it = it.call(o)).next.bind(it); if (Array.isArray(o) || (it = _unsupportedIterableToArray$1(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+  function _createForOfIteratorHelperLoose$2(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$2(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
 
-  function _unsupportedIterableToArray$1(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$1(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$1(o, minLen); }
+  function _unsupportedIterableToArray$2(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$2(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$2(o, minLen); }
 
-  function _arrayLikeToArray$1(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+  function _arrayLikeToArray$2(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
   /**
    * Class Form
    */
 
   var Form = /*#__PURE__*/function (_FormBase) {
-    _inheritsLoose(Form, _FormBase);
+    inheritsLoose(Form, _FormBase);
 
     /**
      * Constructor
@@ -2876,9 +2830,9 @@
 
       _this = _FormBase.call(this, id, pageId) || this;
 
-      _defineProperty(_assertThisInitialized(_this), "row", {});
+      defineProperty(assertThisInitialized(_this), "row", {});
 
-      _defineProperty(_assertThisInitialized(_this), "fields", {});
+      defineProperty(assertThisInitialized(_this), "fields", {});
 
       return _this;
     }
@@ -2912,7 +2866,7 @@
 
     _proto.addFields = function addFields(fields) {
       if (Array.isArray(fields)) {
-        for (var _iterator = _createForOfIteratorHelperLoose$1(fields), _step; !(_step = _iterator()).done;) {
+        for (var _iterator = _createForOfIteratorHelperLoose$2(fields), _step; !(_step = _iterator()).done;) {
           var field = _step.value;
 
           if (Array.isArray(field)) {
@@ -3057,7 +3011,7 @@
       }
     };
 
-    _createClass(Form, [{
+    createClass(Form, [{
       key: "error",
       get: function get() {
         return this._error;
@@ -3077,7 +3031,7 @@
      * @param {Object} settings.data - Data submitted by Ajax
      */
     function AjaxLookup(settings) {
-      _defineProperty(this, "_isAutoSuggest", null);
+      defineProperty(this, "_isAutoSuggest", null);
 
       this.elementId = settings.id; // Id
 
@@ -3190,7 +3144,7 @@
       return results;
     };
 
-    _createClass(AjaxLookup, [{
+    createClass(AjaxLookup, [{
       key: "isAutoSuggest",
       get: function get() {
         if (this._isAutoSuggest === null) this._isAutoSuggest = ew.isAutoSuggest(this.element);
@@ -3409,7 +3363,7 @@
 
   var Forms = /*#__PURE__*/function () {
     function Forms() {
-      _defineProperty(this, "_forms", {});
+      defineProperty(this, "_forms", {});
     }
 
     var _proto = Forms.prototype;
@@ -3604,18 +3558,18 @@
     return Select2CustomOption;
   }
 
-  function _createForOfIteratorHelperLoose(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (it) return (it = it.call(o)).next.bind(it); if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+  function _createForOfIteratorHelperLoose$3(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray$3(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; return function () { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } it = o[Symbol.iterator](); return it.next.bind(it); }
 
-  function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+  function _unsupportedIterableToArray$3(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray$3(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray$3(o, minLen); }
 
-  function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+  function _arrayLikeToArray$3(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-  function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
+  function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-  function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+  function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
   var currentUrl = new URL(window.location);
   var forms = new Forms();
-  var $document$1 = $__default['default'](document),
+  var $document = $__default['default'](document),
       $body = $__default['default']("body"); // Remove spinner (immediately)
 
   var _removeSpinner = ew.removeSpinner; // Remove spinner
@@ -3624,7 +3578,7 @@
     var timer = $body.data("_spinner");
     if (timer) timer.cancel();
     timer = $__default['default'].later(500, null, function () {
-      if ($document$1.data("_ajax") !== true) {
+      if ($document.data("_ajax") !== true) {
         // Ajax not running
         _removeSpinner();
 
@@ -3891,7 +3845,7 @@
           message = message.replace("%s", '<span class="ew-session-counter-second">' + counter + '</span>');
         }
 
-        Swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+        Swal.fire(_objectSpread$2(_objectSpread$2({}, ew.sweetAlertSettings), {}, {
           html: message,
           showConfirmButton: true,
           confirmButtonText: ew.language.phrase("OKBtn"),
@@ -3980,7 +3934,7 @@
 
   function fileDownload(href, data) {
     var isHtml = href.includes("export=html");
-    return Swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+    return Swal.fire(_objectSpread$2(_objectSpread$2({}, ew.sweetAlertSettings), {}, {
       showConfirmButton: false,
       html: "<p>" + ew.language.phrase("Exporting") + "</p>",
       allowOutsideClick: false,
@@ -4006,7 +3960,7 @@
           if (m) a.download = m[3] || m[4];
           document.body.appendChild(a);
           a.click();
-          $document$1.trigger("export", [{
+          $document.trigger("export", [{
             "type": "done",
             "url": href,
             "objectUrl": url
@@ -4022,12 +3976,12 @@
           });
           (_Swal$getActions = Swal.getActions()) === null || _Swal$getActions === void 0 ? void 0 : _Swal$getActions.classList.add("d-flex");
           Swal.showValidationMessage("<div class='text-danger'>" + (errorThrown || ew.language.phrase("FailedToExport")) + "</div>");
-          $document$1.trigger("export", [{
+          $document.trigger("export", [{
             "type": "fail",
             "url": href
           }]);
         }).always(function () {
-          $document$1.trigger("export", [{
+          $document.trigger("export", [{
             "type": "always",
             "url": href
           }]);
@@ -4042,7 +3996,7 @@
     $__default['default'](el).find("img.ew-lazy").each(function () {
       this.src = this.dataset.src;
     });
-    $document$1.trigger("lazyload"); // All images loaded
+    $document.trigger("lazyload"); // All images loaded
   } // Update select2 dropdown position
 
   function updateDropdownPosition() {
@@ -4159,7 +4113,7 @@
         $el = $__default['default'](el),
         ids = ew.forms.ids();
 
-    for (var _iterator = _createForOfIteratorHelperLoose(ids), _step; !(_step = _iterator()).done;) {
+    for (var _iterator = _createForOfIteratorHelperLoose$3(ids), _step; !(_step = _iterator()).done;) {
       var id = _step.value;
       if ($el.find("#" + id)) forms.get(id).init();
     }
@@ -4172,7 +4126,7 @@
   function _prompt(text, cb, input, validator) {
     if (input) {
       // Prompt
-      return Swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+      return Swal.fire(_objectSpread$2(_objectSpread$2({}, ew.sweetAlertSettings), {}, {
         html: text,
         input: "text",
         confirmButtonText: ew.language.phrase("OKBtn"),
@@ -4186,7 +4140,7 @@
       });
     } else {
       // Confirm or Alert
-      return Swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+      return Swal.fire(_objectSpread$2(_objectSpread$2({}, ew.sweetAlertSettings), {}, {
         html: "<div>" + text + "</div>",
         confirmButtonText: ew.language.phrase("OKBtn"),
         showCancelButton: isFunction(cb),
@@ -4199,7 +4153,7 @@
 
   function toast(options) {
     options = Object.assign({}, ew.toastOptions, options);
-    $document$1.Toasts("create", options);
+    $document.Toasts("create", options);
     var position = options.position,
         $container = $__default['default']("#toastsContainer" + position[0].toUpperCase() + position.substring(1));
     return $container.children().first();
@@ -4341,7 +4295,7 @@
     }
 
     return promise.then(function () {
-      $document$1.trigger("updatedone", [{
+      $document.trigger("updatedone", [{
         source: self,
         target: obj
       }]); // Document "updatedone" event fired after all the target elements are updated
@@ -4415,7 +4369,7 @@
           "name": name,
           "form": fo
         };
-        $document$1.trigger("addoption", [args]);
+        $document.trigger("addoption", [args]);
         if (args.valid) newOption(obj, result, fo);
       });
       if (obj.list) obj.render();
@@ -4517,12 +4471,15 @@
       "export": exportType,
       "enabled": true
     };
-    $document$1.trigger("rendertemplate", [args]);
+    $document.trigger("rendertemplate", [args]);
 
     if (args.enabled) {
       if (document.body.replaceWith) {
+        var _document$getElementB;
+
         // Not IE
-        var template = document.getElementById(tmplId).content;
+        var template = (_document$getElementB = document.getElementById(tmplId)) === null || _document$getElementB === void 0 ? void 0 : _document$getElementB.content;
+        if (!template) return;
         template.querySelectorAll(".ew-slot").forEach(function (el) {
           var subtmpl = document.getElementById(el.name || el.id);
 
@@ -4915,7 +4872,7 @@
    */
 
   function _alert(msg, cb, type) {
-    return Swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+    return Swal.fire(_objectSpread$2(_objectSpread$2({}, ew.sweetAlertSettings), {}, {
       html: '<p class="text-' + (type || 'danger') + '">' + msg + '</p>',
       confirmButtonText: ew.language.phrase("OKBtn")
     })).then(function (result) {
@@ -5691,10 +5648,10 @@
         option.innerHTML = args.text;
       }
 
-      args = _objectSpread(_objectSpread({}, args), {}, {
+      args = _objectSpread$2(_objectSpread$2({}, args), {}, {
         option: option
       });
-      $document$1.trigger("newoption", [args]); // Fire "newoption" event for selection list
+      $document.trigger("newoption", [args]); // Fire "newoption" event for selection list
 
       if (obj.list) {
         obj.add(args.option.value, args.option.text);
@@ -5723,7 +5680,7 @@
         if (isAutoSuggest(obj) && values.length == 1) {
           var opts = obj.options || [];
 
-          for (var _iterator2 = _createForOfIteratorHelperLoose(opts), _step2; !(_step2 = _iterator2()).done;) {
+          for (var _iterator2 = _createForOfIteratorHelperLoose$3(opts), _step2; !(_step2 = _iterator2()).done;) {
             var opt = _step2.value;
 
             if (opt.value == values[0]) {
@@ -5737,10 +5694,10 @@
               html = [],
               _opts = obj.options || [];
 
-          for (var _iterator3 = _createForOfIteratorHelperLoose(values), _step3; !(_step3 = _iterator3()).done;) {
+          for (var _iterator3 = _createForOfIteratorHelperLoose$3(values), _step3; !(_step3 = _iterator3()).done;) {
             var value = _step3.value;
 
-            for (var _iterator4 = _createForOfIteratorHelperLoose(_opts), _step4; !(_step4 = _iterator4()).done;) {
+            for (var _iterator4 = _createForOfIteratorHelperLoose$3(_opts), _step4; !(_step4 = _iterator4()).done;) {
               var _opt = _step4.value;
 
               if (value == _opt.value) {
@@ -5799,7 +5756,7 @@
     }
   } // Ajax send
 
-  $document$1.ajaxSend(function (event, jqxhr, settings) {
+  $document.ajaxSend(function (event, jqxhr, settings) {
     var url = settings.url;
     if (url.match(/\/(\w+preview|session)\?/i)) // Preview/Session page
       _removeSpinner(); // Preview has spinner already
@@ -5847,8 +5804,8 @@
     }
   }); // Ajax start
 
-  $document$1.ajaxStart(function () {
-    $document$1.data("_ajax", true);
+  $document.ajaxStart(function () {
+    $document.data("_ajax", true);
     ew.addSpinner();
     $__default['default']("form.ew-form").addClass("ew-wait").each(function () {
       var frm = forms.get(this.id);
@@ -5870,10 +5827,10 @@
       }
     });
     ew.removeSpinner();
-    $document$1.data("_ajax", false);
+    $document.data("_ajax", false);
   } // Ajax stop/error
 
-  $document$1.ajaxStop(_ajaxStop).ajaxError(_ajaxStop); // Execute JavaScript in HTML loaded by Ajax
+  $document.ajaxStop(_ajaxStop).ajaxError(_ajaxStop); // Execute JavaScript in HTML loaded by Ajax
 
   function executeScript(html, id) {
     var matches = html.replace(/<head>[\s\S]*<\/head>/, "").matchAll(/<script([^>]*)>([\s\S]*?)<\/script\s*>/ig);
@@ -5897,7 +5854,7 @@
   function stripScript(html) {
     var matches = html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script\s*>/ig);
 
-    for (var _iterator5 = _createForOfIteratorHelperLoose(matches), _step5; !(_step5 = _iterator5()).done;) {
+    for (var _iterator5 = _createForOfIteratorHelperLoose$3(matches), _step5; !(_step5 = _iterator5()).done;) {
       var _ar2 = _step5.value;
       var text = _ar2[0];
       if (/(\s+type\s*=\s*['"]*text\/javascript['"]*)|^((?!\s+type\s*=).)*$/i.test(_ar2[1])) html = html.replace(text, "");
@@ -6025,7 +5982,7 @@
               "name": getId(obj),
               "form": form
             };
-            $document$1.trigger("addoption", [args]);
+            $document.trigger("addoption", [args]);
 
             if (args.valid) {
               // Add the new option
@@ -6651,7 +6608,7 @@
                 txts = [],
                 results = data.records;
 
-            for (var _iterator6 = _createForOfIteratorHelperLoose(results), _step6; !(_step6 = _iterator6()).done;) {
+            for (var _iterator6 = _createForOfIteratorHelperLoose$3(results), _step6; !(_step6 = _iterator6()).done;) {
               var result = _step6.value;
               vals.push(result.lf);
               html.push(result.df);
@@ -7250,7 +7207,7 @@
       "hdr": hdr,
       "placement": pos
     };
-    $document$1.trigger("drilldown", [args]);
+    $document.trigger("drilldown", [args]);
     var ar = args.url.split("?");
     args.file = ar[0] || "";
     args.data = ar[1] || "";
@@ -7708,7 +7665,7 @@
     }
 
     if ($__default['default'].isString(arg)) {
-      return swal.fire(_objectSpread(_objectSpread({}, ew.sweetAlertSettings), {}, {
+      return swal.fire(_objectSpread$2(_objectSpread$2({}, ew.sweetAlertSettings), {}, {
         html: arg
       }));
     }
@@ -7745,7 +7702,7 @@
       $fn.val(ar.join(ew.MULTIPLE_UPLOAD_SEPARATOR));
       $fa.val("0");
       if (!multiple) // Remove other entries if not multiple upload
-        $ft.children("tr:not(:last-child)").remove();
+        $ft.find("tbody > tr:not(:last-child)").remove();
     };
 
     var _deleted = function _deleted(e, data) {
@@ -8511,7 +8468,7 @@
     Form: Form,
     Validators: Validators
   }, functions);
-  var $document = $__default['default'](document); // Init document
+  var $document$1 = $__default['default'](document); // Init document
 
   loadjs.ready("load", function () {
     $__default['default'].views.settings.debugMode(ew.DEBUG);
@@ -8524,10 +8481,10 @@
       scrollTop: $__default['default']("#" + hash).offset().top
     }, 800);
     ew.removeSpinner();
-    $document.trigger("load");
+    $document$1.trigger("load");
   }); // Default "addoption" event (fired before adding new option to selection list)
 
-  $document.on("addoption", function (e, args) {
+  $document$1.on("addoption", function (e, args) {
     var row = args.data; // New row to be validated
 
     var arp = args.parents; // Parent field values
@@ -8546,7 +8503,7 @@
     }
   }); // Fix z-index of multiple modals
 
-  $document.on("show.bs.modal", ".modal", function () {
+  $document$1.on("show.bs.modal", ".modal", function () {
     var zIndex = 1050 + $__default['default'](".modal:visible").length;
     $__default['default'](this).css("z-index", zIndex);
     setTimeout(function () {
@@ -8554,7 +8511,7 @@
     }, 0);
   }); // Fix scrolling of multiple modals
 
-  $document.on("hidden.bs.modal", ".modal", function () {
+  $document$1.on("hidden.bs.modal", ".modal", function () {
     $__default['default'](".modal:visible").length && $__default['default']("body").addClass("modal-open");
   });
 

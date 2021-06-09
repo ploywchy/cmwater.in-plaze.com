@@ -13,6 +13,21 @@ function setInnerHTML($parent, $html) {
     }
 }
 
+// อยากรวมเป็น function เดียว อาจจะต้องส่ง parameter มาว่าเป็น p หรือ div
+// รูปภาพที่อยู่ใน div หรือ p ก็ไม่ควรจะกดแก้ไขได้แล้ว
+function setInnerHTMLP($parent, $html) {
+	while ($parent->hasChildNodes()) {
+		$parent->removeChild($parent->firstChild);
+	}
+    $tmpDoc = new \DOMDocument();
+	$tmpDoc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+	$parentTag = $tmpDoc->getElementsByTagName('p')->length ? 'p' : 'body';
+    foreach ($tmpDoc->getElementsByTagName($parentTag)->item(0)->childNodes as $n) {
+        $n = $parent->ownerDocument->importNode($n, true);
+        $parent->appendChild($n);
+    }
+}
+
 // ไฟล์ที่จะถูกประมวลต้องเป็น .html เท่านั้น นอกนั้นแสดงผลตามปกติโดยไม่ถูกประมวลผล
 if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 	$content = ob_get_contents();
@@ -1080,8 +1095,6 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				$n->setAttribute("data-inplaze", "true");
 				if (Session(SESSION_STATUS) == 'login') {
 					$n->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
-				} else {
-					$n->setAttribute("href", "/in-plaze/BlogList");
 				}
 			}
 
@@ -1168,7 +1181,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 
 				// Paragraph
 				// $elements = $xpath->query($selector = "//p[text() and not(ancestor-or-self::*[@data-inplaze])]");
-				$elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@html or @data-inplaze])]");
+				$elements = $xpath->query($selector = "//p[text() and not(ancestor-or-self::*[@html or @data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
 						$text_tag_amount = $elements->item($key)->childNodes->length;
@@ -1187,7 +1200,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 								$elements->item($key)->setAttribute("style", "cursor: pointer;" . $elements->item($key)->getAttribute("style"));
 							}
 							if (!empty($value = ExecuteScalar("SELECT Value FROM contents WHERE Enable = 1 AND Name = '{$id}'"))) {
-								// $value = strip_tags($value, get_p_child_tags());
+								$elements->item($key)->setAttribute("data-inplaze", "true");
 								setInnerHTML($elements->item($key), $value);
 							}
 						} else {
