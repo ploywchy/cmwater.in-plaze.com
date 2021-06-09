@@ -1079,11 +1079,11 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 
 			// Link to Backend
 			foreach ($ns = $xpath->query("//a[text()='In-plaze' and @href]|//a[@href='/in-plaze/login']") as $n) {
-				$n->item(0)->setAttribute("data-inplaze", "true");
+				$n->setAttribute("data-inplaze", "true");
 				if (Session(SESSION_STATUS) == 'login') {
-					$n->item($key)->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
+					$n->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
 				} else {
-					$n->item($key)->setAttribute("href", "/in-plaze/BlogList");
+					$n->setAttribute("href", "/in-plaze/BlogList");
 				}
 			}
 
