@@ -1078,10 +1078,11 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				$parent->item(0)->setAttribute("data-inplaze", "true");
 
 			// Link to Backend
-			foreach ($ns = $xpath->query("//a[text()='In-plaze' and @href]|//a[@href='/in-plaze/login']") as $n) {
+			foreach ($ns = $xpath->query($selector = "//a[@href='/in-plaze/login']") as $n) {
 				$n->setAttribute("data-inplaze", "true");
 				if (Session(SESSION_STATUS) == 'login') {
 					$n->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
+					// $n->setAttribute("onclick", "");
 				} else {
 					$n->setAttribute("href", "/in-plaze/BlogList");
 				}
@@ -1099,18 +1100,18 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			if ('Edit Primitive Elements by Back-End') {
 				// Normal Text
 				$elements = $xpath->query($selector = "
-					//span[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//strong[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//small[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//abbr[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h1[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h2[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h3[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h4[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h5[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h6[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//a[normalize-space(text())!='' and @href!='/in-plaze' and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//div[normalize-space(text())!='' and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]
+					//span[text() and not(ancestor::*[@data-inplaze])]|
+					//strong[text() and not(ancestor::*[@data-inplaze])]|
+					//small[text() and not(ancestor::*[@data-inplaze])]|
+					//abbr[text() and not(ancestor::*[@data-inplaze])]|
+					//h1[text() and not(ancestor::*[@data-inplaze])]|
+					//h2[text() and not(ancestor::*[@data-inplaze])]|
+					//h3[text() and not(ancestor::*[@data-inplaze])]|
+					//h4[text() and not(ancestor::*[@data-inplaze])]|
+					//h5[text() and not(ancestor::*[@data-inplaze])]|
+					//h6[text() and not(ancestor::*[@data-inplaze])]|
+					//a[normalize-space(text())!='' and not(ancestor::*[@data-inplaze])]|
+					//div[normalize-space(text())!='' and not(ancestor::*[@data-inplaze])]
 				");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
@@ -1175,8 +1176,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// Paragraph
-				// $elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]");
-				$elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@html or @data-inplaze or (@id='blog' and @data-item='post-item')])]");
+				// $elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@data-inplaze])]");
+				$elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@html or @data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
 						$text_tag_amount = $elements->item($key)->childNodes->length;
@@ -1237,7 +1238,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// Image
-				$elements = $xpath->query($selector = "//img[not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]");
+				$elements = $xpath->query($selector = "//img[not(ancestor::*[@data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
 						$is_global = $elements->item($key)->getAttribute("data-inplaze-global");
