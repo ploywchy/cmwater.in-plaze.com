@@ -1078,14 +1078,12 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				$parent->item(0)->setAttribute("data-inplaze", "true");
 
 			// Link to Backend
-			$elements = $xpath->query($selector = "//a[text()='In-plaze' and @href]|//a[@href='/in-plaze/login']");
-			if (!empty($elements->length)) {
-				foreach ($elements as $key => $element) {
-					if (Session(SESSION_STATUS) == 'login') {
-						$elements->item($key)->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
-					} else {
-						$elements->item($key)->setAttribute("href", "/in-plaze/BlogList");
-					}
+			foreach ($ns = $xpath->query("//a[text()='In-plaze' and @href]|//a[@href='/in-plaze/login']") as $n) {
+				$n->item(0)->setAttribute("data-inplaze", "true");
+				if (Session(SESSION_STATUS) == 'login') {
+					$n->item($key)->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
+				} else {
+					$n->item($key)->setAttribute("href", "/in-plaze/BlogList");
 				}
 			}
 
