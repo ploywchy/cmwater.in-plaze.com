@@ -1073,9 +1073,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			}
 
 			// ทำให้ Powered by In-plaze ไม่ถูกประมวลผล ทำให้ไม่สามารถแก้ไขได้
-			$parent = $xpath->query($selector = '//div[@class="copyright-links"]');
-			if ($parent->length > 0)
-				$parent->item(0)->setAttribute("data-inplaze", "true");
+			foreach ($ns = $xpath->query($selector = "//div[@class='copyright-links']") as $n) { $n->setAttribute("data-inplaze", "true"); }
 
 			// Link to Backend
 			foreach ($ns = $xpath->query($selector = "//a[@href='/in-plaze/login']") as $n) {
@@ -1088,13 +1086,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			}
 
 			// Image in header and footer and topbar
-			$elements = $xpath->query($selector = "//*[ancestor::header]|//*[ancestor::footer]|//*[ancestor::div[@id='top-bar']]");
-			if (!empty($elements->length)) {
-				foreach ($elements as $key => $element) {
-					// fb($elements->item($key)->nodeName);
-					$elements->item($key)->setAttribute("data-inplaze-global", "true");
-				}
-			}
+			foreach ($ns = $xpath->query($selector = "//*[ancestor::header]|//*[ancestor::footer]|//*[ancestor::div[@id='top-bar']]") as $n) { $n->setAttribute("data-inplaze-global", "true"); }
 
 			if ('Edit Primitive Elements by Back-End') {
 				// Normal Text
