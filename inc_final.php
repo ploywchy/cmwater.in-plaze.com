@@ -1080,12 +1080,11 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			// Link to Backend
 			foreach ($ns = $xpath->query($selector = "//a[@href='/in-plaze/login']") as $n) {
 				$n->setAttribute("data-inplaze", "true");
-				/* if (Session(SESSION_STATUS) == 'login') {
+				if (Session(SESSION_STATUS) == 'login') {
 					$n->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
-					// $n->setAttribute("onclick", "");
 				} else {
 					$n->setAttribute("href", "/in-plaze/BlogList");
-				} */
+				}
 			}
 
 			// Image in header and footer and topbar
@@ -1100,18 +1099,18 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			if ('Edit Primitive Elements by Back-End') {
 				// Normal Text
 				$elements = $xpath->query($selector = "
-					//span[text() and not(ancestor::*[@data-inplaze])]|
-					//strong[text() and not(ancestor::*[@data-inplaze])]|
-					//small[text() and not(ancestor::*[@data-inplaze])]|
-					//abbr[text() and not(ancestor::*[@data-inplaze])]|
-					//h1[text() and not(ancestor::*[@data-inplaze])]|
-					//h2[text() and not(ancestor::*[@data-inplaze])]|
-					//h3[text() and not(ancestor::*[@data-inplaze])]|
-					//h4[text() and not(ancestor::*[@data-inplaze])]|
-					//h5[text() and not(ancestor::*[@data-inplaze])]|
-					//h6[text() and not(ancestor::*[@data-inplaze])]|
-					//a[normalize-space(text())!='' and not(ancestor::*[@data-inplaze])]|
-					//div[normalize-space(text())!='' and not(ancestor::*[@data-inplaze])]
+					//span[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//strong[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//small[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//abbr[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h1[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h2[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h3[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h4[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h5[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h6[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//a[normalize-space(text())!='' and not(ancestor-or-self::*[@data-inplaze])]|
+					//div[normalize-space(text())!='' and not(ancestor-or-self::*[@data-inplaze])]
 				");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
@@ -1176,7 +1175,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// Paragraph
-				// $elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@data-inplaze])]");
+				// $elements = $xpath->query($selector = "//p[text() and not(ancestor-or-self::*[@data-inplaze])]");
 				$elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@html or @data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
@@ -1238,7 +1237,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// Image
-				$elements = $xpath->query($selector = "//img[not(ancestor::*[@data-inplaze])]");
+				$elements = $xpath->query($selector = "//img[not(ancestor-or-self::*[@data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
 						$is_global = $elements->item($key)->getAttribute("data-inplaze-global");
@@ -1290,7 +1289,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// div ที่มีภาพ background
-				// $elements = $xpath->query($selector = "//div[contains(@style,'background') AND not(ancestor::*[@data-inplaze])]");
+				// $elements = $xpath->query($selector = "//div[contains(@style,'background') AND not(ancestor-or-self::*[@data-inplaze])]");
 				$elements = $xpath->query($selector = "//div[contains(@style,'background')][not(ancestor::div[@data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
