@@ -13,6 +13,21 @@ function setInnerHTML($parent, $html) {
     }
 }
 
+// อยากรวมเป็น function เดียว อาจจะต้องส่ง parameter มาว่าเป็น p หรือ div
+// รูปภาพที่อยู่ใน div หรือ p ก็ไม่ควรจะกดแก้ไขได้แล้ว
+function setInnerHTMLP($parent, $html) {
+	while ($parent->hasChildNodes()) {
+		$parent->removeChild($parent->firstChild);
+	}
+    $tmpDoc = new \DOMDocument();
+	$tmpDoc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));
+	$parentTag = $tmpDoc->getElementsByTagName('p')->length ? 'p' : 'body';
+    foreach ($tmpDoc->getElementsByTagName($parentTag)->item(0)->childNodes as $n) {
+        $n = $parent->ownerDocument->importNode($n, true);
+        $parent->appendChild($n);
+    }
+}
+
 // ไฟล์ที่จะถูกประมวลต้องเป็น .html เท่านั้น นอกนั้นแสดงผลตามปกติโดยไม่ถูกประมวลผล
 if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 	$content = ob_get_contents();
@@ -1073,45 +1088,34 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 			}
 
 			// ทำให้ Powered by In-plaze ไม่ถูกประมวลผล ทำให้ไม่สามารถแก้ไขได้
-			$parent = $xpath->query($selector = '//div[@class="copyright-links"]');
-			if ($parent->length > 0)
-				$parent->item(0)->setAttribute("data-inplaze", "true");
+			foreach ($ns = $xpath->query($selector = "//div[@class='copyright-links']") as $n) { $n->setAttribute("data-inplaze", "true"); }
 
 			// Link to Backend
-			$elements = $xpath->query($selector = "//a[text()='In-plaze' and @href]");
-			if (!empty($elements->length)) {
-				foreach ($elements as $key => $element) {
-					if (Session(SESSION_STATUS) == 'login')
-						$elements->item($key)->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
-					else
-						$elements->item($key)->setAttribute("href", "/in-plaze");
+			foreach ($ns = $xpath->query($selector = "//a[@href='/in-plaze/login']") as $n) {
+				$n->setAttribute("data-inplaze", "true");
+				if (Session(SESSION_STATUS) == 'login') {
+					$n->setAttribute("href", "javascript:alert('ท่านอยู่ในโหมดแก้ไขแล้ว กรุณาคลิ๊กส่วนที่จะแก้ไข')");
 				}
 			}
 
 			// Image in header and footer and topbar
-			$elements = $xpath->query($selector = "//*[ancestor::header]|//*[ancestor::footer]|//*[ancestor::div[@id='top-bar']]");
-			if (!empty($elements->length)) {
-				foreach ($elements as $key => $element) {
-					// fb($elements->item($key)->nodeName);
-					$elements->item($key)->setAttribute("data-inplaze-global", "true");
-				}
-			}
+			foreach ($ns = $xpath->query($selector = "//*[ancestor::header]|//*[ancestor::footer]|//*[ancestor::div[@id='top-bar']]") as $n) { $n->setAttribute("data-inplaze-global", "true"); }
 
 			if ('Edit Primitive Elements by Back-End') {
 				// Normal Text
 				$elements = $xpath->query($selector = "
-					//span[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//strong[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//small[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//abbr[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h1[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h2[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h3[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h4[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h5[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//h6[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//a[normalize-space(text())!='' and @href!='/in-plaze' and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]|
-					//div[normalize-space(text())!='' and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]
+					//span[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//strong[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//small[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//abbr[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h1[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h2[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h3[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h4[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h5[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//h6[text() and not(ancestor-or-self::*[@data-inplaze])]|
+					//a[normalize-space(text())!='' and not(ancestor-or-self::*[@data-inplaze])]|
+					//div[normalize-space(text())!='' and not(ancestor-or-self::*[@data-inplaze])]
 				");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
@@ -1176,8 +1180,8 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// Paragraph
-				// $elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]");
-				$elements = $xpath->query($selector = "//p[text() and not(ancestor::*[@html or @data-inplaze or (@id='blog' and @data-item='post-item')])]");
+				// $elements = $xpath->query($selector = "//p[text() and not(ancestor-or-self::*[@data-inplaze])]");
+				$elements = $xpath->query($selector = "//p[text() and not(ancestor-or-self::*[@html or @data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
 						$text_tag_amount = $elements->item($key)->childNodes->length;
@@ -1196,7 +1200,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 								$elements->item($key)->setAttribute("style", "cursor: pointer;" . $elements->item($key)->getAttribute("style"));
 							}
 							if (!empty($value = ExecuteScalar("SELECT Value FROM contents WHERE Enable = 1 AND Name = '{$id}'"))) {
-								// $value = strip_tags($value, get_p_child_tags());
+								$elements->item($key)->setAttribute("data-inplaze", "true");
 								setInnerHTML($elements->item($key), $value);
 							}
 						} else {
@@ -1238,7 +1242,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// Image
-				$elements = $xpath->query($selector = "//img[not(ancestor::*[@data-inplaze or (@id='blog' and @data-item='post-item')])]");
+				$elements = $xpath->query($selector = "//img[not(ancestor-or-self::*[@data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
 						$is_global = $elements->item($key)->getAttribute("data-inplaze-global");
@@ -1290,7 +1294,7 @@ if (pathinfo($_SERVER['SCRIPT_NAME'], PATHINFO_EXTENSION) == 'html') {
 				}
 
 				// div ที่มีภาพ background
-				// $elements = $xpath->query($selector = "//div[contains(@style,'background') AND not(ancestor::*[@data-inplaze])]");
+				// $elements = $xpath->query($selector = "//div[contains(@style,'background') AND not(ancestor-or-self::*[@data-inplaze])]");
 				$elements = $xpath->query($selector = "//div[contains(@style,'background')][not(ancestor::div[@data-inplaze])]");
 				if (!empty($elements->length)) {
 					foreach ($elements as $key => $element) {
